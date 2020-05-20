@@ -22,3 +22,10 @@
 
    
 
+### Week3(5.16 - 5.20)
+
++ Player: four types of bullets, three skills, special effects of some state changes
++ Enemy: multi-unit a* pathfinding (based on grid)
++ UI: hp and xp bar, weapons，player‘s item
++ Sprite material: make and control 2d movement animation
++ Map：room generation
