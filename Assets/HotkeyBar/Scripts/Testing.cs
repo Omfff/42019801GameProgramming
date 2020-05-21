@@ -27,6 +27,9 @@ public class Testing : MonoBehaviour {
     public Sprite punchSprite;
     public Sprite healthPotionSprite;
     public Sprite manaPotionSprite;
+    public Sprite timePotionSprite;
+    public Sprite stealthPotionSprite;
+    public Sprite shieldSkillSprite;
 
     private HotkeyAbilitySystem hotkeyAbilitySystem;
 

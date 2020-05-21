@@ -5,6 +5,12 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
+
+    [SerializeField] private DissolveEffect dissolveEffect;
+    [SerializeField] private OutlineEffect outlineEffect;
+    [SerializeField] private MaterialTintColor tintEffect;
+
+    public UI_HotkeyBar uI_HotkeyBar;
     // Start is called before the first frame update
     private static int health = 10;
     private static int maxHealth = 10;
@@ -20,7 +26,7 @@ public class GameController : MonoBehaviour
     private static float changeItemCooldown = 2.0f;
 
     private static float bulletSize = 1.0f;
-    private float lastShield;
+    public float lastShield;
     public bool isPlayerVisible = true;
     public bool isTimeStop = false;
     public static int currentItems = 0;
@@ -59,6 +65,8 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            GameController.instance.outlineEffect.StopOutline();
+            GameController.instance.tintEffect.SetTintColor(new Color(1, 0, 0, 0.7f));
             shield = 0;
             health -= damage - shield;
             health = health < 0 ? 0 : health;
@@ -76,10 +84,15 @@ public class GameController : MonoBehaviour
     }
     public static void HealPlayer(int healAmount)
     {
-        health = Mathf.Min(maxHealth, health + healAmount);
+        if (healAmount != 0)
+        {
+            GameController.instance.tintEffect.SetTintColor(new Color(0, 1, 0, 0.7f));
+            health = Mathf.Min(maxHealth, health + healAmount);
+        }
     }
     public static void AddXp(int xpAmount)
     {
+        GameController.instance.tintEffect.SetTintColor(new Color(0, 0, 1, 0.7f));
         xp = Mathf.Min(maxXp, xp + xpAmount);
     }
     public static void Buff(float moveSpeedChange, float attackSpeedChange, float bulletSizeChange, int bulletCountChange)
@@ -88,7 +101,7 @@ public class GameController : MonoBehaviour
         FireRateChange(attackSpeedChange);
         BulletSizeChange(bulletSizeChange);
         BulletCountChange(bulletCountChange);
-
+        GameController.instance.outlineEffect.StartOutline();
         GameController.instance.StartCoroutine(
             GameController.instance.Reset(moveSpeedChange, attackSpeedChange, bulletSizeChange, bulletCountChange));
     }
@@ -100,34 +113,52 @@ public class GameController : MonoBehaviour
         FireRateChange(-attackSpeedChange);
         BulletSizeChange(-bulletSizeChange);
         BulletCountChange(-bulletCountChange);
+        GameController.instance.outlineEffect.StopOutline();
     }
 
     public static void MoveSpeedChange(float speed)
     {
+        if (speed > 0)
+        {
+            GameController.instance.outlineEffect.SetOutlineColor(Color.blue);
+        }
         moveSpeed += speed;
     }
 
     public static void FireRateChange(float rate)
     {
         fireRate -= rate;
+        if (rate > 0)
+            GameController.instance.outlineEffect.SetOutlineColor(Color.red);
+
     }
 
     public static void BulletSizeChange(float size)
     {
         bulletSize += size;
+        if (size > 0)
+            GameController.instance.outlineEffect.SetOutlineColor(Color.red);
+
     }
 
     public static void BulletCountChange(float size)
     {
         bulletSize += size;
+        if (size > 0)
+            GameController.instance.outlineEffect.SetOutlineColor(Color.yellow);
+
     }
 
     public static void AddShield()
     {
         if (Time.time > GameController.instance.lastShield + SheildCoolDown)
         {
+            GameController.instance.uI_HotkeyBar.ShieldCooldown();
             shield += 4;
-
+            GameController.instance.lastShield = Time.time;
+            GameController.instance.outlineEffect.SetOutlineColor(Color.white);
+            GameController.instance.outlineEffect.StartOutline();
+            Debug.Log("Current Shield = " + shield);
             GameController.instance.StartCoroutine(GameController.instance.ShieldLast());
         }
 
@@ -140,7 +171,7 @@ public class GameController : MonoBehaviour
         if (shield != 0)
         {
             shield = 0;
-
+            GameController.instance.outlineEffect.StopOutline();
         }
     }
 
@@ -148,6 +179,7 @@ public class GameController : MonoBehaviour
     {
         GameController.instance.storageItems.Add(item);
         currentItems = (currentItems + 1) % GameController.instance.storageItems.Count;
+        GameController.instance.uI_HotkeyBar.ItemChanged();
     }
     
     public static void ChangeItems()
@@ -155,6 +187,7 @@ public class GameController : MonoBehaviour
         if (GameController.instance.storageItems.Count > 0)
         {
             currentItems = (currentItems + 1) % GameController.instance.storageItems.Count;
+            GameController.instance.uI_HotkeyBar.ItemChanged();
         }
     }
 
@@ -173,9 +206,9 @@ public class GameController : MonoBehaviour
                     break;
                 case "stealth":
                     GameController.instance.isPlayerVisible = false;
+                    GameController.instance.dissolveEffect.StartDissolve(0.7f);
                     GameController.instance.StartCoroutine(GameController.instance.VisibleOut());
                     GameController.instance.storageItems.RemoveAt(currentItems);
-
                     //特效
                     break;
             }
@@ -187,6 +220,7 @@ public class GameController : MonoBehaviour
             {
                 currentItems = 0;
             }
+            GameController.instance.uI_HotkeyBar.ItemChanged();
         }
     }
 
@@ -199,6 +233,7 @@ public class GameController : MonoBehaviour
     IEnumerator VisibleOut()
     {
         yield return new WaitForSeconds(buffLastTime);
+        GameController.instance.dissolveEffect.StopDissolve(0.7f);
         GameController.instance.isPlayerVisible = true;
     }
 

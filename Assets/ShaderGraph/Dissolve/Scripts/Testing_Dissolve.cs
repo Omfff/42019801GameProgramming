@@ -25,10 +25,10 @@ public class Testing_Dissolve : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.T)) {
-            dissolveEffect.StartDissolve(.7f, startDissolveColor);
+            dissolveEffect.StartDissolve(.7f);
         }
         if (Input.GetKeyDown(KeyCode.Y)) {
-            dissolveEffect.StopDissolve(.7f, stopDissolveColor);
+            dissolveEffect.StopDissolve(.7f);
         }
     }
 

@@ -26,6 +26,8 @@ public class HotkeyAbilitySystem {
         Punch,
         HealthPotion,
         ManaPotion,
+        SpecialPotion,
+        ShieldSkill,
     }
 
     private PlayerSwapWeapons player;
@@ -66,12 +68,25 @@ public class HotkeyAbilitySystem {
             activateAbilityAction = () => player.SetWeaponType(PlayerSwapWeapons.WeaponType.Punch) 
         });
 
-        
+
         // Mana Potion
         extraHotkeyAbilityList.Add(new HotkeyAbility { 
             abilityType = AbilityType.ManaPotion, 
             activateAbilityAction = () => player.ConsumeManaPotion()
         });
+        // Storage Items
+        extraHotkeyAbilityList.Add(new HotkeyAbility
+        {
+            abilityType = AbilityType.SpecialPotion,
+            activateAbilityAction = () => GameController.UseItems()
+        });
+        // Shield Skill
+        extraHotkeyAbilityList.Add(new HotkeyAbility
+        {
+            abilityType = AbilityType.ShieldSkill,
+            activateAbilityAction = () => GameController.AddShield()
+        });
+
     }
 
     public void Update() {
@@ -147,15 +162,36 @@ public class HotkeyAbilitySystem {
         public AbilityType abilityType;
         public Action activateAbilityAction;
 
-        public Sprite GetSprite() {
+        public Sprite GetSprite(String name="") {
             switch (abilityType) {
-            default:
-            case AbilityType.Pistol:        return Testing.Instance.pistolSprite;
-            case AbilityType.Shotgun:       return Testing.Instance.shotgunSprite;
-            case AbilityType.Sword:         return Testing.Instance.swordSprite;
-            case AbilityType.Punch:         return Testing.Instance.punchSprite;
-            case AbilityType.HealthPotion:  return Testing.Instance.healthPotionSprite;
-            case AbilityType.ManaPotion:    return Testing.Instance.manaPotionSprite;
+                default:
+                case AbilityType.Pistol:        
+                    return Testing.Instance.pistolSprite;
+                case AbilityType.Shotgun:       
+                    return Testing.Instance.shotgunSprite;
+                case AbilityType.Sword:         
+                    return Testing.Instance.swordSprite;
+                case AbilityType.Punch:         
+                    return Testing.Instance.punchSprite;
+                case AbilityType.HealthPotion:  
+                    return Testing.Instance.healthPotionSprite;
+                case AbilityType.ManaPotion:    
+                    return Testing.Instance.manaPotionSprite;
+                case AbilityType.SpecialPotion:
+                    if (name == "time")
+                    {
+                        return Testing.Instance.timePotionSprite;
+                    }
+                    else if(name == "stealth")
+                    {
+                        return Testing.Instance.stealthPotionSprite;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                case AbilityType.ShieldSkill:
+                    return Testing.Instance.shieldSkillSprite;
             }
         }
 

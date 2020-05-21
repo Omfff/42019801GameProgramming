@@ -12,6 +12,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,8 @@ public class UI_HotkeyBar : MonoBehaviour {
 
     private Transform abilitySlotTemplate;
     private HotkeyAbilitySystem hotkeyAbilitySystem;
+    public Transform specialPotion;
+    public Transform shieldSkill;
 
     private void Awake() {
         abilitySlotTemplate = transform.Find("abilitySlotTemplate");
@@ -43,6 +46,10 @@ public class UI_HotkeyBar : MonoBehaviour {
         {
             hotkeyAbilitySystem.removeAbility();
             UpdateVisual();
+        }
+        if (Time.time < GameController.instance.lastShield + GameController.SheildCoolDown)
+        {
+            shieldSkill.GetComponent<Image>().fillAmount += 1 / (GameController.SheildCoolDown) * Time.deltaTime;
         }
 
     }
@@ -74,6 +81,20 @@ public class UI_HotkeyBar : MonoBehaviour {
             abilitySlotTransform.gameObject.SetActive(true);
             RectTransform abilitySlotRectTransform = abilitySlotTransform.GetComponent<RectTransform>();
             abilitySlotRectTransform.anchoredPosition = new Vector2(600f + 100f * i, 0f);
+            if (hotkeyAbility.abilityType == HotkeyAbilitySystem.AbilityType.SpecialPotion)
+            {
+                specialPotion = abilitySlotTransform.Find("itemImage");
+                specialPotion.GetComponent<Image>().sprite = hotkeyAbility.GetSprite();
+                specialPotion.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            }else if(hotkeyAbility.abilityType == HotkeyAbilitySystem.AbilityType.ShieldSkill)
+            {
+                shieldSkill = abilitySlotTransform.Find("itemImage");
+                shieldSkill.GetComponent<Image>().sprite = hotkeyAbility.GetSprite();
+                shieldSkill.GetComponent<Image>().type = Image.Type.Filled;
+                shieldSkill.GetComponent<Image>().fillMethod = Image.FillMethod.Radial360;
+                shieldSkill.GetComponent<Image>().fillOrigin = (int) Image.Origin360.Top;
+                shieldSkill.GetComponent<Image>().fillAmount = 0.0f;
+            }
             abilitySlotTransform.Find("itemImage").GetComponent<Image>().sprite = hotkeyAbility.GetSprite();
             //abilitySlotTransform.Find("numberText").GetComponent<TMPro.TextMeshProUGUI>().SetText("");
 
@@ -81,4 +102,32 @@ public class UI_HotkeyBar : MonoBehaviour {
         }
     }
 
+    public void ItemChanged()
+    {
+        if (GameController.instance.storageItems.Count > 0)
+        {
+            Item item = GameController.instance.storageItems[GameController.CurrentItems];
+            switch (item.name)
+            {
+                case "time":
+                    specialPotion.GetComponent<Image>().sprite = Testing.Instance.timePotionSprite;
+                    specialPotion.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                    break;
+                case "stealth":
+                    specialPotion.GetComponent<Image>().sprite = Testing.Instance.stealthPotionSprite;
+                    specialPotion.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                    break;
+            }
+        }
+        else
+        {
+            specialPotion.GetComponent<Image>().sprite = null;
+            specialPotion.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+        }
+    }
+
+    public void ShieldCooldown()
+    {
+        shieldSkill.GetComponent<Image>().fillAmount = 0.0f;
+    }
 }

@@ -22,32 +22,31 @@ public class DissolveEffect : MonoBehaviour {
     private float dissolveSpeed;
     private bool isDissolving;
 
-    private void Start() {
-        if (material == null) {
-            material = transform.Find("Body").GetComponent<MeshRenderer>().material;
-        }
-    }
 
     private void Update() {
+        
         if (isDissolving) {
+            Debug.Log("Dissolving");
             dissolveAmount = Mathf.Clamp01(dissolveAmount + dissolveSpeed * Time.deltaTime);
-            material.SetFloat("_DissolveAmount", dissolveAmount);
+            material.SetFloat("_DissolveAmount", dissolveAmount > 0.7f ? 0.7f : dissolveAmount);
         } else {
             dissolveAmount = Mathf.Clamp01(dissolveAmount - dissolveSpeed * Time.deltaTime);
             material.SetFloat("_DissolveAmount", dissolveAmount);
         }
+        
     }
 
-    public void StartDissolve(float dissolveSpeed, Color dissolveColor) {
+    public void StartDissolve(float dissolveSpeed) {
         isDissolving = true;
-        material.SetColor("_DissolveColor", dissolveColor);
         this.dissolveSpeed = dissolveSpeed;
+        //material.SetFloat("_DissolveAmount", 0.7f);
     }
 
-    public void StopDissolve(float dissolveSpeed, Color dissolveColor) {
+    public void StopDissolve(float dissolveSpeed) {
         isDissolving = false;
-        material.SetColor("_DissolveColor", dissolveColor);
         this.dissolveSpeed = dissolveSpeed;
+        //material.SetFloat("_DissolveAmount", 0.0f);
+
     }
 
 }

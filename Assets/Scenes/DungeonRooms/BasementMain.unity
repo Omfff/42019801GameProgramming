@@ -570,6 +570,10 @@ MonoBehaviour:
   punchSprite: {fileID: 21300000, guid: 1684bf2e8e29a794f9d6d7d491ed6b36, type: 3}
   healthPotionSprite: {fileID: 21300000, guid: dea7ca64b995ead4fbed66e60f773a7c, type: 3}
   manaPotionSprite: {fileID: 21300000, guid: de287b5e852c2fd449d0818a584c4644, type: 3}
+  timePotionSprite: {fileID: 21300000, guid: 6ea6839387b652e46821a7ad6a851441, type: 3}
+  stealthPotionSprite: {fileID: 21300000, guid: 8aa90d2e90674fa49bb96cea6c99cac9,
+    type: 3}
+  shieldSkillSprite: {fileID: 21300000, guid: f4ab923cb449a1e458f48aa9c002c0c5, type: 3}
 --- !u!4 &254266574
 Transform:
   m_ObjectHideFlags: 0
@@ -598,6 +602,9 @@ GameObject:
   - component: {fileID: 412455114}
   - component: {fileID: 412455113}
   - component: {fileID: 412455112}
+  - component: {fileID: 412455118}
+  - component: {fileID: 412455120}
+  - component: {fileID: 412455121}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -707,7 +714,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f191696a5dd15894fa3691b2df5a4933, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -753,6 +760,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &412455118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412455111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4731f2b07922ec54b8b45305d86188e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: f191696a5dd15894fa3691b2df5a4933, type: 2}
+--- !u!114 &412455120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412455111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc21613ec15fbb4c83221b1a7e4e635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: f191696a5dd15894fa3691b2df5a4933, type: 2}
+--- !u!114 &412455121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412455111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6893fa1527270f948afbfeaee5536ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: f191696a5dd15894fa3691b2df5a4933, type: 2}
 --- !u!1001 &454942055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1110,7 +1156,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: b85f041aa15b0054e87463009747f9a9, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1387,6 +1433,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0e480f25a98704197a482eb2cc1e5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dissolveEffect: {fileID: 412455118}
+  outlineEffect: {fileID: 412455120}
+  tintEffect: {fileID: 412455121}
+  uI_HotkeyBar: {fileID: 2060920479}
+  lastShield: 0
   isPlayerVisible: 1
   isTimeStop: 0
   storageItems: []
@@ -2626,6 +2677,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7931a0997cc2e0849943c52fbca12430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  specialPotion: {fileID: 0}
+  shieldSkill: {fileID: 0}
 --- !u!224 &2060920480
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2854,11 +2907,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4521296294042776549, guid: e75d4617d8a360747a4d0cb15f5abc0c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d0e9f8206ec1abf44aa00977cf86141d,
+        type: 3}
     - target: {fileID: 4521296294042776554, guid: e75d4617d8a360747a4d0cb15f5abc0c,
         type: 3}
       propertyPath: m_Name
       value: BulletCount
       objectReference: {fileID: 0}
+    - target: {fileID: 4521296294042776555, guid: e75d4617d8a360747a4d0cb15f5abc0c,
+        type: 3}
+      propertyPath: item.itemImage
+      value: 
+      objectReference: {fileID: 21300000, guid: d0e9f8206ec1abf44aa00977cf86141d,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e75d4617d8a360747a4d0cb15f5abc0c, type: 3}
 --- !u!1001 &4680913823308360917
@@ -2989,6 +3054,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 4697947010985077873, guid: a7a7fe7ef03189e4895960734f335406,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4697947010985077874, guid: a7a7fe7ef03189e4895960734f335406,
         type: 3}

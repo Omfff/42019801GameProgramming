@@ -16,13 +16,12 @@ using UnityEngine;
 
 public class MaterialTintColor : MonoBehaviour {
     
-    private Material material;
+    [SerializeField] private Material material;
     private Color materialTintColor;
     private float tintFadeSpeed;
 
     private void Awake() {
         materialTintColor = new Color(1, 0, 0, 0);
-        SetMaterial(transform.Find("Body").GetComponent<MeshRenderer>().material);
         tintFadeSpeed = 6f;
     }
 
