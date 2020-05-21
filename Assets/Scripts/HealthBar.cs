@@ -1,0 +1,36 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class HealthBar : MonoBehaviour
+{
+    public Slider slider;
+    public Gradient gradient;
+    public Image fill;
+    public void SetMaxHealth(int health)
+    {
+        slider.maxValue = health;
+        slider.value = health;
+
+        fill.color = gradient.Evaluate(1f);
+    }
+    public void SetHealth(int health)
+    {
+        slider.value = health;
+        fill.color = gradient.Evaluate(slider.normalizedValue);
+    }
+    public void Start()
+    {
+        SetMaxHealth(GameController.MaxHealth);
+    }
+    public void Update()
+    {
+        SetHealth(GameController.Health);
+        //for test
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            GameController.DamagePlayer(1);
+        }
+    }
+}
