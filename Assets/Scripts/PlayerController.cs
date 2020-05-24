@@ -6,6 +6,7 @@ using static PlayerSwapWeapons;
 
 public class PlayerController : MonoBehaviour
 {
+    Animator animator;
     public float speed;
     Rigidbody2D rigidbody;
     public Text showedText;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -35,6 +37,8 @@ public class PlayerController : MonoBehaviour
         speed = GameController.MoveSpeed;
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+        animator.SetFloat("xSpeed", horizontal);
+        animator.SetFloat("ySpeed", vertical);
         float shootHor = Input.GetAxis("ShootHorizontal");
         float shootVert = Input.GetAxis("ShootVertical");
         if((shootHor != 0 || shootVert != 0) && Time.time > lastFire + fireDelay)

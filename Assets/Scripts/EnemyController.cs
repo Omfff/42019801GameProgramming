@@ -19,7 +19,7 @@ public enum EnemyType
 
 public class EnemyController : MonoBehaviour
 {
-
+    Animator animator;
     GameObject player;
     public EnemyState currState = EnemyState.Idle;
     public EnemyType enemyType;
@@ -38,6 +38,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -115,6 +116,7 @@ public class EnemyController : MonoBehaviour
     void Follow()
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+
     }
 
     void Attack()
