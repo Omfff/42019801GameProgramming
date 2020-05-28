@@ -149,7 +149,8 @@ public class EnemyController : MonoBehaviour
 
     public void Death()
     {
-        RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());
+        //room controller脚本里删掉了
+        //RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());
         Destroy(gameObject);
     }
 }

@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     private float lastUseItem;
     private float lastChangeItem;
 
+    //人物朝向
+    private float direction_horizontal;
+    private float direction_vertical;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,13 +40,31 @@ public class PlayerController : MonoBehaviour
         speed = GameController.MoveSpeed;
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+        //记录朝向，否则静止时以上值为0，无法射击
+        if(horizontal != 0 || vertical !=0)
+        {
+            direction_horizontal = horizontal;
+            direction_vertical = vertical;
+        }
         animator.SetFloat("xSpeed", horizontal);
         animator.SetFloat("ySpeed", vertical);
-        float shootHor = Input.GetAxis("ShootHorizontal");
-        float shootVert = Input.GetAxis("ShootVertical");
-        if((shootHor != 0 || shootVert != 0) && Time.time > lastFire + fireDelay)
+        //old attack
+        //float shootHor = Input.GetAxis("ShootHorizontal");
+        //float shootVert = Input.GetAxis("ShootVertical");
+        //if((shootHor != 0 || shootVert != 0) && Time.time > lastFire + fireDelay)
+        //{
+        //    Shoot(shootHor, shootVert);
+        //    lastFire = Time.time;
+        //}
+        if(Input.GetKey(KeyCode.J) && Time.time > lastFire + fireDelay)
         {
-            Shoot(shootHor, shootVert);
+            if (horizontal != 0 || vertical != 0)
+            {
+                Shoot(horizontal, vertical);
+            } else
+            {
+                Shoot(direction_horizontal, direction_vertical);
+            }
             lastFire = Time.time;
         }
         rigidbody.velocity = new Vector3(horizontal * speed, vertical * speed, 0);
@@ -72,6 +93,11 @@ public class PlayerController : MonoBehaviour
         GameObject bullet;
         for (int i = 0; i < GameController.BulletCount; ++i)
         {
+            //Todo: 不能特殊武器时要提示框吗？
+            if(GameController.Xp < 1)
+            {
+                weaponType = WeaponType.Pistol;
+            }
             switch (weaponType)
             {
 
@@ -88,7 +114,7 @@ public class PlayerController : MonoBehaviour
                     break;
                 case WeaponType.Sword:
                     bullet = Instantiate(thunderballPrefab, transform.position, transform.rotation) as GameObject;
-                    GameController.RemoveXp(2);
+                    GameController.RemoveXp(1);
                     break;
                 default:
                     bullet = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;

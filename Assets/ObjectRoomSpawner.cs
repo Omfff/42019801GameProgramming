@@ -11,7 +11,7 @@ public class ObjectRoomSpawner : MonoBehaviour
         public SpawnerData spawnerData;
     }
 
-    public GridController grid;
+    // public GridController grid;
     public RandomSpawner[] spawnerData;
 
     void Start()
@@ -33,9 +33,9 @@ public class ObjectRoomSpawner : MonoBehaviour
 
         for(int i = 0; i < randomIteration; i++)
         {
-            int randomPos = Random.Range(0, grid.availablePoints.Count - 1);
-            GameObject go = Instantiate(data.spawnerData.itemToSpawn, grid.availablePoints[randomPos], Quaternion.identity, transform) as GameObject;
-            grid.availablePoints.RemoveAt(randomPos);
+            // int randomPos = Random.Range(0, grid.availablePoints.Count - 1);
+            // GameObject go = Instantiate(data.spawnerData.itemToSpawn, grid.availablePoints[randomPos], Quaternion.identity, transform) as GameObject;
+            // grid.availablePoints.RemoveAt(randomPos);
             Debug.Log("Spawned Object!");
         }
     }
