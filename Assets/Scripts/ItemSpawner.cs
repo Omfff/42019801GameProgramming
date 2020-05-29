@@ -45,4 +45,14 @@ public class ItemSpawner : MonoBehaviour
     {
         
     }
+
+    public void dropItemAftherEnemyDeath(Vector3 position)
+    {
+        int itemIndex = Random.Range(0, items.Count);
+        if (itemIndex < items.Count)
+        {
+            GameObject i = Instantiate(items[itemIndex].gameObject, position, Quaternion.identity) as GameObject;
+        }
+
+    }
 }

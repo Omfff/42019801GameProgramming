@@ -97,6 +97,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 0.5
   isEnemyBullet: 0
+  bulletSpeed: 0
+  damage: 2
+  explosionEffect: {fileID: 0}
+  bulletType: 0
 --- !u!61 &4556225848804796908
 BoxCollider2D:
   m_ObjectHideFlags: 0

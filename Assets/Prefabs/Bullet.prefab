@@ -47,6 +47,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -58,6 +59,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -70,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 4ceed0e030dd3ae47aab932e8fe84ac9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c9e4324aee779d41be2c76ceb1f72f9, type: 3}
   m_Color: {r: 0.7924528, g: 0.14578143, b: 0.14578143, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,3 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 2
+  isEnemyBullet: 0
+  bulletSpeed: 5
+  damage: 2.5
+  explosionEffect: {fileID: 0}
+  bulletType: 0
