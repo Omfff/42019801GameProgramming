@@ -81,20 +81,22 @@ public class DashEnemy:Enemy
         if (dashCoroutine != null && isDashing)
         {
             StopCoroutine(dashCoroutine);
-            endDash();
+            endDash(); 
         }
+        //gameObject.GetComponent<ShieldController>().Open(1.5f);
         base.changeStateToFollow();
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isDashing && !isHurtPlayerInDashing)
+        if (isDashing && !isHurtPlayerInDashing && collision.gameObject.tag == "Player")
         {
-            //Debug.Log("dash collision");
+            Debug.Log("dash collision");
             GameController.DamagePlayer(1);
             isHurtPlayerInDashing = true;
             StopCoroutine(dashCoroutine);
             endDash();
+            //gameObject.GetComponent<ShieldController>().Close();
         }
         base.OnCollisionEnter2D(collision);
     }
