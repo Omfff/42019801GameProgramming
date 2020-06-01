@@ -5,7 +5,11 @@ public enum BulletType
 {
     Normal,
 
-    Bomb
+    Bomb,
+
+    Slalom,
+
+    Tracking,
 };
 
 public class BulletController : MonoBehaviour
@@ -31,6 +35,8 @@ public class BulletController : MonoBehaviour
     public GameObject explosionEffect;
 
     public BulletType bulletType;
+
+    public GameObject Player;
     // Start is called before the first frame update
     void Start() 
     {
@@ -43,6 +49,9 @@ public class BulletController : MonoBehaviour
                 break;
             case BulletType.Bomb:
                 bulletSpeed = 2f;
+                break;
+            case BulletType.Slalom:
+                bulletSpeed = 7f;
                 break;
         }
         if (!isEnemyBullet)
@@ -84,9 +93,30 @@ public class BulletController : MonoBehaviour
                     }
                     lastPos = curPos;
                     break;
+                case BulletType.Slalom:
+                    break;
+
+                case BulletType.Tracking:
+                    // need to get player position
+                    curPos = transform.position;
+                    // how to set this speed to the bullet in Enemy Controller
+                    transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, bulletSpeed * Time.deltaTime);//5f
+                    //if (curPos == lastPos && !isBombing)
+                    //{
+                    //    StartCoroutine(BombCountdownToStart());
+                    //}
+                    //lastPos = curPos;
+                    break;
             }
         }
     }
+
+    // only used in tracking
+    public void SetPlayer(GameObject player)
+    {
+        Player = player;
+    }
+
 
     public void GetPlayer(Transform player)
     {
