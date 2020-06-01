@@ -154,9 +154,9 @@ public class BulletController : MonoBehaviour
                     break;
             }
         }
-        //else
-        //{
-        //    Destroy(gameObject);
-        //}
+        else if(col.tag == "Shield" && !isEnemyBullet)
+        {
+            Destroy(gameObject);
+        }
     }
 }
