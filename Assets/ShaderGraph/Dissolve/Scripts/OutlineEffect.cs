@@ -30,7 +30,7 @@ public class OutlineEffect : MonoBehaviour
 
     public void StartOutline()
     {
-        thinkness = 4.0f;
+        thinkness = 1.0f;
         material.SetFloat("_OutlineThickness", thinkness);
         material.SetColor("_OutlineColor", outlineColor);
     }
