@@ -109,9 +109,9 @@ public class Enemy : MonoBehaviour
 
         //        break;
         //}
-        spriteRender = GetComponent<SpriteRenderer>();
-        matWhite = Resources.Load("WhiteFlash", typeof(Material)) as Material;
-        matDefault = spriteRender.material;
+        //spriteRender = GetComponent<SpriteRenderer>();
+        //matWhite = Resources.Load("WhiteFlash", typeof(Material)) as Material;
+        //matDefault = spriteRender.material;
     }
 
     // Update is called once per frame

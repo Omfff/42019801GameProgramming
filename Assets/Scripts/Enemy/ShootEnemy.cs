@@ -10,6 +10,9 @@ public class ShootEnemy:Enemy
             return;
         GameObject normalBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity) as GameObject;
         normalBullet.GetComponent<BulletController>().bulletType = BulletType.Normal;
+        // test tracking
+        normalBullet.GetComponent<BulletController>().SetPlayer(player);
+
         normalBullet.GetComponent<BulletController>().GetPlayer(player.transform);
         normalBullet.AddComponent<Rigidbody2D>().gravityScale = 0;
         normalBullet.GetComponent<BulletController>().isEnemyBullet = true;

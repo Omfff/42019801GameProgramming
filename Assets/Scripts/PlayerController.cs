@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
             Vector3 v;
             if (x == 0)
             {
-                float temp = Mathf.Tan(10 * (i - GameController.BulletCount / 2)) * y;
+                float temp = Mathf.Tan(10 * (i - GameController.BulletCount / 2)* Mathf.Deg2Rad) * y;
                 v = new Vector3(temp, y, 0).normalized * bulletSpeed;
             }
             else

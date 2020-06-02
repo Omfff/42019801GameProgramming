@@ -19,20 +19,20 @@ public class OutlineEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
+        
         if (thinkness > 0)
         {
             material.SetFloat("_OutlineThickness", thinkness);
             material.SetColor("_OutlineColor", outlineColor);
         }
-        */
+        
     }
 
     public void StartOutline()
     {
         thinkness = 1.0f;
         material.SetFloat("_OutlineThickness", thinkness);
-        material.SetColor("_OutlineColor", outlineColor);
+        material.SetColor("_OutlineColor", Color.red);
     }
 
     public void StopOutline()
