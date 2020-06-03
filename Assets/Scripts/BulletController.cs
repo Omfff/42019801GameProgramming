@@ -264,8 +264,8 @@ public class BulletController : MonoBehaviour
             Destroy(gameObject);
         }
         else if (col.tag == "Untagged" && bulletType == BulletType.Projectile) 
-        {   
-            
+        {
+            Debug.Log("untagged is "+isEnemyBullet);
         }
     }
 

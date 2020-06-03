@@ -14,7 +14,7 @@ public class ShieldController : MonoBehaviour
         shield.transform.SetParent(transform,true);
         //shield = transform.Find("ShieldParticle").gameObject;
         shield.GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-        shield.GetComponent<CircleCollider2D>().radius = defaultSize;
+        shield.GetComponent<CircleCollider2D>().radius = 0;
         //Open(defaultSize);
     }
 

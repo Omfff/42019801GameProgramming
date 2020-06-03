@@ -61,11 +61,11 @@ public class Boss : Enemy
                 case BossSkill.Omnidirection:
                     StartCoroutine(OmnidirectionShoot());
                     break;
-                    /*
+                /*
                 case BossSkill.Unidirection:
                     StartCoroutine(UnidirectionShoot());
                     break;
-                    */
+                */
                 case BossSkill.SingleShoot:
                     StartCoroutine(SingleShoot());
                     break;
