@@ -71,7 +71,7 @@ public class BulletController : MonoBehaviour
                 StartCoroutine(DeathDelay());
                 break;
             case BulletType.Projectile:
-                bulletSpeed = 3f;
+                bulletSpeed = 4f;
                 projectileStart = true;
                 //Physics2D.IgnoreCollision();
                 break;
@@ -155,10 +155,12 @@ public class BulletController : MonoBehaviour
                         
                         projectileStart = false;
                     }
-                    if (GetComponent<Rigidbody2D>().velocity.sqrMagnitude < 0.25f)
+                    if (GetComponent<Rigidbody2D>().velocity.sqrMagnitude < 1f)
                     {
                         Destroy(gameObject);
                     }
+
+                    transform.localScale = new Vector3(GetComponent<Rigidbody2D>().velocity.magnitude/bulletSpeed, GetComponent<Rigidbody2D>().velocity.magnitude/bulletSpeed, 1);
                     break;
             }
         }

@@ -61,11 +61,11 @@ public class Boss : Enemy
                 case BossSkill.Omnidirection:
                     StartCoroutine(OmnidirectionShoot());
                     break;
-                /*
+                    /*
                 case BossSkill.Unidirection:
                     StartCoroutine(UnidirectionShoot());
                     break;
-                */
+                    */
                 case BossSkill.SingleShoot:
                     StartCoroutine(SingleShoot());
                     break;
@@ -136,7 +136,6 @@ public class Boss : Enemy
         for(int i = 0; i < direction; i++)
         {
             GameObject bullet;
-            Vector2 targetPos;
             GameObject _gameObject = new GameObject();
             _gameObject.transform.position = transform.position;
             float dis = (player.transform.position - transform.position).magnitude;
