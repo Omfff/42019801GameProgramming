@@ -190,7 +190,6 @@ public class Boss : Enemy
 
                     _gameObject.transform.position += new Vector3(Mathf.Cos(i * 22.5f * Mathf.Deg2Rad), Mathf.Sin(i * 22.5f * Mathf.Deg2Rad), 0) * dis;
                     bullet.GetComponent<BulletController>().GetPlayer(_gameObject.transform);
-                    bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
                     bullet.GetComponent<BulletController>().isEnemyBullet = true;
 
                     break;

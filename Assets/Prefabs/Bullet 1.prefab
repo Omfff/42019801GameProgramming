@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4556225848804796909}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.63, y: -0.3182506, z: 7.9980264}
-  m_LocalScale: {x: 1.2836, y: 1.2836, z: 1.2836}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,8 +72,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.254717, g: 0.039649345, b: 0.039649345, a: 1}
+  m_Sprite: {fileID: -1058965262095070486, guid: 0285aab446109d14da9b79ce461a991c,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,10 +98,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 0.5
   isEnemyBullet: 0
+  destPos: {x: 0, y: 0}
   bulletSpeed: 0
   damage: 2
   explosionEffect: {fileID: 0}
   bulletType: 0
+  Player: {fileID: 0}
+  startPos: {x: 0, y: 0}
+  slalomFirst: 0
+  projectileStart: 0
 --- !u!61 &4556225848804796908
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -116,14 +122,14 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.35, y: 0.36}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.33, y: 0.33}
   m_EdgeRadius: 0

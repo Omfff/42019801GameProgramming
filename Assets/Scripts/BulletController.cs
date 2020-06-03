@@ -150,7 +150,7 @@ public class BulletController : MonoBehaviour
                     //transform.position += new Vector3(moveDir.x * bulletSpeed * Time.deltaTime, moveDir.y * bulletSpeed * Time.deltaTime, 0);//5f
                     if (projectileStart)
                     {
-                        gameObject.AddComponent<Rigidbody2D>();
+                        gameObject.AddComponent<Rigidbody2D>().gravityScale = 0.0f;
                         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(moveDir.x * bulletSpeed, moveDir.y * bulletSpeed, 0);
                         
                         projectileStart = false;
@@ -160,7 +160,7 @@ public class BulletController : MonoBehaviour
                         Destroy(gameObject);
                     }
 
-                    transform.localScale = new Vector3(GetComponent<Rigidbody2D>().velocity.magnitude/bulletSpeed, GetComponent<Rigidbody2D>().velocity.magnitude/bulletSpeed, 1);
+                    transform.localScale = new Vector3(4*GetComponent<Rigidbody2D>().velocity.magnitude/bulletSpeed, 4*GetComponent<Rigidbody2D>().velocity.magnitude/bulletSpeed, 1);
                     break;
             }
         }
