@@ -123,7 +123,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 2
   isEnemyBullet: 0
+  destPos: {x: 0, y: 0}
   bulletSpeed: 5
   damage: 2.5
   explosionEffect: {fileID: 0}
   bulletType: 0
+  Player: {fileID: 0}
+  startPos: {x: 0, y: 0}
+  slalomFirst: 0
+  projectileStart: 0

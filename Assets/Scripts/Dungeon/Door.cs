@@ -8,7 +8,7 @@ public class Door : MonoBehaviour
 
     private GameObject player;
 
-    private float widthOffset = 1.2f;
+    private float widthOffset = 3.5f;
 
     // Start is called before the first frame update
     void Start()

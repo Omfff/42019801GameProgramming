@@ -1,11 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 public enum BulletType
 {
     Normal,
 
-    Bomb
+    Bomb,
+
+    Slalom,
+
+    Tracking,
+
+    Projectile,
 };
 
 public class BulletController : MonoBehaviour
@@ -20,6 +27,8 @@ public class BulletController : MonoBehaviour
 
     private Vector2 playerPos;
 
+    public Vector2 destPos;
+
     public float bulletSpeed;
 
     public float damage;
@@ -31,6 +40,14 @@ public class BulletController : MonoBehaviour
     public GameObject explosionEffect;
 
     public BulletType bulletType;
+
+    public GameObject Player;
+
+    public Vector2 startPos;
+
+    public bool slalomFirst;
+
+    public bool projectileStart;
     // Start is called before the first frame update
     void Start() 
     {
@@ -43,6 +60,20 @@ public class BulletController : MonoBehaviour
                 break;
             case BulletType.Bomb:
                 bulletSpeed = 2f;
+                break;
+            case BulletType.Slalom:
+                bulletSpeed = 7f;
+                startPos = transform.position;
+                slalomFirst = true;
+                break;
+            case BulletType.Tracking:
+                bulletSpeed = 4f;
+                StartCoroutine(DeathDelay());
+                break;
+            case BulletType.Projectile:
+                bulletSpeed = 3f;
+                projectileStart = true;
+                //Physics2D.IgnoreCollision();
                 break;
         }
         if (!isEnemyBullet)
@@ -84,9 +115,61 @@ public class BulletController : MonoBehaviour
                     }
                     lastPos = curPos;
                     break;
+                case BulletType.Slalom:
+                    curPos = transform.position;
+                    destPos = playerPos + moveDir * 2.0f;
+                    if (slalomFirst)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, destPos, bulletSpeed * Time.deltaTime);
+                    }
+                    else
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, startPos, bulletSpeed * Time.deltaTime);
+
+                    }
+                    if (curPos == destPos)
+                    {
+                        StartCoroutine(SlalomDelay());
+                    }
+                    if (curPos == startPos && !slalomFirst)
+                    {
+                        Destroy(gameObject);
+                    }
+                    lastPos = curPos;
+                    break;
+
+                case BulletType.Tracking:
+                    // need to get player position
+                    curPos = transform.position;
+                    transform.position = Vector2.MoveTowards(transform.position, Player.transform.position, bulletSpeed * Time.deltaTime);
+                    
+                    // can refine the tracking routine
+                    break;
+
+                case BulletType.Projectile:
+                    //transform.position += new Vector3(moveDir.x * bulletSpeed * Time.deltaTime, moveDir.y * bulletSpeed * Time.deltaTime, 0);//5f
+                    if (projectileStart)
+                    {
+                        gameObject.AddComponent<Rigidbody2D>();
+                        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(moveDir.x * bulletSpeed, moveDir.y * bulletSpeed, 0);
+                        
+                        projectileStart = false;
+                    }
+                    if (GetComponent<Rigidbody2D>().velocity.sqrMagnitude < 0.25f)
+                    {
+                        Destroy(gameObject);
+                    }
+                    break;
             }
         }
     }
+
+    // only used in tracking
+    public void SetPlayer(GameObject player)
+    {
+        Player = player;
+    }
+
 
     public void GetPlayer(Transform player)
     {
@@ -132,14 +215,20 @@ public class BulletController : MonoBehaviour
         Destroy(gameObject);
     }
 
+    IEnumerator SlalomDelay()
+    {
+        yield return new WaitForSeconds(.2f);
+        slalomFirst = false;
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.tag == "Enemy" && !isEnemyBullet)
+        if (col.tag == "Enemy" && !isEnemyBullet)
         {
             col.gameObject.GetComponent<Enemy>().getHurt(damage);
             Destroy(gameObject);
         }
-        else if(col.tag == "Player" && isEnemyBullet)
+        else if (col.tag == "Player" && isEnemyBullet)
         {
             switch (bulletType)
             {
@@ -147,16 +236,37 @@ public class BulletController : MonoBehaviour
                     GameController.DamagePlayer(1);
                     Destroy(gameObject);
                     break;
+                case BulletType.Tracking:
+                    GameController.DamagePlayer(1);
+                    Destroy(gameObject);
+                    break;
+                case BulletType.Projectile:
+                    GameController.DamagePlayer(1);
+                    Destroy(gameObject);
+                    break;
+                case BulletType.Slalom:
+                    GameController.DamagePlayer(1);
+                    if (!slalomFirst)
+                    {
+                        Destroy(gameObject);
+                    }
+                    break;
                 case BulletType.Bomb:
                     Instantiate(explosionEffect, transform.position, Quaternion.identity);
                     GameController.DamagePlayer(2);
                     Destroy(gameObject);
                     break;
+
             }
         }
-        else if(col.tag == "Shield" && !isEnemyBullet)
+        else if (col.tag == "Shield" && !isEnemyBullet)
         {
             Destroy(gameObject);
         }
+        else if (col.tag == "Untagged" && bulletType == BulletType.Projectile) 
+        {   
+            
+        }
     }
+
 }

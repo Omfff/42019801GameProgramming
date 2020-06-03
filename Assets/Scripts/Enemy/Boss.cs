@@ -9,7 +9,13 @@ public enum BossSkill
 
     Invincible,
 
-    FullScreenAttack
+    FullScreenAttack,
+
+    Omnidirection,
+
+    //Unidirection,
+
+    SingleShoot,
 };
 public class Boss : Enemy
 {
@@ -17,6 +23,19 @@ public class Boss : Enemy
     public GameObject splitedBossPf;
     public float healTime = 3f;
     private float healInterval = 0.5f;
+    private int direction = 16;
+
+    public GameObject NormalPrefab;
+
+    public GameObject BombPrefab;
+
+    public GameObject SlalomPrefab;
+
+    public GameObject TrackingPrefab;
+
+    public GameObject ProjectilePrefab;
+
+
     protected override void Attack()
     {
         if (coolDownAttack)
@@ -24,8 +43,9 @@ public class Boss : Enemy
         if (!isAttacking)
         {
             isAttacking = true;
-            //gameObject.GetComponent<OutlineEffect>().StopOutline();
+            gameObject.GetComponent<OutlineEffect>().StopOutline();
             BossSkill skill = RandomEnumValue<BossSkill>();
+            //BossSkill skill = BossSkill.Omnidirection;
             switch (skill)
             {
                 case BossSkill.Heal:
@@ -37,6 +57,17 @@ public class Boss : Enemy
                     break;
                 case BossSkill.FullScreenAttack:
                     StartCoroutine(FullScreenAttack());
+                    break;
+                case BossSkill.Omnidirection:
+                    StartCoroutine(OmnidirectionShoot());
+                    break;
+                    /*
+                case BossSkill.Unidirection:
+                    StartCoroutine(UnidirectionShoot());
+                    break;
+                    */
+                case BossSkill.SingleShoot:
+                    StartCoroutine(SingleShoot());
                     break;
             }
             
@@ -77,7 +108,7 @@ public class Boss : Enemy
 
         float chargeTime = .5f;
         int i = 0;
-        while(chargeTime > 0)
+        while (chargeTime > 0)
         {
             i++;
             gameObject.GetComponent<OutlineEffect>().StartOutline(1f + i * 2f);
@@ -88,6 +119,174 @@ public class Boss : Enemy
         gameObject.GetComponent<OutlineEffect>().StopOutline();
         ScreenShakeController.instance.StartShake(.4f, .8f);
         GameController.DamagePlayer(2);
+        yield return new WaitForSeconds(.8f);
+        isAttacking = false;
+        StartCoroutine(CoolDown());
+    }
+
+    private IEnumerator OmnidirectionShoot()
+    {
+        gameObject.GetComponent<OutlineEffect>().SetOutlineColor(Color.blue);
+
+        gameObject.GetComponent<OutlineEffect>().StartOutline();
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<OutlineEffect>().StopOutline();
+
+        BulletType bulletType = RandomEnumValue<BulletType>();
+        for(int i = 0; i < direction; i++)
+        {
+            GameObject bullet;
+            Vector2 targetPos;
+            GameObject _gameObject = new GameObject();
+            _gameObject.transform.position = transform.position;
+            float dis = (player.transform.position - transform.position).magnitude;
+            switch (bulletType)
+            {
+
+                case BulletType.Normal:
+                    bullet = Instantiate(NormalPrefab, transform.position, transform.rotation) as GameObject;
+                    bullet.GetComponent<BulletController>().bulletType = BulletType.Normal;
+
+                    _gameObject.transform.position += new Vector3(Mathf.Cos(i * 22.5f * Mathf.Deg2Rad), Mathf.Sin(i * 22.5f * Mathf.Deg2Rad), 0) * dis;
+                    bullet.GetComponent<BulletController>().GetPlayer(_gameObject.transform);
+                    bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
+                    bullet.GetComponent<BulletController>().isEnemyBullet = true;
+
+                    Destroy(_gameObject);
+                    break;
+                case BulletType.Bomb:
+                    bullet = Instantiate(BombPrefab, transform.position, transform.rotation) as GameObject;
+                    bullet.GetComponent<BulletController>().bulletType = BulletType.Bomb;
+                    
+                    _gameObject.transform.position += new Vector3(Mathf.Cos(i * 22.5f * Mathf.Deg2Rad), Mathf.Sin(i * 22.5f * Mathf.Deg2Rad), 0) * dis;
+                    bullet.GetComponent<BulletController>().GetPlayer(_gameObject.transform);
+                    bullet.GetComponent<BulletController>().isEnemyBullet = true;
+
+                    Destroy(_gameObject);
+
+                    break;
+                case BulletType.Slalom:
+                    bullet = Instantiate(SlalomPrefab, transform.position, transform.rotation) as GameObject;
+                    bullet.GetComponent<BulletController>().bulletType = BulletType.Slalom;
+                    
+                    _gameObject.transform.position += new Vector3(Mathf.Cos(i * 22.5f * Mathf.Deg2Rad), Mathf.Sin(i * 22.5f * Mathf.Deg2Rad), 0) * dis;
+                    bullet.GetComponent<BulletController>().GetPlayer(_gameObject.transform);
+                    bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
+                    bullet.GetComponent<BulletController>().isEnemyBullet = true;
+
+                    Destroy(_gameObject);
+                    break;
+                case BulletType.Tracking:
+                    bullet = Instantiate(TrackingPrefab, transform.position + new Vector3(Mathf.Cos(i * 16), Mathf.Sin(i * 16), 0), transform.rotation) as GameObject;
+                    bullet.GetComponent<BulletController>().bulletType = BulletType.Tracking;
+                    bullet.GetComponent<BulletController>().SetPlayer(player);
+                    bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
+                    bullet.GetComponent<BulletController>().isEnemyBullet = true;
+
+                    yield return new WaitForSeconds(.7f);
+                    break;
+                case BulletType.Projectile:
+                    bullet = Instantiate(ProjectilePrefab, transform.position, transform.rotation) as GameObject;
+                    bullet.GetComponent<BulletController>().bulletType = BulletType.Projectile;
+
+                    _gameObject.transform.position += new Vector3(Mathf.Cos(i * 22.5f * Mathf.Deg2Rad), Mathf.Sin(i * 22.5f * Mathf.Deg2Rad), 0) * dis;
+                    bullet.GetComponent<BulletController>().GetPlayer(_gameObject.transform);
+                    bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
+                    bullet.GetComponent<BulletController>().isEnemyBullet = true;
+
+                    break;
+                default:
+                    bullet = Instantiate(NormalPrefab, transform.position, transform.rotation) as GameObject;
+                    bullet.GetComponent<BulletController>().bulletType = BulletType.Normal;
+                    bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
+                    bullet.GetComponent<BulletController>().isEnemyBullet = true;
+
+                    break;
+            }
+
+
+        }
+        yield return new WaitForSeconds(.8f);
+        isAttacking = false;
+        StartCoroutine(CoolDown());
+
+    }
+
+    private IEnumerator UnidirectionShoot()
+    {
+        gameObject.GetComponent<OutlineEffect>().SetOutlineColor(Color.yellow);
+
+        gameObject.GetComponent<OutlineEffect>().StartOutline();
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<OutlineEffect>().StopOutline();
+
+    }
+
+    private IEnumerator SingleShoot()
+    {
+        gameObject.GetComponent<OutlineEffect>().SetOutlineColor(Color.blue);
+
+        gameObject.GetComponent<OutlineEffect>().StartOutline();
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<OutlineEffect>().StopOutline();
+
+        BulletType bulletType = RandomEnumValue<BulletType>();
+        GameObject bullet;
+        switch (bulletType)
+        {
+
+            case BulletType.Normal:
+                bullet = Instantiate(NormalPrefab, transform.position, transform.rotation) as GameObject;
+                bullet.GetComponent<BulletController>().bulletType = BulletType.Normal;
+
+                bullet.GetComponent<BulletController>().GetPlayer(player.transform);
+                bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
+                bullet.GetComponent<BulletController>().isEnemyBullet = true;
+
+                break;
+            case BulletType.Bomb:
+                bullet = Instantiate(BombPrefab, transform.position, transform.rotation) as GameObject;
+                bullet.GetComponent<BulletController>().bulletType = BulletType.Bomb;
+
+                bullet.GetComponent<BulletController>().GetPlayer(player.transform);
+                bullet.GetComponent<BulletController>().isEnemyBullet = true;
+
+                break;
+            case BulletType.Slalom:
+                bullet = Instantiate(SlalomPrefab, transform.position, transform.rotation) as GameObject;
+                bullet.GetComponent<BulletController>().bulletType = BulletType.Slalom;
+
+                bullet.GetComponent<BulletController>().GetPlayer(player.transform);
+                bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
+                bullet.GetComponent<BulletController>().isEnemyBullet = true;
+
+                break;
+            case BulletType.Tracking:
+                bullet = Instantiate(TrackingPrefab, transform.position, transform.rotation) as GameObject;
+                bullet.GetComponent<BulletController>().bulletType = BulletType.Tracking;
+                bullet.GetComponent<BulletController>().SetPlayer(player);
+                bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
+                bullet.GetComponent<BulletController>().isEnemyBullet = true;
+
+                break;
+            case BulletType.Projectile:
+                bullet = Instantiate(ProjectilePrefab, transform.position, transform.rotation) as GameObject;
+                bullet.GetComponent<BulletController>().bulletType = BulletType.Projectile;
+
+                bullet.GetComponent<BulletController>().GetPlayer(player.transform);
+                bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
+                bullet.GetComponent<BulletController>().isEnemyBullet = true;
+
+                break;
+            default:
+                bullet = Instantiate(NormalPrefab, transform.position, transform.rotation) as GameObject;
+                bullet.GetComponent<BulletController>().bulletType = BulletType.Normal;
+                bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
+                bullet.GetComponent<BulletController>().isEnemyBullet = true;
+
+                break;
+
+        }
         yield return new WaitForSeconds(.8f);
         isAttacking = false;
         StartCoroutine(CoolDown());
