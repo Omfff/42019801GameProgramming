@@ -46,4 +46,11 @@ public class OutlineEffect : MonoBehaviour
     {
         outlineColor = color;
     }
+
+    public void StartOutline(float t)
+    {
+        thinkness = t;
+        material.SetFloat("_OutlineThickness", thinkness);
+        material.SetColor("_OutlineColor", outlineColor);
+    }
 }

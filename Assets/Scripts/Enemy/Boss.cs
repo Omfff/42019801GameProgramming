@@ -74,9 +74,18 @@ public class Boss : Enemy
         gameObject.GetComponent<OutlineEffect>().SetOutlineColor(Color.red);
 
         gameObject.GetComponent<OutlineEffect>().StartOutline();
-        yield return new WaitForSeconds(.5f);
-        gameObject.GetComponent<OutlineEffect>().StopOutline();
 
+        float chargeTime = .5f;
+        int i = 0;
+        while(chargeTime > 0)
+        {
+            i++;
+            gameObject.GetComponent<OutlineEffect>().StartOutline(1f + i * 2f);
+            yield return new WaitForSeconds(1f);
+            chargeTime -= .1f;
+        }
+        //yield return new WaitForSeconds(.5f);
+        gameObject.GetComponent<OutlineEffect>().StopOutline();
         ScreenShakeController.instance.StartShake(.4f, .8f);
         GameController.DamagePlayer(2);
         yield return new WaitForSeconds(.8f);

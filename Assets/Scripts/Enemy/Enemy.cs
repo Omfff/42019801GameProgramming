@@ -109,9 +109,9 @@ public class Enemy : MonoBehaviour
 
         //        break;
         //}
-        spriteRender = GetComponent<SpriteRenderer>();
-        matWhite = Resources.Load("WhiteFlash", typeof(Material)) as Material;
-        matDefault = spriteRender.material;
+        //spriteRender = GetComponent<SpriteRenderer>();
+        //matWhite = Resources.Load("WhiteFlash", typeof(Material)) as Material;
+        //matDefault = spriteRender.material;
     }
 
     // Update is called once per frame
@@ -255,10 +255,12 @@ public class Enemy : MonoBehaviour
         DamageTextPopUp damageText = textPopUp.GetComponent<DamageTextPopUp>();
         damageText.Setup((int)damage);
 
-        spriteRender.material = matWhite;
+        //spriteRender.material = matWhite;
         if (health > 0)
         {
-            Invoke("ResetMaterial", 0.1f);
+            gameObject.GetComponent<MaterialTintColor>().SetTintFadeSpeed(1f);
+            gameObject.GetComponent<MaterialTintColor>().SetTintColor(Color.black);
+            //Invoke("ResetMaterial", 0.1f);
         }
         else
         {
