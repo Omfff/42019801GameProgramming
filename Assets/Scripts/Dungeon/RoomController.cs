@@ -72,6 +72,24 @@ public class RoomController : MonoBehaviour
             room.Y = currentLoadRoomData.Y;
             room.name = currentWorldName + "-" + currentLoadRoomData.name + " " + room.X + ", " + room.Y;
             room.transform.parent = transform;
+            room.gameObject.layer = LayerMask.NameToLayer("Minimap");
+            //...
+            Transform[] grandFa;
+            grandFa = room.GetComponentsInChildren<Transform>();
+            foreach (Transform child in grandFa)
+            {
+                //child.gameObject.layer = LayerMask.NameToLayer("Minimap");
+                if (child.gameObject.name == "outline" || child.gameObject.name == "wall2")
+                {
+                    //child.gameObject.GetComponent<Renderer>().enabled = false;
+                }
+                if (child.gameObject.name == "outline")
+                {
+                    child.gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
+
+                }
+            }
+
 
             isLoadingRoom = false;
 
@@ -140,7 +158,42 @@ public class RoomController : MonoBehaviour
     {
         CameraController.instance.currRoom = room;
         currRoom = room;
+        Transform[] grandFa;
+        grandFa = room.GetComponentsInChildren<Transform>();
+        foreach (Transform child in grandFa)
+        {
+            //child.gameObject.layer = LayerMask.NameToLayer("Minimap");
+            if(child.gameObject.name == "outline" || child.gameObject.name == "wall2")
+            {
+                child.gameObject.GetComponent<Renderer>().enabled = true;
+            }
+            if (child.gameObject.name == "outline")
+            {
+                child.gameObject.GetComponent<SpriteRenderer>().color = Color.white; 
 
+            }
+        }
+        // StartCoroutine(RoomCoroutine());
+    }
+    public void OnPlayerExitRoom(Room room)
+    {
+        CameraController.instance.currRoom = room;
+        currRoom = room;
+        Transform[] grandFa;
+        grandFa = room.GetComponentsInChildren<Transform>();
+        foreach (Transform child in grandFa)
+        {
+            //child.gameObject.layer = LayerMask.NameToLayer("Minimap");
+            if (child.gameObject.name == "outline" || child.gameObject.name == "wall2")
+            {
+                child.gameObject.GetComponent<Renderer>().enabled = true;
+            }
+            if (child.gameObject.name == "outline")
+            {
+                child.gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
+
+            }
+        }
         // StartCoroutine(RoomCoroutine());
     }
 

@@ -51,4 +51,11 @@ public class Room : MonoBehaviour
             RoomController.instance.OnPlayerEnterRoom(this);
         }
     }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            RoomController.instance.OnPlayerExitRoom(this);
+        }
+    }
 }

@@ -1774,7 +1774,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: -50}
+  m_AnchoredPosition: {x: -50, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &856440518
@@ -2553,7 +2553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1733480236}
   - component: {fileID: 1733480235}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RoomController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2656,7 +2656,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 5e955800dedc3414c91e21bf7a9d6c44, type: 3}
   m_Color: {r: 0.20332381, g: 0.990566, b: 0.051397298, a: 1}
   m_FlipX: 0
@@ -3095,7 +3095,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136272695}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25d3c794ffae11741890091a393a2893, type: 3}
   m_Name: 
@@ -3120,7 +3120,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.21698111, g: 0.1709238, b: 0.1709238, a: 1}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.16470589}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3135,13 +3135,13 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 139
+  field of view: 146
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 257
+    m_Bits: 256
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 4919b9f3c757d2642b1ea6739ea8850e, type: 2}
   m_TargetDisplay: 0
@@ -3161,7 +3161,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136272695}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.5, y: 5, z: -10}
+  m_LocalPosition: {x: 24, y: 15, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
