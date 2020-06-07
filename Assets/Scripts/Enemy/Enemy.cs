@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
 public enum EnemyState
 {
     Idle,
@@ -30,6 +31,8 @@ public enum EnemyType
 
 public class Enemy : MonoBehaviour
 {
+    Animator animator;
+
     protected GameObject player;
 
     public EnemyState currState = EnemyState.Idle;
@@ -78,6 +81,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         Physics2D.queriesStartInColliders = false;
         agent = GetComponent<NavMeshAgent>();
@@ -180,7 +184,10 @@ public class Enemy : MonoBehaviour
             }
             wanderTimer = 0;
         }
-        // add move animaition agent.velocity.x,agent.velocity.y
+
+        // Set animator
+        animator.SetFloat("xSpeed", agent.velocity.x);
+        animator.SetFloat("ySpeed", agent.velocity.y);
         DebugDrawPath(agent.path.corners);
 
         if (IsPlayerInRange(range))
@@ -210,7 +217,9 @@ public class Enemy : MonoBehaviour
         if (Vector3.Distance(transform.position, player.transform.position) >= attackRange - 1f)
         {
             agent.SetDestination(player.transform.position);
-            //Debug.Log(agent.velocity.x +" "+agent.velocity.y); 
+            // Set animator
+            animator.SetFloat("xSpeed", agent.velocity.x);
+            animator.SetFloat("ySpeed", agent.velocity.y);
             DebugDrawPath(agent.path.corners);
         }
         else
