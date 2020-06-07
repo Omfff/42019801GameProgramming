@@ -25,6 +25,7 @@ public class Room : MonoBehaviour
         }
 
         RoomController.instance.RegisterRoom(this);
+
     }
 
     // Update is called once per frame

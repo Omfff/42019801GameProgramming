@@ -60,6 +60,7 @@ public class RoomController : MonoBehaviour
 
     public void RegisterRoom(Room room) 
     {
+        //Debug.Log("room name:" + room.name);
         if(!DoesRoomExist(currentLoadRoomData.X, currentLoadRoomData.Y))
         {
             room.transform.position = new Vector3(
