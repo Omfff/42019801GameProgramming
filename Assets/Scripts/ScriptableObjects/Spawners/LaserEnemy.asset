@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd3df7c27f0a05344ad151e91426ee19, type: 3}
-  m_Name: ChaseEnemy
+  m_Name: LaserEnemy
   m_EditorClassIdentifier: 
-  itemToSpawn: {fileID: 6406367591672856722, guid: 4508868dba30b4417a3c5efe0d72fb82,
+  itemToSpawn: {fileID: 157120027853661683, guid: e70457364cd6bc840b3ce65e80f2cd0a,
     type: 3}
-  minSpawn: 1
-  maxSpawn: 3
+  minSpawn: 0
+  maxSpawn: 2
