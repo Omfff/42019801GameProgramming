@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6721228681567678408}
   m_Layer: 0
   m_Name: Giant_3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

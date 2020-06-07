@@ -2467,6 +2467,10 @@ MonoBehaviour:
   spawnerData:
   - name: BossSpawner
     spawnerData: {fileID: 11400000, guid: de29cfb6bd94e4ed6b433967d162520c, type: 2}
+  - name: LaserEnemy
+    spawnerData: {fileID: 11400000, guid: abe170980e03a4084851e79ce10b78ae, type: 2}
+  - name: DashEnemy
+    spawnerData: {fileID: 11400000, guid: 6d68211b924cd9d489a000be30466ef4, type: 2}
 --- !u!1 &1126777711
 GameObject:
   m_ObjectHideFlags: 0

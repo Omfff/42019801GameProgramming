@@ -2433,8 +2433,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnerData:
-  - name: ChaseEnemy
+  - name: DashEnemy
     spawnerData: {fileID: 11400000, guid: 6d68211b924cd9d489a000be30466ef4, type: 2}
+  - name: LaserEnemy
+    spawnerData: {fileID: 11400000, guid: abe170980e03a4084851e79ce10b78ae, type: 2}
+  - name: ShootEnemy
+    spawnerData: {fileID: 11400000, guid: eeb2a5681c74749679ebe31f72e10222, type: 2}
 --- !u!1 &1189989335
 GameObject:
   m_ObjectHideFlags: 0
