@@ -187,6 +187,7 @@ public class Boss : Enemy
                 case BulletType.Projectile:
                     bullet = Instantiate(ProjectilePrefab, transform.position, transform.rotation) as GameObject;
                     bullet.GetComponent<BulletController>().bulletType = BulletType.Projectile;
+                    bullet.AddComponent<Rigidbody2D>().gravityScale = 0.0f;
 
                     _gameObject.transform.position += new Vector3(Mathf.Cos(i * 22.5f * Mathf.Deg2Rad), Mathf.Sin(i * 22.5f * Mathf.Deg2Rad), 0) * dis;
                     bullet.GetComponent<BulletController>().GetPlayer(_gameObject.transform);
