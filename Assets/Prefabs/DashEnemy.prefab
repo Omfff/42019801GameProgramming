@@ -73,7 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5c9e4324aee779d41be2c76ceb1f72f9, type: 3}
+  m_Sprite: {fileID: 2150878309941775858, guid: e4f04d8a720ef9d41be3140c2d2d47e6,
+    type: 3}
   m_Color: {r: 1, g: 0.13333333, b: 0.16797681, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,6 +120,8 @@ MonoBehaviour:
   speed: 1
   attackRange: 3
   coolDown: 2
+  wanderRadius: 0
+  wanderChangeInterval: 0
   notInRoom: 0
   deathEffect: {fileID: 1755349173569476, guid: 3c45864be6a059a4a82a25e285298338,
     type: 3}

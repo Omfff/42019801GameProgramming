@@ -12,6 +12,8 @@ public class BossHpBar : MonoBehaviour
     public GameObject boss;
     public Room bossRoom;
 
+    private bool isBossBorn = false;
+
     public void SetMaxHealth(float health)
     {
         slider.maxValue = health;
@@ -26,12 +28,6 @@ public class BossHpBar : MonoBehaviour
     }
     public void Start()
     {
-        boss = GameObject.Find("BOSS");
-
-        SetMaxHealth(boss.GetComponent<Boss>().health);
-        //SceneManager.GetSceneByName("Basement8");
-        //gameObject.GetComponent<Renderer>().enabled = false;
-        gameObject.GetComponent<CanvasGroup>().alpha = 0;
 
     }
     public void Update()
@@ -49,17 +45,27 @@ public class BossHpBar : MonoBehaviour
         }
         if (CameraController.instance.currRoom == bossRoom)
         {
-            gameObject.GetComponent<CanvasGroup>().alpha = 1;
+            if(boss == null)
+            {
+                boss = GameObject.Find("Boss(Clone)");
+                if (boss != null)
+                {
+                    SetMaxHealth(boss.GetComponent<Boss>().health);
+                    gameObject.GetComponent<CanvasGroup>().alpha = 1;
+                    isBossBorn = true;
+                }
+            }
         }
         else
         {
             gameObject.GetComponent<CanvasGroup>().alpha = 0;
         }
-        if (boss == null)
+        if (boss == null && isBossBorn)
         {
             SetHealth(0);
+            StartCoroutine(hideBarAfterBossDie());
         }
-        else
+        else if(isBossBorn && boss!=null)
         {
             SetHealth(boss.GetComponent<Boss>().health);
         }
@@ -68,5 +74,11 @@ public class BossHpBar : MonoBehaviour
         {
             GameController.DamagePlayer(1);
         }
+    }
+
+    private IEnumerator hideBarAfterBossDie()
+    {
+        yield return new WaitForSeconds(0.3f);
+        gameObject.GetComponent<CanvasGroup>().alpha = 0;
     }
 }

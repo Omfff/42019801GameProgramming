@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd3df7c27f0a05344ad151e91426ee19, type: 3}
-  m_Name: ChaseEnemy
+  m_Name: BossEnemy
   m_EditorClassIdentifier: 
-  itemToSpawn: {fileID: 6406367591672856722, guid: 4508868dba30b4417a3c5efe0d72fb82,
+  itemToSpawn: {fileID: 4603476697501131403, guid: 59b8d76c0609c4766a57dc729b0e1a24,
     type: 3}
   minSpawn: 1
-  maxSpawn: 3
+  maxSpawn: 1

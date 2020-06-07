@@ -21,6 +21,7 @@ public class Boss : Enemy
 {
     private bool isAttacking;
     public GameObject splitedBossPf;
+    public bool isSplittable;
     public float healTime = 3f;
     private float healInterval = 0.5f;
     private int direction = 16;
@@ -34,6 +35,7 @@ public class Boss : Enemy
     public GameObject TrackingPrefab;
 
     public GameObject ProjectilePrefab;
+
 
 
     protected override void Attack()
@@ -293,16 +295,33 @@ public class Boss : Enemy
 
     protected override void Death()
     {
-        int num = 4;
-        Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Vector3[] generatePos = GenerateSplitedBossPos(transform.position, gameObject.GetComponent<Renderer>().bounds.size.x * 1.5f, -1, num);
-        for (int i = 0; i < num; i++)
+        if (isSplittable)
         {
-            Instantiate(splitedBossPf, generatePos[i], Quaternion.identity);
+            if (currState != EnemyState.Die)
+            {
+                currState = EnemyState.Die;
+            }
+            else
+            {
+                return;
+            }
+            Debug.Log("boss death");
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            int num = 4;
+            Vector3[] generatePos = GenerateSplitedBossPos(transform.position, gameObject.GetComponent<Renderer>().bounds.size.x * 1.5f, -1, num);
+            for (int i = 0; i < num; i++)
+            {
+                GameObject splitedBoss = Instantiate(splitedBossPf, generatePos[i], Quaternion.identity);
+                splitedBoss.transform.parent = RoomController.instance.currRoom.transform;
+            }
+            StopAllCoroutines();
+            Destroy(gameObject);
+        }
+        else
+        {
+            base.Death();
         }
        
-        StopAllCoroutines();
-        Destroy(gameObject);
     }
 
     private Vector3[] GenerateSplitedBossPos(Vector3 origin, float dist, int layermask, int num)

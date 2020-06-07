@@ -19,11 +19,14 @@ public class RoomController : MonoBehaviour
 
     RoomInfo currentLoadRoomData;
 
-    Room currRoom;
+    public Room currRoom;
 
     Queue<RoomInfo> loadRoomQueue = new Queue<RoomInfo>();
 
     public List<Room> loadedRooms = new List<Room>();
+
+    public List<Room> enteredRooms = new List<Room>();
+
     bool isLoadingRoom = false;
 
     public bool DoesRoomExist( int x, int y)
@@ -80,6 +83,8 @@ public class RoomController : MonoBehaviour
             {
                 CameraController.instance.currRoom = room;
             }
+            // init door closed
+            room.GetComponentInChildren<Door>().doorCollider.SetActive(true);
 
             loadedRooms.Add(room);
         }
@@ -139,81 +144,68 @@ public class RoomController : MonoBehaviour
 
     public void OnPlayerEnterRoom(Room room)
     {
-        CameraController.instance.currRoom = room;
-        currRoom = room;
-
-        // StartCoroutine(RoomCoroutine());
-    }
-
-    public IEnumerator RoomCoroutine()
-    {
-        yield return new WaitForSeconds(0.2f);
-        UpdateRooms();
-    }
-
-    public void UpdateCurrentRoom()
-    {
-        Enemy[] enemies = currRoom.GetComponentsInChildren<Enemy>();
-        if (enemies.Length == 0)
+        if (room.name.Contains("Basement-1") || CouldLeaveCurrRoom())
         {
-            foreach (Door door in currRoom.GetComponentsInChildren<Door>())
+            CameraController.instance.currRoom = room;
+            if (!enteredRooms.Contains(room))
             {
-                door.doorCollider.SetActive(false);
-            }
-        }
-    }
-
-    public void UpdateRooms()
-    {
-        foreach (Room room in loadedRooms)
-        {
-            if (currRoom != room)
-            {
-                Enemy[] enemies = room.GetComponentsInChildren<Enemy>();
-                if (enemies != null)
-                {
-                    foreach (Enemy enemy in enemies)
-                    {
-                        enemy.notInRoom = true;
-                        //Debug.Log("Not in room");
-                    }
-
-                    foreach (Door door in room.GetComponentsInChildren<Door>())
-                    {
-                        door.doorCollider.SetActive(false);
-                    }
-                }
-                else
-                {
-                    foreach (Door door in room.GetComponentsInChildren<Door>())
-                    {
-                        door.doorCollider.SetActive(false);
-                    }
-                }
+                Debug.Log("Enter room "+ room.name);
+                enteredRooms.Add(room);
+                currRoom = room;
+                StartCoroutine(RoomCoroutine(1));
             }
             else
             {
-                Enemy[] enemies = room.GetComponentsInChildren<Enemy>();
-                if (enemies.Length > 0)
-                {
-                    foreach (Enemy enemy in enemies)
-                    {
-                        enemy.notInRoom = false;
-                        Debug.Log("In room");
-                    }
-                    foreach (Door door in room.GetComponentsInChildren<Door>())
-                    {
-                        door.doorCollider.SetActive(true);
-                    }
-                }
-                else
-                {
-                    foreach (Door door in room.GetComponentsInChildren<Door>())
-                    {
-                        door.doorCollider.SetActive(false);
-                    }
-                }
+                currRoom = room;
             }
         }
     }
+
+    public bool CouldLeaveCurrRoom()
+    {
+        Enemy[] enemies = currRoom.GetComponentsInChildren<Enemy>();
+        if (enemies.Length == 0)
+            return true;
+        else
+            return false;
+    }
+
+    public IEnumerator RoomCoroutine(int type)
+    {
+        yield return new WaitForSeconds(0.2f);
+        if (type == 0) // update current room
+        {
+            UpdateCurrentRoom();
+        }
+        else //update entering room
+        {
+            UpdateEnteringRoom();
+        }
+    }
+
+    private void UpdateCurrentRoom()
+    {
+        Enemy[] enemies = currRoom.GetComponentsInChildren<Enemy>();
+        if (enemies == null || enemies.Length == 0)
+        {
+            Debug.Log("Unlock currRoom");
+            currRoom.GetComponentInChildren<Door>().doorCollider.SetActive(false);
+        }
+    }
+
+    private void UpdateEnteringRoom()
+    {
+        currRoom.GetComponent<ObjectRoomSpawner>().InitialiseObjectSpawning();
+    }
+
+    public Vector3 getCurrentRoomCenter()
+    {
+        return currRoom.GetRoomCentre();
+    }
+
+    public float getCurrentRoomMinRange()
+    {
+        return currRoom.Height;
+    }
+
 }

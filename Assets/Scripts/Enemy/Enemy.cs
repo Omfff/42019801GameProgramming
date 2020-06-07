@@ -17,15 +17,15 @@ public enum EnemyState
 
 public enum EnemyType
 {
-    Melee,
-
     Dash,
 
     Ranged,
 
     Shooting,
 
-    Laser
+    Laser,
+
+    Boss
 };
 
 public class Enemy : MonoBehaviour
@@ -221,6 +221,19 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Death()
     {
+        if (enemyType == EnemyType.Boss)
+        {
+            Debug.Log("boss enemy death");
+        }
+
+        if (currState != EnemyState.Die)
+        {
+            currState = EnemyState.Die;
+        }
+        else
+        {
+            return;
+        }
 
         Instantiate(deathEffect, transform.position, Quaternion.identity);
 
@@ -228,7 +241,8 @@ public class Enemy : MonoBehaviour
         itemSpawner.GetComponent<ItemSpawner>().dropItemAftherEnemyDeath(transform.position);
 
         Destroy(gameObject);
-        //RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine());
+
+        RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine(0));
     }
 
     protected virtual void Attack()
@@ -258,6 +272,7 @@ public class Enemy : MonoBehaviour
         //spriteRender.material = matWhite;
         if (health > 0)
         {
+            // hurt effect:splash
             gameObject.GetComponent<MaterialTintColor>().SetTintFadeSpeed(1f);
             gameObject.GetComponent<MaterialTintColor>().SetTintColor(Color.black);
             //Invoke("ResetMaterial", 0.1f);
