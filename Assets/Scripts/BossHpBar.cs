@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BossHpBar : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class BossHpBar : MonoBehaviour
     public Gradient gradient;
     public Image fill;
     public GameObject boss;
+    public Room bossRoom;
 
     public void SetMaxHealth(float health)
     {
@@ -25,14 +27,33 @@ public class BossHpBar : MonoBehaviour
     public void Start()
     {
         boss = GameObject.Find("BOSS");
+
         SetMaxHealth(boss.GetComponent<Boss>().health);
-        gameObject.SetActive(false);
+        //SceneManager.GetSceneByName("Basement8");
+        //gameObject.GetComponent<Renderer>().enabled = false;
+        gameObject.GetComponent<CanvasGroup>().alpha = 0;
+
     }
     public void Update()
     {
-        if (CameraController.instance.currRoom.name == "Basement8")
+        //Debug.Log(CameraController.instance.currRoom.name);
+        //Debug.Log(SceneManager.GetActiveScene().name);
+        //Debug.Log(SceneManager.GetSceneByName("Basement8").GetRootGameObjects());
+        if (bossRoom == null)
         {
-            gameObject.SetActive(true);
+            Debug.Log(RoomController.instance.loadedRooms);
+            bossRoom = RoomController.instance.loadedRooms.Find(delegate (Room room)
+            {
+                return room.name.Contains("Basement-8");
+            });
+        }
+        if (CameraController.instance.currRoom == bossRoom)
+        {
+            gameObject.GetComponent<CanvasGroup>().alpha = 1;
+        }
+        else
+        {
+            gameObject.GetComponent<CanvasGroup>().alpha = 0;
         }
         if (boss == null)
         {
