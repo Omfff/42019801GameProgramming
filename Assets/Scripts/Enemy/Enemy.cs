@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
 public enum EnemyState
 {
     Idle,
@@ -30,6 +31,10 @@ public enum EnemyType
 
 public class Enemy : MonoBehaviour
 {
+    const float minSpeed = 0.00001f;
+
+    Animator animator;
+
     protected GameObject player;
 
     public EnemyState currState = EnemyState.Idle;
@@ -78,6 +83,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         Physics2D.queriesStartInColliders = false;
         agent = GetComponent<NavMeshAgent>();
@@ -162,6 +168,48 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void setAnimator()
+    {
+        if(System.Math.Abs(agent.velocity.y) > System.Math.Abs(agent.velocity.x))
+        {
+            if(animator.GetCurrentAnimatorStateInfo(0).IsName("Left Walk") || animator.GetCurrentAnimatorStateInfo(0).IsName("Right Walk"))
+            {
+                if(agent.velocity.y <= 0)
+                {
+                    animator.CrossFade("Down Walk", 0f);
+                }
+                else
+                {
+                    animator.CrossFade("Up Walk", 0f);
+                }
+            }
+            else
+            {
+                animator.SetFloat("xSpeed", agent.velocity.x);
+                animator.SetFloat("ySpeed", agent.velocity.y);
+            }
+        }
+        else
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Down Walk") || animator.GetCurrentAnimatorStateInfo(0).IsName("Up Walk"))
+            {
+                if (agent.velocity.x <= 0)
+                {
+                    animator.CrossFade("Left Walk", 0f);
+                }
+                else
+                {
+                    animator.CrossFade("Right Walk", 0f);
+                }
+            }
+            else
+            {
+                animator.SetFloat("xSpeed", agent.velocity.x);
+                animator.SetFloat("ySpeed", agent.velocity.y);
+            }
+        }
+    }
+
     private void Wander()
     {
         agent.stoppingDistance = 0.5f;
@@ -180,7 +228,8 @@ public class Enemy : MonoBehaviour
             }
             wanderTimer = 0;
         }
-        // add move animaition agent.velocity.x,agent.velocity.y
+
+        setAnimator();
         DebugDrawPath(agent.path.corners);
 
         if (IsPlayerInRange(range))
@@ -210,12 +259,13 @@ public class Enemy : MonoBehaviour
         if (Vector3.Distance(transform.position, player.transform.position) >= attackRange - 1f)
         {
             agent.SetDestination(player.transform.position);
-            //Debug.Log(agent.velocity.x +" "+agent.velocity.y); 
+            setAnimator();
             DebugDrawPath(agent.path.corners);
         }
         else
         {
             agent.isStopped = true;
+            animator.CrossFade("Idle Down", 0.1f);
         }
     }
 
