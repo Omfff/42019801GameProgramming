@@ -28,6 +28,7 @@ public class HotkeyAbilitySystem {
         ManaPotion,
         SpecialPotion,
         ShieldSkill,
+        Key,
     }
 
     private PlayerSwapWeapons player;
@@ -85,6 +86,12 @@ public class HotkeyAbilitySystem {
         {
             abilityType = AbilityType.ShieldSkill,
             activateAbilityAction = () => GameController.AddShield()
+        });
+        // Key
+        extraHotkeyAbilityList.Add(new HotkeyAbility
+        {
+            abilityType = AbilityType.Key,
+            activateAbilityAction = () => { }
         });
 
     }
@@ -192,6 +199,8 @@ public class HotkeyAbilitySystem {
                     }
                 case AbilityType.ShieldSkill:
                     return Testing.Instance.shieldSkillSprite;
+                case AbilityType.Key:
+                    return Testing.Instance.keySprite;
             }
         }
 

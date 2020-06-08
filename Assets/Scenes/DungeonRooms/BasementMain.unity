@@ -737,6 +737,8 @@ MonoBehaviour:
   stealthPotionSprite: {fileID: 21300000, guid: 8aa90d2e90674fa49bb96cea6c99cac9,
     type: 3}
   shieldSkillSprite: {fileID: 21300000, guid: f4ab923cb449a1e458f48aa9c002c0c5, type: 3}
+  keySprite: {fileID: -1880873978067421774, guid: 930d0c3dcd46cda4da7279b9fc300f50,
+    type: 3}
 --- !u!4 &254266574
 Transform:
   m_ObjectHideFlags: 0
@@ -1597,7 +1599,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: -4.441163e-16, y: 0, z: 0, w: 6e-45}
+  m_BoundingSphereOverride: {x: 0, y: 1.1046182e+27, z: 1.7582455e+22, w: 2.4267352e+24}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3604,6 +3606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialPotion: {fileID: 0}
   shieldSkill: {fileID: 0}
+  key: {fileID: 0}
 --- !u!224 &2060920480
 RectTransform:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public GameObject thunderballPrefab;
     public PlayerSwapWeapons playerSwapWeapons;
     private WeaponType weaponType;
-    public bool isHoldingKey { get; set; }
+    public bool isHoldingKey{ get; set; }
 
     private float lastUseItem;
     private float lastChangeItem;
@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isHoldingKey = false;
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
     }
@@ -138,5 +139,11 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+
+    public void KeyStateChange()
+    {
+        isHoldingKey = !isHoldingKey;
+        GameController.instance.uI_HotkeyBar.KeyStateChange(isHoldingKey);
     }
 }

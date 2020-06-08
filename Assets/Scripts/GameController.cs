@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     private static int health = 10;
     private static int maxHealth = 10;
     private static float moveSpeed = 5f;
-    private static float bulletSpeed = 5f;
+    private static float bulletSpeed = 7f;
     private static float fireRate = 0.5f;
     private static int xp = 10;
     private static int maxXp = 10;
@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
     public bool isTimeStop = false;
     public static int currentItems = 0;
 
-    private static int bulletCount = 1;
+    private static int bulletCount = 3;
 
     public void Awake()
     {
