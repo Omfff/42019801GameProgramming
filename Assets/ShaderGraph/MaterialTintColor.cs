@@ -45,4 +45,9 @@ public class MaterialTintColor : MonoBehaviour {
         this.tintFadeSpeed = tintFadeSpeed;
     }
 
+    public void SetTintMaterial(Material _material)
+    {
+        material = _material;
+    }
+
 }

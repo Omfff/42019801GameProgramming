@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     private static int health = 10;
     private static int maxHealth = 10;
     private static float moveSpeed = 5f;
+    private static float bulletSpeed = 5f;
     private static float fireRate = 0.5f;
     private static int xp = 10;
     private static int maxXp = 10;
@@ -31,7 +32,7 @@ public class GameController : MonoBehaviour
     public bool isTimeStop = false;
     public static int currentItems = 0;
 
-    private static int bulletCount = 3;
+    private static int bulletCount = 1;
 
     public void Awake()
     {
@@ -42,6 +43,7 @@ public class GameController : MonoBehaviour
     }
     public static int Health { get => health; set => health = value; }
     public static float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
+    public static float BulletSpeed { get => bulletSpeed; set => bulletSpeed = value; }
     public static float FireRate { get => fireRate; set => fireRate = value; }
     public static int MaxHealth { get => maxHealth; set => maxHealth = value; }
     public static int Shield { get => shield; set => shield = value; }
@@ -95,24 +97,26 @@ public class GameController : MonoBehaviour
         GameController.instance.tintEffect.SetTintColor(new Color(0, 0, 1, 0.7f));
         xp = Mathf.Min(maxXp, xp + xpAmount);
     }
-    public static void Buff(float moveSpeedChange, float attackSpeedChange, float bulletSizeChange, int bulletCountChange)
+    public static void Buff(float moveSpeedChange, float attackSpeedChange, float bulletSizeChange, int bulletCountChange, float bulletSpeedChange)
     {
         MoveSpeedChange(moveSpeedChange);
         FireRateChange(attackSpeedChange);
         BulletSizeChange(bulletSizeChange);
         BulletCountChange(bulletCountChange);
+        BulletSpeedChange(bulletSpeedChange);
         GameController.instance.outlineEffect.StartOutline();
         GameController.instance.StartCoroutine(
-            GameController.instance.Reset(moveSpeedChange, attackSpeedChange, bulletSizeChange, bulletCountChange));
+            GameController.instance.Reset(moveSpeedChange, attackSpeedChange, bulletSizeChange, bulletCountChange, bulletSpeedChange));
     }
 
-    IEnumerator Reset(float moveSpeedChange, float attackSpeedChange, float bulletSizeChange, int bulletCountChange)
+    IEnumerator Reset(float moveSpeedChange, float attackSpeedChange, float bulletSizeChange, int bulletCountChange, float bulletSpeedChange)
     {
         yield return new WaitForSeconds(buffLastTime);
         MoveSpeedChange(-moveSpeedChange);
         FireRateChange(-attackSpeedChange);
         BulletSizeChange(-bulletSizeChange);
         BulletCountChange(-bulletCountChange);
+        BulletSpeedChange(-bulletSpeedChange);
         GameController.instance.outlineEffect.StopOutline();
     }
 
@@ -123,6 +127,15 @@ public class GameController : MonoBehaviour
             GameController.instance.outlineEffect.SetOutlineColor(Color.blue);
         }
         moveSpeed += speed;
+    }
+
+    public static void BulletSpeedChange(float speed)
+    {
+        if (speed > 0)
+        {
+            GameController.instance.outlineEffect.SetOutlineColor(Color.red);
+        }
+        bulletSpeed += speed;
     }
 
     public static void FireRateChange(float rate)
@@ -141,9 +154,9 @@ public class GameController : MonoBehaviour
 
     }
 
-    public static void BulletCountChange(float size)
+    public static void BulletCountChange(int size)
     {
-        bulletSize += size;
+        bulletCount += size;
         if (size > 0)
             GameController.instance.outlineEffect.SetOutlineColor(Color.yellow);
 

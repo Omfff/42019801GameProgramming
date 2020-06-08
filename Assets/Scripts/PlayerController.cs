@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         fireDelay = GameController.FireRate;
         speed = GameController.MoveSpeed;
+        bulletSpeed = GameController.BulletSpeed;
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         //记录朝向，否则静止时以上值为0，无法射击

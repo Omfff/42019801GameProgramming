@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -5990014465743367733}
   - component: {fileID: -5765564902000966775}
   - component: {fileID: 4855504899801059229}
+  - component: {fileID: 2880344467254435788}
   m_Layer: 0
   m_Name: Soldier_3
   m_TagString: Enemy
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c2a198d0fb32e4267859cfbc17880831, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147,7 +148,7 @@ MonoBehaviour:
     type: 3}
   damageTextPf: {fileID: 1341119808855457649, guid: fe41a03fff23a404f9ac793146a9e4a5,
     type: 3}
-  bulletPrefab: {fileID: 8912613753944397765, guid: a9a08406e8a60cc4a9b9d002a99147f5,
+  bulletPrefab: {fileID: 8912613753944397765, guid: b02d5786e5afaac479b933a6426437e5,
     type: 3}
 --- !u!195 &4855504899801059229
 NavMeshAgent:
@@ -171,3 +172,16 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2880344467254435788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7263141749295231830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6893fa1527270f948afbfeaee5536ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: c2a198d0fb32e4267859cfbc17880831, type: 2}

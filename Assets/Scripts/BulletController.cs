@@ -55,14 +55,14 @@ public class BulletController : MonoBehaviour
         switch (bulletType)
         {
             case BulletType.Normal:
-                bulletSpeed = 8f;
+                bulletSpeed = 5f;
                 StartCoroutine(DeathDelay());
                 break;
             case BulletType.Bomb:
                 bulletSpeed = 2f;
                 break;
             case BulletType.Slalom:
-                bulletSpeed = 7f;
+                bulletSpeed = 6f;
                 startPos = transform.position;
                 slalomFirst = true;
                 break;
