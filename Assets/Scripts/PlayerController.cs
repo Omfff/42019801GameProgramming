@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public GameObject thunderballPrefab;
     public PlayerSwapWeapons playerSwapWeapons;
     private WeaponType weaponType;
+    public bool isHoldingKey { get; set; }
 
     private float lastUseItem;
     private float lastChangeItem;

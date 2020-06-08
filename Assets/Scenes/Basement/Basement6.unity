@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -298,13 +298,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 250762962}
+  - component: {fileID: 250762968}
   - component: {fileID: 250762964}
   - component: {fileID: 250762963}
   - component: {fileID: 250762965}
   - component: {fileID: 250762966}
+  - component: {fileID: 250762967}
   m_Layer: 0
   m_Name: LockedTreasure
-  m_TagString: Untagged
+  m_TagString: Treasure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -484,6 +486,35 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!19719996 &250762967
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250762961}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
+--- !u!114 &250762968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250762961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de1d79f2da1bc4bc6a27b12528ffe6eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openedTreasure: {fileID: 2126221083}
 --- !u!1 &333767404
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,6 +2141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 723884545}
+  - component: {fileID: 723884551}
   - component: {fileID: 723884548}
   - component: {fileID: 723884547}
   - component: {fileID: 723884546}
@@ -2117,7 +2149,7 @@ GameObject:
   - component: {fileID: 723884550}
   m_Layer: 0
   m_Name: LockedDoor
-  m_TagString: Untagged
+  m_TagString: LockedDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2313,6 +2345,19 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!114 &723884551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723884544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1a185dde4e0487eb1a1328042af2a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openedDoor: {fileID: 173808725}
 --- !u!1 &768871333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2848,8 +2893,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1926516481
-  m_SortingLayer: -1
+  m_SortingLayerID: -606124307
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -3680,6 +3725,7 @@ GameObject:
   - component: {fileID: 2126221086}
   - component: {fileID: 2126221085}
   - component: {fileID: 2126221087}
+  - component: {fileID: 2126221088}
   m_Layer: 0
   m_Name: OpenTreasure
   m_TagString: Untagged
@@ -3836,3 +3882,19 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!19719996 &2126221088
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126221083}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001

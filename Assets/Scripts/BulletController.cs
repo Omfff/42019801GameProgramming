@@ -268,6 +268,11 @@ public class BulletController : MonoBehaviour
         {
             Debug.Log("untagged is "+isEnemyBullet);
         }
+        else if (col.tag == "Jar" && !isEnemyBullet)
+        {
+            col.gameObject.transform.parent.FindChild("Broken" + col.name).gameObject.SetActive(true);
+            col.gameObject.SetActive(false);
+        }
     }
 
 }

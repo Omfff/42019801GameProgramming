@@ -100,6 +100,6 @@ Material:
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _OutlineColor2: {r: 0, g: 0.7529412, b: 1.498039, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Tint: {r: 0, g: 0, b: 0, a: 0.40081245}
+    - _Tint: {r: 0, g: 0, b: 0, a: 1}
     - _UvOffset: {r: 0, g: 0, b: 0, a: 0}
     - _UvTiling: {r: 1, g: 1, b: 0, a: 0}

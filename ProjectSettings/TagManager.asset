@@ -9,6 +9,10 @@ TagManager:
   - ItemSpawner
   - Shield
   - Item
+  - Jar
+  - Key
+  - LockedDoor
+  - Treasure
   layers:
   - Default
   - TransparentFX
