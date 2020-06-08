@@ -55,14 +55,14 @@ public class BulletController : MonoBehaviour
         switch (bulletType)
         {
             case BulletType.Normal:
-                bulletSpeed = 8f;
+                bulletSpeed = 5f;
                 StartCoroutine(DeathDelay());
                 break;
             case BulletType.Bomb:
                 bulletSpeed = 2f;
                 break;
             case BulletType.Slalom:
-                bulletSpeed = 7f;
+                bulletSpeed = 6f;
                 startPos = transform.position;
                 slalomFirst = true;
                 break;
@@ -267,6 +267,11 @@ public class BulletController : MonoBehaviour
         else if (col.tag == "Untagged" && bulletType == BulletType.Projectile) 
         {
             Debug.Log("untagged is "+isEnemyBullet);
+        }
+        else if (col.tag == "Jar" && !isEnemyBullet)
+        {
+            col.gameObject.transform.parent.Find("Broken" + col.name).gameObject.SetActive(true);
+            col.gameObject.SetActive(false);
         }
     }
 

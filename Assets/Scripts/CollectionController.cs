@@ -21,6 +21,7 @@ public class CollectionController : MonoBehaviour
     public Item item;
     public int healthChange;
     public float moveSpeedChange;
+    public float bulletSpeedChange;
     public float attackSpeedChange;
     public float bulletSizeChange;
     public int bulletCountChange;
@@ -40,7 +41,7 @@ public class CollectionController : MonoBehaviour
             {
                 case ItemType.Buff:
                     GameController.HealPlayer(healthChange);
-                    GameController.Buff(moveSpeedChange, attackSpeedChange, bulletSizeChange, bulletCountChange);
+                    GameController.Buff(moveSpeedChange, attackSpeedChange, bulletSizeChange, bulletCountChange, bulletSpeedChange);
                     Destroy(gameObject);
                     break;
                 case ItemType.Storage:

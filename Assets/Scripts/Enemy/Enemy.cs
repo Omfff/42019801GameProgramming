@@ -92,6 +92,11 @@ public class Enemy : MonoBehaviour
         wanderChangeInterval = 3f;
         wanderRadius = range;
         wanderTimer = wanderChangeInterval;
+
+        Material material = new Material(Shader.Find("Shader Graphs/Outline"));
+        gameObject.GetComponent<MaterialTintColor>().SetTintMaterial(material);
+        gameObject.GetComponent<SpriteRenderer>().material = material;
+
         if (!agent.isOnNavMesh)
         {
             agent.Warp(transform.position);
@@ -290,9 +295,10 @@ public class Enemy : MonoBehaviour
         GameObject itemSpawner = GameObject.FindGameObjectWithTag("ItemSpawner");
         itemSpawner.GetComponent<ItemSpawner>().dropItemAftherEnemyDeath(transform.position);
 
+        RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine(0));
+
         Destroy(gameObject);
 
-        RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine(0));
     }
 
     protected virtual void Attack()
@@ -323,8 +329,8 @@ public class Enemy : MonoBehaviour
         if (health > 0)
         {
             // hurt effect:splash
-            gameObject.GetComponent<MaterialTintColor>().SetTintFadeSpeed(1f);
-            gameObject.GetComponent<MaterialTintColor>().SetTintColor(Color.black);
+            gameObject.GetComponent<MaterialTintColor>().SetTintFadeSpeed(6f);
+            gameObject.GetComponent<MaterialTintColor>().SetTintColor(Color.red);
             //Invoke("ResetMaterial", 0.1f);
         }
         else

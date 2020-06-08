@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 767193e9c9747604381cafecd8bb04c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 0.5
+  lifeTime: 0.7
   isEnemyBullet: 0
   destPos: {x: 0, y: 0}
   bulletSpeed: 0

@@ -8,7 +8,8 @@ public class Door : MonoBehaviour
 
     private GameObject player;
 
-    private float widthOffset = 3.5f;
+    private float widthOffset = 9f;
+    private float heightOffset = 6f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,22 +25,26 @@ public class Door : MonoBehaviour
             if (player.transform.position.x + 2f < roomCentre.x)
             {
                 Debug.Log("Player enter the left door");
-                player.transform.position = new Vector2(player.transform.position.x - widthOffset, player.transform.position.y);
+                // player.transform.position = new Vector2(player.transform.position.x - widthOffset, player.transform.position.y);
+                player.transform.position = new Vector2(roomCentre.x - widthOffset, roomCentre.y);
             }
             else if (player.transform.position.x - 2f > roomCentre.x)
             {
                 Debug.Log("Player enter the right door");
-                player.transform.position = new Vector2(player.transform.position.x + widthOffset, player.transform.position.y);
+                // player.transform.position = new Vector2(player.transform.position.x + widthOffset, player.transform.position.y);
+                player.transform.position = new Vector2(roomCentre.x + widthOffset, roomCentre.y);
             }
             else if (player.transform.position.y + 2f < roomCentre.y)
             {
                 Debug.Log("Player enter the bottom door");
-                player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y - widthOffset);
+                // player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y - widthOffset);
+                player.transform.position = new Vector2(roomCentre.x, roomCentre.y - heightOffset);
             }
             else if (player.transform.position.y - 2f > roomCentre.y)
             {
                 Debug.Log("Player enter the top door");
-                player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + widthOffset);
+                // player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + widthOffset);
+                player.transform.position = new Vector2(roomCentre.x, roomCentre.y + heightOffset);
             }
         }
     }
