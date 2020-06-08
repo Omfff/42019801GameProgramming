@@ -47,7 +47,7 @@ public class BossHpBar : MonoBehaviour
         {
             if(boss == null)
             {
-                boss = GameObject.Find("Boss(Clone)");
+                boss = GameObject.Find("BOSS(Clone)");
                 if (boss != null)
                 {
                     SetMaxHealth(boss.GetComponent<Boss>().health);
