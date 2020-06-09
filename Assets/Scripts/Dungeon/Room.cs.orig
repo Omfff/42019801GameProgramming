@@ -52,6 +52,9 @@ public class Room : MonoBehaviour
             RoomController.instance.OnPlayerEnterRoom(this);
         }
     }
+<<<<<<< HEAD
+}
+=======
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "Player")
@@ -60,3 +63,4 @@ public class Room : MonoBehaviour
         }
     }
 }
+>>>>>>> bhy
