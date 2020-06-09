@@ -78,7 +78,12 @@ public class Boss : Enemy
 
     private IEnumerator ShieldOpen()
     {
-        gameObject.GetComponent<ShieldController>().Open(3f);
+        float shieldSize = 3f;
+        if(enemyType == EnemyType.SplittedBoss)
+        {
+            shieldSize = 0.75f;
+        }
+        gameObject.GetComponent<ShieldController>().Open(shieldSize);
         yield return new WaitForSeconds(3f);
         gameObject.GetComponent<ShieldController>().Close();
         isAttacking = false;

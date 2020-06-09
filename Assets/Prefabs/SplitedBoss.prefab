@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currState: 0
-  enemyType: 4
+  enemyType: 5
   health: 10
   range: 50
   speed: 3

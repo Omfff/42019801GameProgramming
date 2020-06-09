@@ -26,7 +26,9 @@ public enum EnemyType
 
     Laser,
 
-    Boss
+    Boss,
+
+    SplittedBoss
 };
 
 public class Enemy : MonoBehaviour

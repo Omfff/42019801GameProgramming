@@ -71,7 +71,7 @@ public class LaserEnemy:Enemy
                 {
 
                     hitInfo = hitInfoList[i];
-                    if (hitInfo.transform.tag == "Enemy" || hitInfo.transform.tag == "Bullet")
+                    if (hitInfo.transform.tag == "Enemy" || hitInfo.transform.tag == "Bullet" || hitInfo.transform.tag == "Shield")
                     {
                         continue;
                     }
