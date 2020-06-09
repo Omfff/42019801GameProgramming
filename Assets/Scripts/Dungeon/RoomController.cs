@@ -176,8 +176,8 @@ public class RoomController : MonoBehaviour
             }
         }
         //modify minimap
-        CameraController.instance.currRoom = room;
-        currRoom = room;
+        //CameraController.instance.currRoom = room;
+        //currRoom = room;
         Transform[] grandFa;
         grandFa = room.GetComponentsInChildren<Transform>();
         foreach (Transform child in grandFa)
