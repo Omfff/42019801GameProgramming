@@ -29,3 +29,26 @@
 + UI: hp and xp bar, weapons，player‘s item
 + Sprite material: make and control 2d movement animation
 + Map：room generation
+
+
+
+### Week4(5.21 - 5.29)
+
++ Player: change sprite, and weapon 
+
++ Enemy: pathfinding and attacking movement based on navmesh 2d
+
++ Sprite material: Completed the prefebs of players and all enemies with animation
+
++ Map: a complete map of a level with baked navmesh surfaces.
+
++ Integration: Integrate several parts, including player ,enemies and map and sprite animation.
+
+### Week5(5.30- 6.3)
+
++ Enemy: added boss attack methods and skills , including different types of bullet and 4 skills 
++ Minimap: preliminary development minimap
++ UI: start interface and transition interface
++ Map: add decorations and obstacle.
+
+  
