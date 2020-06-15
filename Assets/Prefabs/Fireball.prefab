@@ -100,7 +100,7 @@ MonoBehaviour:
   isEnemyBullet: 0
   destPos: {x: 0, y: 0}
   bulletSpeed: 0
-  damage: 3
+  damage: 4
   explosionEffect: {fileID: 0}
   bulletType: 0
   Player: {fileID: 0}

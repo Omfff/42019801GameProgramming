@@ -226,7 +226,35 @@ public class BulletController : MonoBehaviour
     {
         if (col.tag == "Enemy" && !isEnemyBullet)
         {
-            col.gameObject.GetComponent<Enemy>().getHurt(damage);
+            Enemy enemy = col.gameObject.GetComponent<Enemy>();
+            switch (gameObject.name)
+            {
+                case "thunderball(Clone)":
+                    //麻痹
+                    float speed = enemy.speed;
+                    enemy.speed = 0;
+                    StartCoroutine(ResetThunder(enemy, speed));
+                    enemy.getHurt(damage);
+                    break;
+                case "Waterball(Clone)":
+                    //减速减攻速
+                    speed = enemy.speed;
+                    float coolDown = enemy.coolDown;
+                    enemy.speed -= 1;
+                    enemy.coolDown += 2;
+                    StartCoroutine(ResetWater(enemy, speed, coolDown));
+                    enemy.getHurt(damage);
+
+                    break;
+                case "Fireball(Clone)":
+                    //持续伤害
+                    enemy.StartCoroutine(ContinuousDamage(enemy));
+                    break;
+                default:
+                    enemy.getHurt(damage);
+                    break;
+            }
+            //col.gameObject.GetComponent<Enemy>().getHurt(damage);
             Destroy(gameObject);
         }
         else if (col.tag == "Player" && isEnemyBullet)
@@ -275,4 +303,27 @@ public class BulletController : MonoBehaviour
         }
     }
 
+
+    IEnumerator ResetThunder(Enemy enemy, float speed)
+    {
+        yield return new WaitForSeconds(2.0f);
+        enemy.speed = speed;
+    }
+
+    IEnumerator ResetWater(Enemy enemy, float speed, float coolDown)
+    {
+        yield return new WaitForSeconds(2.0f);
+        enemy.speed = speed;
+        enemy.coolDown = coolDown;
+    }
+
+    IEnumerator ContinuousDamage(Enemy enemy)
+    {
+        int times = Mathf.FloorToInt(damage);
+        for(int i = 0; i < times; ++i)
+        {
+            enemy.getHurt(damage / times);
+            yield return new WaitForSeconds(0.7f);
+        }
+    }
 }
