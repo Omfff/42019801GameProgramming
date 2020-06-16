@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4365052504725255425}
   m_Layer: 0
   m_Name: Bomb
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,11 +218,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 3
   isEnemyBullet: 1
+  destPos: {x: 0, y: 0}
   bulletSpeed: 2
   damage: 1
   explosionEffect: {fileID: 1755349173569476, guid: 3c45864be6a059a4a82a25e285298338,
     type: 3}
   bulletType: 1
+  Player: {fileID: 0}
+  startPos: {x: 0, y: 0}
+  slalomFirst: 0
+  projectileStart: 0
 --- !u!114 &4365052504725255425
 MonoBehaviour:
   m_ObjectHideFlags: 0

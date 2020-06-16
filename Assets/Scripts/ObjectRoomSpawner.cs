@@ -38,7 +38,11 @@ public class ObjectRoomSpawner : MonoBehaviour
         else if (data.spawnerData.name == "PatrolEnemy" && data.positionList.Length > 0)
         {
             GameObject enemy = Instantiate(data.spawnerData.itemToSpawn, data.positionList[0].position, Quaternion.identity, transform) as GameObject;
-            enemy.GetComponent<PatrolEnemy>().SetPatrolPos(data.positionList);   
+            enemy.GetComponent<PatrolEnemyAi>().SetPatrolPos(data.positionList);   
+        }else if(data.spawnerData.name == "PatrolObstacle" && data.positionList.Length > 0)
+        {
+            GameObject obstacle = Instantiate(data.spawnerData.itemToSpawn, data.positionList[0].position, Quaternion.identity, transform) as GameObject;
+            obstacle.GetComponent<PatrolObstacle>().SetPatrolPos(data.positionList);
         }
         else
         {

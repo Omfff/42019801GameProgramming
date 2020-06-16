@@ -51,6 +51,8 @@ public class Enemy : MonoBehaviour
 
     public float speed;
 
+    public float attackRange;
+
     public bool notInRoom = false;
 
     public GameObject deathEffect;
@@ -112,6 +114,10 @@ public class Enemy : MonoBehaviour
 
         Destroy(gameObject);
 
+    }
+
+    protected virtual void Attack()
+    {
     }
 
     protected bool IsPlayerInRange(float range)

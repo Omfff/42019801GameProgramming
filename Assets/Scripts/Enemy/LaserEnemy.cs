@@ -7,6 +7,10 @@ public class LaserEnemy:FollowingEnemyAi
 
     private LineRenderer lineRenderer = null;
 
+    public LineRenderer aimingRayPf;
+
+    private LineRenderer aimingRayLineRender = null;
+
     public float rayTime = 1.5f;
 
     private bool isCasting = false;
@@ -16,6 +20,7 @@ public class LaserEnemy:FollowingEnemyAi
     private void Awake()
     {
         lineRenderer = Instantiate(lineRenderPf, transform.position, Quaternion.identity) as LineRenderer;
+        aimingRayLineRender = Instantiate(aimingRayPf, transform.position, Quaternion.identity) as LineRenderer;
         attackRange = 7;
         range = 11;
     }
@@ -27,12 +32,17 @@ public class LaserEnemy:FollowingEnemyAi
             StopCoroutine(castingCoroutine);
             lineRenderer.GetComponent<Destroyer>().DestroyMe();
             lineRenderer.enabled = false;
+            aimingRayLineRender.GetComponent<Destroyer>().DestroyMe();
+            aimingRayLineRender.enabled = false;
 
         }
         else
         {
             if (enemyType == EnemyType.Laser)
+            {
                 lineRenderer.GetComponent<Destroyer>().DestroyMe();
+                aimingRayLineRender.GetComponent<Destroyer>().DestroyMe();
+            }
         }
         base.Death();
     }
@@ -58,7 +68,24 @@ public class LaserEnemy:FollowingEnemyAi
         {
             if (castingTime == 0)
             {
-                yield return new WaitForSeconds(0.5f);
+                float aimingTime = 0.8f;
+                float defaultWidth = aimingRayLineRender.startWidth;
+                float currWidth;
+                float flashingInterval = 0.2f;
+                // line flashing
+                while (aimingTime > 0) {
+                    aimingRayLineRender.SetPosition(0, transform.position);
+                    aimingRayLineRender.SetPosition(1, playerPos);
+                    currWidth = aimingRayLineRender.startWidth == 0 ? defaultWidth : 0;
+                    aimingRayLineRender.startWidth = currWidth;
+                    aimingRayLineRender.endWidth = currWidth;
+                    aimingRayLineRender.enabled = true;
+                    yield return new WaitForSeconds(flashingInterval);
+                    aimingTime -= flashingInterval;
+                }
+                aimingRayLineRender.startWidth = defaultWidth;
+                aimingRayLineRender.endWidth = defaultWidth;
+                aimingRayLineRender.enabled = false;
             }
             RaycastHit2D[] hitInfoList = Physics2D.RaycastAll(transform.position,
                 (playerPos - transform.position).normalized);

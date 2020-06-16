@@ -6,7 +6,8 @@ public enum PatrolDir
 
     Return
 }
-public class PatrolEnemy : Enemy
+
+public class PatrolEnemyAi:Enemy
 {
     [SerializeField] protected Transform[] destinationList;
     protected int currDestinationIndex;
@@ -32,6 +33,10 @@ public class PatrolEnemy : Enemy
         if (destinationList != null && destinationList.Length > 0)
         {
             Move();
+            if (IsPlayerInRange(attackRange))
+            {
+                Attack();
+            }
         }
     }
 
@@ -72,6 +77,18 @@ public class PatrolEnemy : Enemy
         else
         {
             transform.position = Vector2.MoveTowards(transform.position, destinationList[currDestinationIndex].position, speed * Time.deltaTime);
+        }
+    }
+
+    protected Vector3 GetPreviousDestination()
+    {
+        if (patrolDir == PatrolDir.Go)
+        {
+            return destinationList[currDestinationIndex - 1].position;
+        }
+        else
+        {
+            return destinationList[currDestinationIndex + 1].position;
         }
     }
 
