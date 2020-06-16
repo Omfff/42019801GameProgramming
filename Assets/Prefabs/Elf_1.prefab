@@ -135,20 +135,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currState: 0
-  enemyType: 4
+  enemyType: 3
   health: 10
-  range: 7
   speed: 1
-  attackRange: 5
-  coolDown: 3
-  wanderRadius: 0
-  wanderChangeInterval: 0
   notInRoom: 0
   deathEffect: {fileID: 1755349173569476, guid: 3c45864be6a059a4a82a25e285298338,
     type: 3}
   damageTextPf: {fileID: 1341119808855457649, guid: fe41a03fff23a404f9ac793146a9e4a5,
     type: 3}
+  range: 7
+  attackRange: 5
+  coolDown: 3
+  wanderRadius: 0
+  wanderChangeInterval: 0
   lineRenderPf: {fileID: 5799151423404851655, guid: 964ba1248bdbc446fb1863e438402afc,
+    type: 3}
+  aimingRayPf: {fileID: 1701221446181164770, guid: 0a6e2cd53bdad4496ab5c130f2b73ac3,
     type: 3}
   rayTime: 1.5
 --- !u!195 &-5006760057450749565

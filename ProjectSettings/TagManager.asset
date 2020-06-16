@@ -13,6 +13,7 @@ TagManager:
   - Key
   - LockedDoor
   - Treasure
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -28,10 +29,6 @@ TagManager:
   - 
   - UnBullet
   - Bullet
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
