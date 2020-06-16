@@ -9,6 +9,7 @@ public class ObjectRoomSpawner : MonoBehaviour
     public struct RandomSpawner
     {
         public string name;
+        public Transform[] positionList;
         public SpawnerData spawnerData;
     }
 
@@ -34,15 +35,14 @@ public class ObjectRoomSpawner : MonoBehaviour
         {
             GameObject go = Instantiate(data.spawnerData.itemToSpawn, RoomController.instance.getCurrentRoomCenter(), Quaternion.identity, transform) as GameObject;
         }
+        else if (data.spawnerData.name == "PatrolEnemy" && data.positionList.Length > 0)
+        {
+            GameObject enemy = Instantiate(data.spawnerData.itemToSpawn, data.positionList[0].position, Quaternion.identity, transform) as GameObject;
+            enemy.GetComponent<PatrolEnemy>().SetPatrolPos(data.positionList);   
+        }
         else
         {
-            int randomNum = Random.Range(data.spawnerData.minSpawn, data.spawnerData.maxSpawn + 1);
-            Vector3[] posList = GenerateRandomPos(RoomController.instance.getCurrentRoomCenter(), RoomController.instance.getCurrentRoomMinRange() / 2 - 1, -1, randomNum);
-            for (int i = 0; i < randomNum; i++)
-            {
-                GameObject go = Instantiate(data.spawnerData.itemToSpawn, posList[i], Quaternion.identity, transform) as GameObject;
-
-            }
+            GameObject enemy = Instantiate(data.spawnerData.itemToSpawn, data.positionList[0].position, Quaternion.identity, transform) as GameObject;
         }
     }
 

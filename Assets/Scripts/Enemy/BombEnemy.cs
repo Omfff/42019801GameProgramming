@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
-public class BombEnemy:Enemy
+public class BombEnemy:FollowingEnemyAi
 {
 
     public GameObject bulletPrefab;

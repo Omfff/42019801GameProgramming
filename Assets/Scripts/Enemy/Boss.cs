@@ -17,7 +17,7 @@ public enum BossSkill
 
     SingleShoot,
 };
-public class Boss : Enemy
+public class Boss : FollowingEnemyAi
 {
     private bool isAttacking;
     public GameObject splitedBossPf;

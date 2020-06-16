@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System;
-public class ShootEnemy:Enemy
+public class ShootEnemy:FollowingEnemyAi
 {
     public GameObject bulletPrefab;
 
