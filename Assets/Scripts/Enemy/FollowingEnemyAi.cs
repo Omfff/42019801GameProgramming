@@ -23,6 +23,12 @@ public class FollowingEnemyAi : Enemy
 
     protected NavMeshAgent agent;
 
+    protected bool isSlowDown = false;
+
+    //protected float slowDownRate;
+
+    protected Vector3 slowDownVelocity;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +36,7 @@ public class FollowingEnemyAi : Enemy
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        agent.speed = speed;
         wanderChangeInterval = 3f;
         wanderRadius = range;
         wanderTimer = wanderChangeInterval;
@@ -46,7 +53,7 @@ public class FollowingEnemyAi : Enemy
                 range = 10;
                 break;
             case (EnemyType.Dash):
-                attackRange = 4;
+                attackRange = 3;
                 range = 8;
                 coolDown = 2;
                 break;
@@ -65,9 +72,17 @@ public class FollowingEnemyAi : Enemy
                 break;
             case (EnemyState.Wander):
                 Wander();
+                if (isSlowDown)
+                {
+                    agent.velocity = slowDownVelocity;
+                }
                 break;
             case (EnemyState.Follow):
                 Follow();
+                if (isSlowDown)
+                {
+                    agent.velocity = slowDownVelocity;
+                }
                 break;
             case (EnemyState.Die):
                 break;
@@ -247,6 +262,40 @@ public class FollowingEnemyAi : Enemy
                 return navHit.position;  
             }
         }
+    }
+
+    public override void SlowDownMovingSpeed(float slowDownRate)
+    {
+        if (!isSlowDown)
+        {
+            isSlowDown = true;
+            slowDownVelocity = agent.velocity * slowDownRate;
+        }
+    }
+
+    public override void FrozenMovement()
+    {
+        SlowDownMovingSpeed(0);
+    }
+
+    public override void RecoverMovingSpeed()
+    {
+        isSlowDown = false;
+    }
+
+    public override float GetCoolDownTime()
+    {
+        return this.coolDown;
+    }
+
+    public override void IncreaseAttackCoolTime(float time)
+    {
+        this.coolDown += time;
+    }
+
+    public override void SetCoolDownTime(float time)
+    {
+        this.coolDown = time;
     }
 
 }

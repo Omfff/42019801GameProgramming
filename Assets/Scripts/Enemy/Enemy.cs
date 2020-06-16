@@ -74,7 +74,6 @@ public class Enemy : MonoBehaviour
             case (EnemyType.Ranged):
                 break;
             case (EnemyType.Dash):
-
                 break;
             case EnemyType.Laser:
 
@@ -142,10 +141,20 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    public virtual void FrozenMovement(){}
+
+    public virtual void SlowDownMovingSpeed(float slowDownRate){}
+
+    public virtual void RecoverMovingSpeed(){}
+
+    public virtual float GetCoolDownTime()
     {
-  
+        return 0;
     }
 
+    public virtual void SetCoolDownTime(float time){}
 
+    public virtual void IncreaseAttackCoolTime(float time){}
+
+    protected virtual void OnCollisionEnter2D(Collision2D collision){}
 }

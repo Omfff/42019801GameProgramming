@@ -135,19 +135,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currState: 0
-  enemyType: 1
+  enemyType: 0
   health: 8
-  range: 5
   speed: 1
-  attackRange: 3
-  coolDown: 2
-  wanderRadius: 0
-  wanderChangeInterval: 0
   notInRoom: 0
   deathEffect: {fileID: 1755349173569476, guid: 3c45864be6a059a4a82a25e285298338,
     type: 3}
   damageTextPf: {fileID: 1341119808855457649, guid: fe41a03fff23a404f9ac793146a9e4a5,
     type: 3}
+  range: 5
+  attackRange: 3
+  coolDown: 2
+  wanderRadius: 0
+  wanderChangeInterval: 0
   dashEffect: {fileID: 0}
 --- !u!195 &5921054472145767861
 NavMeshAgent:

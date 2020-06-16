@@ -82,7 +82,7 @@ public class GameController : MonoBehaviour
     }
     public static void RemoveXp(int damage)
     {
-        xp -= damage;
+        //xp -= damage;
     }
     public static void HealPlayer(int healAmount)
     {
