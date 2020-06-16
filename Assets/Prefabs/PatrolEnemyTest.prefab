@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2347079144608428984}
   - component: {fileID: 2347079144608428987}
   - component: {fileID: 2347079144608428986}
-  - component: {fileID: 2347079144608428981}
+  - component: {fileID: 8497952120686782670}
   m_Layer: 0
   m_Name: PatrolEnemyTest
   m_TagString: Enemy
@@ -99,7 +99,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2347079144608428981
+--- !u!114 &8497952120686782670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,16 +108,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 2347079144608428980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8026de4d5cea347c1abed41f5c140674, type: 3}
+  m_Script: {fileID: 11500000, guid: a4521e6a5848a4e428a54df70f0f1fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currState: 5
+  currState: 0
   enemyType: 6
-  health: 20
+  health: 10
   speed: 1
+  attackRange: 4
   notInRoom: 0
   deathEffect: {fileID: 1755349173569476, guid: 3c45864be6a059a4a82a25e285298338,
     type: 3}
   damageTextPf: {fileID: 1341119808855457649, guid: fe41a03fff23a404f9ac793146a9e4a5,
     type: 3}
   destinationList: []
+  lineRenderPf: {fileID: 5799151423404851655, guid: 964ba1248bdbc446fb1863e438402afc,
+    type: 3}
+  rayTime: 1.5

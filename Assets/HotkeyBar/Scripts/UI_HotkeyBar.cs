@@ -144,6 +144,10 @@ public class UI_HotkeyBar : MonoBehaviour {
                     specialPotion.GetComponent<Image>().sprite = Testing.Instance.stealthPotionSprite;
                     specialPotion.GetComponent<Image>().color = new Color(1, 1, 1, 1);
                     break;
+                case "count":
+                    specialPotion.GetComponent<Image>().sprite = Testing.Instance.CountSprite;
+                    specialPotion.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                    break;
             }
         }
         else

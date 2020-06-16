@@ -47,7 +47,7 @@ public class Boss : FollowingEnemyAi
             isAttacking = true;
             gameObject.GetComponent<OutlineEffect>().StopOutline();
             BossSkill skill = RandomEnumValue<BossSkill>();
-            //BossSkill skill = BossSkill.Omnidirection;
+            //skill = BossSkill.Omnidirection;
             switch (skill)
             {
                 case BossSkill.Heal:
@@ -140,6 +140,7 @@ public class Boss : FollowingEnemyAi
         gameObject.GetComponent<OutlineEffect>().StopOutline();
 
         BulletType bulletType = RandomEnumValue<BulletType>();
+        //bulletType = BulletType.Projectile;
         for(int i = 0; i < direction; i++)
         {
             GameObject bullet;
@@ -199,6 +200,7 @@ public class Boss : FollowingEnemyAi
                     _gameObject.transform.position += new Vector3(Mathf.Cos(i * 22.5f * Mathf.Deg2Rad), Mathf.Sin(i * 22.5f * Mathf.Deg2Rad), 0) * dis;
                     bullet.GetComponent<BulletController>().GetPlayer(_gameObject.transform);
                     bullet.GetComponent<BulletController>().isEnemyBullet = true;
+                    Destroy(_gameObject);
 
                     break;
                 default:

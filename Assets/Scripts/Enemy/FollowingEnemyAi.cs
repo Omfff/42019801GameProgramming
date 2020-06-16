@@ -7,8 +7,6 @@ public class FollowingEnemyAi : Enemy
 
     public float range;
 
-    public float attackRange;
-
     public float coolDown;
 
     public float wanderRadius;
@@ -267,10 +265,6 @@ public class FollowingEnemyAi : Enemy
             agent.isStopped = true;
             animator.CrossFade("Idle Down", 0.1f);
         }
-    }
-
-    protected virtual void Attack()
-    {
     }
 
     protected IEnumerator CoolDown()
