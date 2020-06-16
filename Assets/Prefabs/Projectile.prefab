@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2293307228195006726}
   - component: {fileID: 4683703507427646651}
   - component: {fileID: 1656137688}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 110974235301190724, guid: 34a94a415dddde94288b605d6711df1b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 549c85676b0796d41ad0640326e7f5c2, type: 3}
   m_Color: {r: 0.9960785, g: 0.9960785, b: 0.9960785, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.22, y: 0.22}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -131,4 +131,5 @@ MonoBehaviour:
   Player: {fileID: 0}
   startPos: {x: 0, y: 0}
   slalomFirst: 0
+  acceleration: 5
   projectileStart: 0

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    type: 0
+    type: 1
     name: count
     description: 
     itemImage: {fileID: 21300000, guid: d0e9f8206ec1abf44aa00977cf86141d, type: 3}

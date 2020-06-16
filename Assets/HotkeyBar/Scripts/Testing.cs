@@ -31,6 +31,7 @@ public class Testing : MonoBehaviour {
     public Sprite stealthPotionSprite;
     public Sprite shieldSkillSprite;
     public Sprite keySprite;
+    public Sprite CountSprite;
 
     private HotkeyAbilitySystem hotkeyAbilitySystem;
 

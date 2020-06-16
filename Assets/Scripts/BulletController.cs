@@ -47,6 +47,8 @@ public class BulletController : MonoBehaviour
 
     public bool slalomFirst;
 
+    public float acceleration = 10.0f;
+
     public bool projectileStart;
     // Start is called before the first frame update
     void Start() 
@@ -62,7 +64,7 @@ public class BulletController : MonoBehaviour
                 bulletSpeed = 2f;
                 break;
             case BulletType.Slalom:
-                bulletSpeed = 6f;
+                bulletSpeed = 0f;
                 startPos = transform.position;
                 slalomFirst = true;
                 break;
@@ -118,24 +120,36 @@ public class BulletController : MonoBehaviour
                 case BulletType.Slalom:
                     curPos = transform.position;
                     destPos = playerPos + moveDir * 2.0f;
-                    if (slalomFirst)
+                    //Debug.Log("1:         " + (curPos - destPos).sqrMagnitude);
+                    if ((curPos - destPos).sqrMagnitude < (startPos - destPos).sqrMagnitude / 4)
                     {
-                        transform.position = Vector2.MoveTowards(transform.position, destPos, bulletSpeed * Time.deltaTime);
+                        acceleration = -10;
                     }
                     else
                     {
-                        transform.position = Vector2.MoveTowards(transform.position, startPos, bulletSpeed * Time.deltaTime);
+                        acceleration = 10;
+                    }
+                    bulletSpeed += acceleration * Time.deltaTime;
+                    if (slalomFirst)
+                    {
+                        transform.position += new Vector3(moveDir.x * bulletSpeed * Time.deltaTime, moveDir.y * bulletSpeed * Time.deltaTime, 0);
+                        //transform.position = Vector2.MoveTowards(transform.position, destPos, bulletSpeed * Time.deltaTime);
+                    }
+                    else
+                    {
+                        Debug.Log("back");
+                        transform.position += new Vector3(moveDir.x * bulletSpeed * Time.deltaTime, moveDir.y * bulletSpeed * Time.deltaTime, 0);
+                        //transform.position = Vector2.MoveTowards(transform.position, startPos, bulletSpeed * Time.deltaTime);
 
                     }
-                    if (curPos == destPos)
+                    if (Vector2.Dot((destPos - curPos),(destPos - startPos)) < 0)
                     {
                         StartCoroutine(SlalomDelay());
                     }
-                    if (curPos == startPos && !slalomFirst)
+                    if ((curPos - startPos).sqrMagnitude < 0.5 && !slalomFirst)
                     {
                         Destroy(gameObject);
                     }
-                    lastPos = curPos;
                     break;
 
                 case BulletType.Tracking:
@@ -218,8 +232,9 @@ public class BulletController : MonoBehaviour
 
     IEnumerator SlalomDelay()
     {
-        yield return new WaitForSeconds(.2f);
+        yield return null;
         slalomFirst = false;
+        bulletSpeed = 0;
     }
 
     void OnTriggerEnter2D(Collider2D col)
