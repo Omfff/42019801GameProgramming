@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
     private static float shieldLastTime = 5.0f;
     private static float shieldCooldown = 10.0f;
     private static float useItemCooldown = 2.0f;
-    private static float changeItemCooldown = 2.0f;
+    private static float changeItemCooldown = 0.2f;
 
     private static float bulletSize = 1.0f;
     public float lastShield;
@@ -106,17 +106,17 @@ public class GameController : MonoBehaviour
         BulletSpeedChange(bulletSpeedChange);
         GameController.instance.outlineEffect.StartOutline();
         GameController.instance.StartCoroutine(
-            GameController.instance.Reset(moveSpeedChange, attackSpeedChange, bulletSizeChange, bulletCountChange, bulletSpeedChange));
+            GameController.instance.Reset());
     }
 
-    IEnumerator Reset(float moveSpeedChange, float attackSpeedChange, float bulletSizeChange, int bulletCountChange, float bulletSpeedChange)
+    IEnumerator Reset()
     {
-        yield return new WaitForSeconds(buffLastTime);
-        MoveSpeedChange(-moveSpeedChange);
-        FireRateChange(-attackSpeedChange);
-        BulletSizeChange(-bulletSizeChange);
-        BulletCountChange(-bulletCountChange);
-        BulletSpeedChange(-bulletSpeedChange);
+        yield return new WaitForSeconds(0.7f);
+        //MoveSpeedChange(-moveSpeedChange);
+        //FireRateChange(-attackSpeedChange);
+        //BulletSizeChange(-bulletSizeChange);
+        //BulletCountChange(-bulletCountChange);
+        //BulletSpeedChange(-bulletSpeedChange);
         GameController.instance.outlineEffect.StopOutline();
     }
 
@@ -224,6 +224,13 @@ public class GameController : MonoBehaviour
                     GameController.instance.storageItems.RemoveAt(currentItems);
                     //特效
                     break;
+                case "count":
+                    BulletCountChange(2);
+                    GameController.instance.outlineEffect.SetOutlineColor(Color.yellow);
+                    GameController.instance.StartCoroutine(GameController.instance.StrengthenEnd());
+                    GameController.instance.storageItems.RemoveAt(currentItems);
+                    //BulletSpeedChange(-bulletSpeedChange);
+                    break;
             }
             if (GameController.instance.storageItems.Count > 0)
             {
@@ -248,6 +255,13 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(buffLastTime);
         GameController.instance.dissolveEffect.StopDissolve(0.7f);
         GameController.instance.isPlayerVisible = true;
+    }
+
+    IEnumerator StrengthenEnd()
+    {
+        yield return new WaitForSeconds(5f);
+        GameController.instance.outlineEffect.StopOutline();
+        BulletCountChange(-2);
     }
 
     public static void KillPlayer()

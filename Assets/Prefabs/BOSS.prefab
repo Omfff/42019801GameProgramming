@@ -130,17 +130,17 @@ MonoBehaviour:
   currState: 0
   enemyType: 4
   health: 50
-  range: 50
   speed: 3
-  attackRange: 6
-  coolDown: 1
-  wanderRadius: 0
-  wanderChangeInterval: 0
   notInRoom: 0
   deathEffect: {fileID: 1755349173569476, guid: 3c45864be6a059a4a82a25e285298338,
     type: 3}
   damageTextPf: {fileID: 1341119808855457649, guid: fe41a03fff23a404f9ac793146a9e4a5,
     type: 3}
+  range: 50
+  attackRange: 6
+  coolDown: 1
+  wanderRadius: 0
+  wanderChangeInterval: 0
   splitedBossPf: {fileID: 4603476697501131403, guid: 6b49e74c7d2224e3a90a30e97f819abb,
     type: 3}
   isSplittable: 1
@@ -149,9 +149,9 @@ MonoBehaviour:
     type: 3}
   BombPrefab: {fileID: 2654382028659701182, guid: ca30230545e27489aa0e059007553731,
     type: 3}
-  SlalomPrefab: {fileID: 8912613753944397765, guid: b02d5786e5afaac479b933a6426437e5,
+  SlalomPrefab: {fileID: 8912613753944397765, guid: d15516a233f8c07498ae6935b6b1998a,
     type: 3}
-  TrackingPrefab: {fileID: 8912613753944397765, guid: b02d5786e5afaac479b933a6426437e5,
+  TrackingPrefab: {fileID: 8912613753944397765, guid: ca8cb3ff72b01a648a7765f0599a9615,
     type: 3}
   ProjectilePrefab: {fileID: 8912613753944397765, guid: a9a08406e8a60cc4a9b9d002a99147f5,
     type: 3}

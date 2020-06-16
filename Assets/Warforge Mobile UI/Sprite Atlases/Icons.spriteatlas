@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Icons
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 2
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 657b54ade574d6040bc45fa0a8128d2f, type: 3}
+    totalSpriteSurfaceArea: 0
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 48e8834217915ab45adbfb7ec058b75a, type: 3}
+  - {fileID: 21300000, guid: 7142ad4a5723341459e2e561f97cf3ac, type: 3}
+  - {fileID: 21300000, guid: f87ccfcd321a4e243b2f778971eddb08, type: 3}
+  - {fileID: 21300000, guid: a6fbd480ada035940841e7de7d489e73, type: 3}
+  - {fileID: 21300000, guid: 46be262304a1799479fcb143477d2d96, type: 3}
+  - {fileID: 21300000, guid: e73a0b640e143cc4484d9c3b0eb9e7fd, type: 3}
+  - {fileID: 21300000, guid: 8b7d9a94927760a41abfa4e16441a305, type: 3}
+  - {fileID: 21300000, guid: 8b420439188f25c49bed7cadb7fe9015, type: 3}
+  - {fileID: 21300000, guid: 50313c7bff10bd443bbfe5fa6ebc19a5, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Icon_Skull_148
+  - Icon_Leafs_148
+  - Icon_Deathkiss_148
+  - Icon_Fireball_128
+  - Icon_Arrows_128
+  - Icon_Leafs_128
+  - Icon_Shield_128
+  - Icon_Sword_128
+  - Icon_Deathkiss_128
+  m_Tag: Icons
+  m_IsVariant: 0
