@@ -58,7 +58,6 @@ public class FollowingEnemyAi : Enemy
                 coolDown = 2;
                 break;
             case EnemyType.Laser:
-
                 break;
         }
     }
@@ -110,6 +109,7 @@ public class FollowingEnemyAi : Enemy
                 if (agent.isOnNavMesh)
                 {
                     agent.isStopped = true;
+                    setAnimator();
                 }
             }
         }
@@ -117,6 +117,7 @@ public class FollowingEnemyAi : Enemy
         {
             currState = EnemyState.Idle;
         }
+        changeDirection();
     }
 
     private void setAnimator()
@@ -138,6 +139,7 @@ public class FollowingEnemyAi : Enemy
             {
                 animator.SetFloat("xSpeed", agent.velocity.x);
                 animator.SetFloat("ySpeed", agent.velocity.y);
+
             }
         }
         else
@@ -157,6 +159,53 @@ public class FollowingEnemyAi : Enemy
             {
                 animator.SetFloat("xSpeed", agent.velocity.x);
                 animator.SetFloat("ySpeed", agent.velocity.y);
+                Debug.Log("xSpeed:" + agent.velocity.x);
+                Debug.Log("ySpeed:" + agent.velocity.y);
+            }
+        }
+    }
+
+    private void changeDirection()
+    {
+        if(agent.velocity.x.Equals(0f) && agent.velocity.y.Equals(0f))
+        {
+            float xDistance = player.transform.position.x - this.transform.position.x;
+            float yDistance = player.transform.position.y - this.transform.position.y;
+            if(xDistance > 0f)
+            {
+                if (System.Math.Abs(xDistance) > System.Math.Abs(yDistance))
+                {
+                    animator.CrossFade("Idle Right", 0f);
+                }
+                else
+                {
+                    if (yDistance > 0)
+                    {
+                        animator.CrossFade("Idle Up", 0f);
+                    }
+                    else
+                    {
+                        animator.CrossFade("Idle Down", 0f);
+                    }
+                }
+            }
+            else
+            {
+                if (System.Math.Abs(xDistance) > System.Math.Abs(yDistance))
+                {
+                    animator.CrossFade("Idle Left", 0f);
+                }
+                else
+                {
+                    if (yDistance > 0)
+                    {
+                        animator.CrossFade("Idle Up", 0f);
+                    }
+                    else
+                    {
+                        animator.CrossFade("Idle Down", 0f);
+                    }
+                }
             }
         }
     }
