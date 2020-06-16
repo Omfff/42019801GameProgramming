@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour
                 v = new Vector3(x, temp, 0).normalized * bulletSpeed;
             }
             bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
-            bullet.GetComponent<Rigidbody2D>().velocity = v;
+            bullet.GetComponent<Rigidbody2D>().velocity = v + new Vector3(rigidbody.velocity.x, rigidbody.velocity.y);
         }
 
 
