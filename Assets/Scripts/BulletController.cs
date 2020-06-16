@@ -231,20 +231,17 @@ public class BulletController : MonoBehaviour
             {
                 case "thunderball(Clone)":
                     //麻痹
-                    float speed = enemy.speed;
-                    enemy.speed = 0;
-                    StartCoroutine(ResetThunder(enemy, speed));
+                    enemy.FrozenMovement();
+                    enemy.StartCoroutine(ResetThunder(enemy));
                     enemy.getHurt(damage);
                     break;
                 case "Waterball(Clone)":
                     //减速减攻速
-                    speed = enemy.speed;
-                    float coolDown = enemy.coolDown;
-                    enemy.speed -= 1;
-                    enemy.coolDown += 2;
-                    StartCoroutine(ResetWater(enemy, speed, coolDown));
+                    float coolDown = enemy.GetCoolDownTime();
+                    enemy.SlowDownMovingSpeed(0.5f);//slow down to 10% of origin speed
+                    enemy.SetCoolDownTime(coolDown + 2);
+                    enemy.StartCoroutine(ResetWater(enemy, coolDown));//coolDown
                     enemy.getHurt(damage);
-
                     break;
                 case "Fireball(Clone)":
                     //持续伤害
@@ -304,17 +301,17 @@ public class BulletController : MonoBehaviour
     }
 
 
-    IEnumerator ResetThunder(Enemy enemy, float speed)
+    IEnumerator ResetThunder(Enemy enemy)
     {
         yield return new WaitForSeconds(2.0f);
-        enemy.speed = speed;
+        enemy.RecoverMovingSpeed();
     }
 
-    IEnumerator ResetWater(Enemy enemy, float speed, float coolDown)
+    IEnumerator ResetWater(Enemy enemy, float coolDown)
     {
         yield return new WaitForSeconds(2.0f);
-        enemy.speed = speed;
-        enemy.coolDown = coolDown;
+        enemy.RecoverMovingSpeed();
+        enemy.SetCoolDownTime(coolDown);
     }
 
     IEnumerator ContinuousDamage(Enemy enemy)

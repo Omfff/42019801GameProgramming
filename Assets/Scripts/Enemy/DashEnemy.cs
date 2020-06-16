@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
-public class DashEnemy:Enemy
+public class DashEnemy:FollowingEnemyAi
 {
     public GameObject dashEffect;
 

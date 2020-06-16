@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-public class LaserEnemy:Enemy
+public class LaserEnemy:FollowingEnemyAi
 {
     public LineRenderer lineRenderPf;
 
