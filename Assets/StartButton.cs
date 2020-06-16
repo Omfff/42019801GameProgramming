@@ -20,6 +20,6 @@ public class StartButton : MonoBehaviour
 
     public void onClick()
     {
-        SceneManager.LoadScene("BasementMain");
+        SceneManager.LoadScene("AlfheimLoading");
     }
 }
