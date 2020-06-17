@@ -31,7 +31,10 @@ public class GameController : MonoBehaviour
     public bool isPlayerVisible = true;
     public bool isTimeStop = false;
     public static int currentItems = 0;
+
     public GameObject bombPrefab;
+    public List<GameObject> prefabList = new List<GameObject>();
+
 
     private static int bulletCount = 3;
 

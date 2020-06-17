@@ -13,6 +13,8 @@ public enum BulletType
     Tracking,
 
     Projectile,
+
+    Cruise
 };
 
 public class BulletController : MonoBehaviour
@@ -50,6 +52,12 @@ public class BulletController : MonoBehaviour
     public float acceleration = 10.0f;
 
     public bool projectileStart;
+
+    public float angle;
+
+    public float radius;
+
+    public int damageTimes = 1;
     // Start is called before the first frame update
     void Start() 
     {
@@ -76,6 +84,12 @@ public class BulletController : MonoBehaviour
                 bulletSpeed = 4f;
                 projectileStart = true;
                 //Physics2D.IgnoreCollision();
+                break;
+            case BulletType.Cruise:
+                bulletSpeed = 200f;
+                radius = 2f;
+                angle = Random.Range(0, 360);
+                damageTimes = 3;
                 break;
         }
         if (!isEnemyBullet)
@@ -184,7 +198,13 @@ public class BulletController : MonoBehaviour
                 case BulletType.Bomb:
                     StartCoroutine(PlayerBombCountdown());
                     break;
-                    
+                case BulletType.Cruise:
+                    angle += bulletSpeed * Time.deltaTime % 360;
+                    float posX = radius * Mathf.Cos(angle * Mathf.Deg2Rad);
+                    float posY = radius * Mathf.Sin(angle * Mathf.Deg2Rad);
+
+                    transform.position = new Vector3(posX, posY, 0) + Player.transform.position;
+                    break;
             }
         }
     }
@@ -270,6 +290,7 @@ public class BulletController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log("Trigger    " + gameObject.name);
         if (col.tag == "Enemy" && !isEnemyBullet)
         {
             Enemy enemy = col.gameObject.GetComponent<Enemy>();
@@ -298,7 +319,10 @@ public class BulletController : MonoBehaviour
                     break;
             }
             //col.gameObject.GetComponent<Enemy>().getHurt(damage);
-            Destroy(gameObject);
+            if (--damageTimes <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
         else if (col.tag == "Player" && isEnemyBullet)
         {
