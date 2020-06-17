@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4bbcb120c17eb445a31163f2f16d17c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d3619b834ee04fadbea7ed590ba18ae, type: 3}
   m_Name: DungeonGenerationData
   m_EditorClassIdentifier: 
   numberOfCrawlers: 2
-  iterationMin: 7
-  iterationMax: 12
+  iterationMin: 15
+  iterationMax: 18

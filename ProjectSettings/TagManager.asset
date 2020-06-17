@@ -13,6 +13,8 @@ TagManager:
   - Key
   - LockedDoor
   - Treasure
+  - Swamp
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -20,10 +22,6 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - Minimap
-  - 
   - 
   - 
   - UnBullet

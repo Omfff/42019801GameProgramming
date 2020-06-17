@@ -28,10 +28,18 @@ public class RoomController : MonoBehaviour
     public List<Room> enteredRooms = new List<Room>();
 
     bool isLoadingRoom = false;
+    bool spawnedBossRoom = false;
+    bool updatedRooms = false;
+    bool isProceduralGeneration = false; 
 
     public bool DoesRoomExist(int x, int y)
     {
         return loadedRooms.Find(item => item.X == x && item.Y == y) != null;
+    }
+
+    public Room FindRoom(int x, int y)
+    {
+        return loadedRooms.Find(item => item.X == x && item.Y == y);
     }
 
     public void LoadRoom(string name, int x, int y)
@@ -99,10 +107,23 @@ public class RoomController : MonoBehaviour
             {
                 CameraController.instance.currRoom = room;
             }
+
             // init door closed
-            room.GetComponentInChildren<Door>().doorCollider.SetActive(true);
+            if (isProceduralGeneration) 
+            {
+                SeperatedDoor[] doors = room.GetComponentsInChildren<SeperatedDoor>();
+                foreach (SeperatedDoor door in doors)
+                {
+                    door.closedDoor.SetActive(true);
+                }
+            }
+            else 
+            {
+                room.GetComponentInChildren<Door>().doorCollider.SetActive(true);
+            }
 
             loadedRooms.Add(room);
+            // room.RemoveUnconnectedDoors();
         }
         else
         {
@@ -121,17 +142,20 @@ public class RoomController : MonoBehaviour
     {
         // LoadRoom("1", 0, 0);
         // LoadRoom("2", 1, 0);
-        // LoadRoom("2", -1, 0);
-        // LoadRoom("2", 0, 1);
-        // LoadRoom("2", 0, -1);
-        LoadRoom("1", 0, 0);
-        LoadRoom("2", 1, 0);
-        LoadRoom("3", 2, 0);
-        LoadRoom("4", 0, -1);
-        LoadRoom("5", 1, -1);
-        LoadRoom("6", 0, 1);
-        LoadRoom("7", 1, 1);
-        LoadRoom("8", 2, 1);
+        // LoadRoom("3", 2, 0);
+        // LoadRoom("4", 0, -1);
+        // LoadRoom("5", 1, -1);
+        // LoadRoom("6", 0, 1);
+        // LoadRoom("7", 1, 1);
+        // LoadRoom("8", 2, 1);
+
+        currentWorldName = "Forest";
+        isProceduralGeneration = true;
+        // LoadRoom("Empty", 0, 0);
+        // LoadRoom("Empty", 0, -1);
+        // LoadRoom("Empty", 0, 1);
+        // LoadRoom("Empty", -1, 0);
+        // LoadRoom("Empty", 1, 0);
     }
 
     // Update is called once per frame
@@ -149,6 +173,19 @@ public class RoomController : MonoBehaviour
 
         if (loadRoomQueue.Count == 0)
         {
+            if (!spawnedBossRoom)
+            {
+                StartCoroutine(SpawnBossRoom());
+            }
+            else if(spawnedBossRoom && !updatedRooms)
+            {
+                foreach(Room room in loadedRooms)
+                {
+                    room.RemoveUnconnectedDoors();
+                }
+                //UpdateRooms();
+                updatedRooms = true;
+            }
             return;
         }
 
@@ -156,6 +193,21 @@ public class RoomController : MonoBehaviour
         isLoadingRoom = true;
 
         StartCoroutine(LoadRoomRoutine(currentLoadRoomData));
+    }
+
+    IEnumerator SpawnBossRoom()
+    {
+        spawnedBossRoom = true;
+        yield return new WaitForSeconds(0.5f);
+        if(loadRoomQueue.Count == 0)
+        {
+            Room bossRoom = loadedRooms[loadedRooms.Count - 1];
+            Room tempRoom = new Room(bossRoom.X, bossRoom.Y);
+            Destroy(bossRoom.gameObject);
+            var roomToRemove = loadedRooms.Single(r => r.X == tempRoom.X && r.Y == tempRoom.Y);
+            loadedRooms.Remove(roomToRemove);
+            LoadRoom("End", tempRoom.X, tempRoom.Y);
+        }
     }
 
     public void OnPlayerEnterRoom(Room room)
@@ -176,8 +228,8 @@ public class RoomController : MonoBehaviour
             }
         }
         //modify minimap
-        //CameraController.instance.currRoom = room;
-        //currRoom = room;
+        // CameraController.instance.currRoom = room;
+        // currRoom = room;
         Transform[] grandFa;
         grandFa = room.GetComponentsInChildren<Transform>();
         foreach (Transform child in grandFa)
@@ -243,7 +295,18 @@ public class RoomController : MonoBehaviour
         if (enemies == null || enemies.Length == 0)
         {
             Debug.Log("Unlock currRoom");
-            currRoom.GetComponentInChildren<Door>().doorCollider.SetActive(false);
+            if (isProceduralGeneration)
+            {
+                SeperatedDoor[] doors = currRoom.GetComponentsInChildren<SeperatedDoor>();
+                foreach (SeperatedDoor door in doors)
+                {
+                    door.closedDoor.SetActive(false);
+                }
+            }
+            else 
+            {
+                currRoom.GetComponentInChildren<Door>().doorCollider.SetActive(false);
+            }
         }
     }
 
@@ -260,6 +323,15 @@ public class RoomController : MonoBehaviour
     public float getCurrentRoomMinRange()
     {
         return currRoom.Height;
+    }
+
+    public string GetRandomRoomName()
+    {
+        string[] possibleRooms = new string[] {
+            "Empty"
+        };
+
+        return possibleRooms[Random.Range(0, possibleRooms.Length)];
     }
 
 }

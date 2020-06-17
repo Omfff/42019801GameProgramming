@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Room : MonoBehaviour
 {
@@ -8,6 +9,14 @@ public class Room : MonoBehaviour
     public int Height;
     public int X;
     public int Y;
+
+    private bool updatedDoors = false;
+
+    public SeperatedDoor leftDoor;
+    public SeperatedDoor rightDoor;
+    public SeperatedDoor topDoor;
+    public SeperatedDoor bottomDoor;
+    public List<SeperatedDoor> doors = new List<SeperatedDoor>();
 
     public Room(int x, int y)
     {
@@ -24,14 +33,108 @@ public class Room : MonoBehaviour
             return;
         }
 
+        SeperatedDoor[] ds = GetComponentsInChildren<SeperatedDoor>();
+        foreach (SeperatedDoor d in ds)
+        {
+            doors.Add(d);
+            switch (d.doorType)
+            {
+                case SeperatedDoor.DoorType.right:
+                rightDoor = d;
+                break;
+                case SeperatedDoor.DoorType.left:
+                leftDoor = d;
+                break;
+                case SeperatedDoor.DoorType.top:
+                topDoor = d;
+                break;
+                case SeperatedDoor.DoorType.bottom:
+                bottomDoor = d;
+                break;
+            }
+        }
         RoomController.instance.RegisterRoom(this);
+    }
 
+    public void RemoveUnconnectedDoors()
+    {
+        foreach(SeperatedDoor door in doors)
+        {
+            switch (door.doorType)
+            {
+                case SeperatedDoor.DoorType.right:
+                    if (GetRoom(1, 0) == null) 
+                    {
+                        door.gameObject.SetActive(false);
+                        door.wall.SetActive(true);
+                        door.miniMapWall.SetActive(true);
+                    }
+                    break;
+                case SeperatedDoor.DoorType.left:
+                    if (GetRoom(-1, 0) == null) 
+                    {
+                        door.gameObject.SetActive(false);
+                        door.wall.SetActive(true);
+                        door.miniMapWall.SetActive(true);
+                    }
+                    break;
+                case SeperatedDoor.DoorType.top:
+                    if (GetRoom(0, 1) == null)
+                    {
+                        door.gameObject.SetActive(false);
+                        door.wall.SetActive(true);
+                        door.miniMapWall.SetActive(true);
+                    }
+                    break;
+                case SeperatedDoor.DoorType.bottom:
+                    if (GetRoom(0, -1) == null)
+                    {
+                        door.gameObject.SetActive(false);
+                        door.wall.SetActive(true);
+                        door.miniMapWall.SetActive(true);
+                    }
+                    break;
+            }
+            // if (door.doorType == SeperatedDoor.DoorType.right && GetRoom(1, 0) == null)
+            // {
+            //     door.gameObject.SetActive(false);
+            //     door.wall.SetActive(true);
+            // }
+            // else if (door.doorType == SeperatedDoor.DoorType.left && GetRoom(-1, 0) == null)
+            // {
+            //     door.gameObject.SetActive(false);
+            //     door.wall.SetActive(true);
+            // }
+            // else if (door.doorType == SeperatedDoor.DoorType.top && GetRoom(0, 1) == null)
+            // {
+            //     door.gameObject.SetActive(false);
+            //     door.wall.SetActive(true);
+            // }
+            // else if (door.doorType == SeperatedDoor.DoorType.bottom && GetRoom(0, -1) == null)
+            // {
+            //     door.gameObject.SetActive(false);
+            //     door.wall.SetActive(true);
+            // }
+        }
+    }
+
+    public Room GetRoom(int xOffset, int yOffset)
+    {
+        if (RoomController.instance.DoesRoomExist(X + xOffset, Y + yOffset))
+        {
+            return RoomController.instance.FindRoom(X + xOffset, Y + yOffset);
+        }
+        return null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(name.Contains("End") && !updatedDoors)
+        {
+            RemoveUnconnectedDoors();
+            updatedDoors = true;
+        }
     }
 
     void OnDrawGizmos()
