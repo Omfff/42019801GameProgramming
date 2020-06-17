@@ -32,6 +32,7 @@ public class Testing : MonoBehaviour {
     public Sprite shieldSkillSprite;
     public Sprite keySprite;
     public Sprite CountSprite;
+    public Sprite BombSprite;
 
     private HotkeyAbilitySystem hotkeyAbilitySystem;
 

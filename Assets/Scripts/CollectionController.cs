@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Boo.Lang;
+using UnityEngine;
 
 [System.Serializable]
 public class Item
@@ -13,6 +14,7 @@ public enum ItemType
 {
     Buff,
     Storage,
+    Weapon
 }
 
 public class CollectionController : MonoBehaviour
@@ -46,6 +48,11 @@ public class CollectionController : MonoBehaviour
                     break;
                 case ItemType.Storage:
                     GameController.AddItems(item);
+                    Destroy(gameObject);
+                    break;
+                case ItemType.Weapon:
+                    GameObject prefab = GameController.instance.prefabList[Random.Range(0, 4)];
+                    Instantiate(prefab, transform.position, transform.rotation);
                     Destroy(gameObject);
                     break;
             }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1614237012602433207}
   m_Layer: 0
   m_Name: Stealth
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
     itemImage: {fileID: 21300000, guid: 8aa90d2e90674fa49bb96cea6c99cac9, type: 3}
   healthChange: 0
   moveSpeedChange: 0
+  bulletSpeedChange: 0
   attackSpeedChange: 0
   bulletSizeChange: 0
   bulletCountChange: 0

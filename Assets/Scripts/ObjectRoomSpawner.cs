@@ -49,7 +49,6 @@ public class ObjectRoomSpawner : MonoBehaviour
             GameObject enemy = Instantiate(data.spawnerData.itemToSpawn, data.positionList[0].position, Quaternion.identity, transform) as GameObject;
         }
     }
-
     private Vector3[] GenerateRandomPos(Vector3 origin, float dist, int layermask, int num)
     {
         Vector3[] dirList = new Vector3[num];

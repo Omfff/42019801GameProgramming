@@ -32,6 +32,10 @@ public class GameController : MonoBehaviour
     public bool isTimeStop = false;
     public static int currentItems = 0;
 
+    public GameObject bombPrefab;
+    public List<GameObject> prefabList = new List<GameObject>();
+
+
     private static int bulletCount = 3;
 
     public void Awake()
@@ -230,6 +234,12 @@ public class GameController : MonoBehaviour
                     GameController.instance.StartCoroutine(GameController.instance.StrengthenEnd());
                     GameController.instance.storageItems.RemoveAt(currentItems);
                     //BulletSpeedChange(-bulletSpeedChange);
+                    break;
+                case "bomb":
+                    GameObject player = GameObject.FindGameObjectWithTag("Player");
+                    GameController.Instantiate(GameController.instance.bombPrefab, player.transform.position, player.transform.rotation);
+                    
+                    GameController.instance.storageItems.RemoveAt(currentItems);
                     break;
             }
             if (GameController.instance.storageItems.Count > 0)
