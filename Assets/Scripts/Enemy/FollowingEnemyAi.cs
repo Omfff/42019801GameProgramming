@@ -157,8 +157,8 @@ public class FollowingEnemyAi : Enemy
             {
                 animator.SetFloat("xSpeed", agent.velocity.x);
                 animator.SetFloat("ySpeed", agent.velocity.y);
-                Debug.Log("xSpeed:" + agent.velocity.x);
-                Debug.Log("ySpeed:" + agent.velocity.y);
+                //Debug.Log("xSpeed:" + agent.velocity.x);
+                //Debug.Log("ySpeed:" + agent.velocity.y);
             }
         }
     }

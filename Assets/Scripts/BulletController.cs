@@ -177,6 +177,16 @@ public class BulletController : MonoBehaviour
                     break;
             }
         }
+        else
+        {
+            switch (bulletType)
+            {
+                case BulletType.Bomb:
+                    StartCoroutine(PlayerBombCountdown());
+                    break;
+                    
+            }
+        }
     }
 
     // only used in tracking
@@ -230,6 +240,27 @@ public class BulletController : MonoBehaviour
         Destroy(gameObject);
     }
 
+
+    IEnumerator PlayerBombCountdown()
+    {
+        yield return new WaitForSeconds(lifeTime);
+
+        Instantiate(explosionEffect, transform.position, Quaternion.identity);
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, gameObject.GetComponent<CircleCollider2D>().bounds.size.x);
+        Collider2D collider;
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            collider = colliders[i];
+            if (collider.transform.tag == "Enemy")
+            {
+                collider.gameObject.GetComponent<Enemy>().getHurt(damage);
+                GameController.DamagePlayer(Mathf.FloorToInt(damage));
+            }
+        }
+
+        Destroy(gameObject);
+    }
     IEnumerator SlalomDelay()
     {
         yield return null;

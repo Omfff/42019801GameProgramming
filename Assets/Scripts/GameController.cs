@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
     public bool isPlayerVisible = true;
     public bool isTimeStop = false;
     public static int currentItems = 0;
+    public GameObject bombPrefab;
 
     private static int bulletCount = 3;
 
@@ -230,6 +231,12 @@ public class GameController : MonoBehaviour
                     GameController.instance.StartCoroutine(GameController.instance.StrengthenEnd());
                     GameController.instance.storageItems.RemoveAt(currentItems);
                     //BulletSpeedChange(-bulletSpeedChange);
+                    break;
+                case "bomb":
+                    GameObject player = GameObject.FindGameObjectWithTag("Player");
+                    GameController.Instantiate(GameController.instance.bombPrefab, player.transform.position, player.transform.rotation);
+                    
+                    GameController.instance.storageItems.RemoveAt(currentItems);
                     break;
             }
             if (GameController.instance.storageItems.Count > 0)
