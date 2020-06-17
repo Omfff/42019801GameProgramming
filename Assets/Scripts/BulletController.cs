@@ -304,9 +304,10 @@ public class BulletController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else if (col.tag == "Untagged" && bulletType == BulletType.Projectile) 
+        else if (col.tag == "Wall" && bulletType != BulletType.Projectile)  
         {
-            Debug.Log("untagged is "+isEnemyBullet);
+            // 地图墙未加tag
+            Destroy(gameObject);
         }
         else if (col.tag == "Jar" && !isEnemyBullet)
         {

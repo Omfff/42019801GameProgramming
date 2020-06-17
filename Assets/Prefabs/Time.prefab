@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 927430360368256987}
   m_Layer: 0
   m_Name: Time
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
     itemImage: {fileID: 21300000, guid: 6ea6839387b652e46821a7ad6a851441, type: 3}
   healthChange: 0
   moveSpeedChange: 0
+  bulletSpeedChange: 0
   attackSpeedChange: 0
   bulletSizeChange: 0
   bulletCountChange: 0
