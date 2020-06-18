@@ -27,11 +27,25 @@ public class RoomController : MonoBehaviour
 
     public List<Room> enteredRooms = new List<Room>();
 
+    public List<string> worldNames;
+
+    private int currWorldIndex;
+    bool spawnedBossRoom = false;
+    bool updatedRooms = false;
+    bool isProceduralGeneration = false;
+
     bool isLoadingRoom = false;
+
+    private GameObject player;
 
     public bool DoesRoomExist(int x, int y)
     {
         return loadedRooms.Find(item => item.X == x && item.Y == y) != null;
+    }
+
+    public Room FindRoom(int x, int y)
+    {
+        return loadedRooms.Find(item => item.X == x && item.Y == y);
     }
 
     public void LoadRoom(string name, int x, int y)
@@ -99,10 +113,24 @@ public class RoomController : MonoBehaviour
             {
                 CameraController.instance.currRoom = room;
             }
+
             // init door closed
-            room.GetComponentInChildren<Door>().doorCollider.SetActive(true);
+            if (isProceduralGeneration)
+            {
+                SeperatedDoor[] doors = room.GetComponentsInChildren<SeperatedDoor>();
+                foreach (SeperatedDoor door in doors)
+                {
+                    //door.gameObject.SetActive(false);
+                    door.closedDoor.SetActive(true);
+                }
+            }
+            else
+            {
+                room.GetComponentInChildren<Door>().doorCollider.SetActive(true);
+            }
 
             loadedRooms.Add(room);
+            // room.RemoveUnconnectedDoors();
         }
         else
         {
@@ -119,19 +147,48 @@ public class RoomController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // LoadRoom("1", 0, 0);
-        // LoadRoom("2", 1, 0);
-        // LoadRoom("2", -1, 0);
-        // LoadRoom("2", 0, 1);
-        // LoadRoom("2", 0, -1);
-        LoadRoom("1", 0, 0);
+        player = GameObject.FindGameObjectWithTag("Player");
+        worldNames = new List<string>()
+        {
+            "Basement",
+            "Forest"
+        };
+        currWorldIndex = 0;
+        currentWorldName = worldNames.First();
+        GetComponent<DungeonGenerator>().enabled = false;
+        LoadRoom("Start", 0, 0);
         LoadRoom("2", 1, 0);
         LoadRoom("3", 2, 0);
         LoadRoom("4", 0, -1);
         LoadRoom("5", 1, -1);
         LoadRoom("6", 0, 1);
         LoadRoom("7", 1, 1);
-        LoadRoom("8", 2, 1);
+        LoadRoom("End", 2, 1);
+
+        //StartCoroutine(SwitchWorld());
+    }
+
+    public IEnumerator SwitchWorld()
+    {
+        yield return new WaitForSeconds(1);
+        if (worldNames.Count > ++currWorldIndex)
+        {
+            DestroyAllRooms();
+            currentWorldName = worldNames[currWorldIndex];
+            GetComponent<DungeonGenerator>().enabled = true;
+            isProceduralGeneration = true;
+            player.transform.position = new Vector2(0, 0);
+        }
+    }
+
+    private void DestroyAllRooms()
+    {
+        foreach (Room room in loadedRooms)
+        {
+            Destroy(room.gameObject);
+        }
+        loadedRooms.Clear();
+        enteredRooms.Clear();
     }
 
     // Update is called once per frame
@@ -149,6 +206,23 @@ public class RoomController : MonoBehaviour
 
         if (loadRoomQueue.Count == 0)
         {
+            if (!isProceduralGeneration)
+            {
+                return;
+            }
+            if (!spawnedBossRoom)
+            {
+                StartCoroutine(SpawnBossRoom());
+            }
+            else if (spawnedBossRoom && !updatedRooms)
+            {
+                foreach (Room room in loadedRooms)
+                {
+                    room.RemoveUnconnectedDoors();
+                }
+                //UpdateRooms();
+                updatedRooms = true;
+            }
             return;
         }
 
@@ -158,10 +232,24 @@ public class RoomController : MonoBehaviour
         StartCoroutine(LoadRoomRoutine(currentLoadRoomData));
     }
 
+    IEnumerator SpawnBossRoom()
+    {
+        spawnedBossRoom = true;
+        yield return new WaitForSeconds(0.5f);
+        if (loadRoomQueue.Count == 0)
+        {
+            Room bossRoom = loadedRooms[loadedRooms.Count - 1];
+            Room tempRoom = new Room(bossRoom.X, bossRoom.Y);
+            Destroy(bossRoom.gameObject);
+            var roomToRemove = loadedRooms.Single(r => r.X == tempRoom.X && r.Y == tempRoom.Y);
+            loadedRooms.Remove(roomToRemove);
+            LoadRoom("End", tempRoom.X, tempRoom.Y);
+        }
+    }
+
     public void OnPlayerEnterRoom(Room room)
     {
-        Debug.Log("Enter room");
-        if (room.name.Contains("Basement-1") || CouldLeaveCurrRoom())
+        if (room.name.Contains("Start") || CouldLeaveCurrRoom())
         {
             CameraController.instance.currRoom = room;
             if (!enteredRooms.Contains(room))
@@ -197,7 +285,6 @@ public class RoomController : MonoBehaviour
     }
     public void OnPlayerExitRoom(Room room)
     {
-        Debug.Log("Exit room");
         //CameraController.instance.currRoom = room;
         //currRoom = room;
         Transform[] grandFa;
@@ -215,7 +302,7 @@ public class RoomController : MonoBehaviour
 
             }
         }
-        // StartCoroutine(RoomCoroutine());
+        //StartCoroutine(RoomCoroutine());
     }
     public bool CouldLeaveCurrRoom()
     {
@@ -245,7 +332,23 @@ public class RoomController : MonoBehaviour
         if (enemies == null || enemies.Length == 0)
         {
             Debug.Log("Unlock currRoom");
-            currRoom.GetComponentInChildren<Door>().doorCollider.SetActive(false);
+            if (isProceduralGeneration)
+            {
+                SeperatedDoor[] doors = currRoom.GetComponentsInChildren<SeperatedDoor>();
+                foreach (SeperatedDoor door in doors)
+                {
+                    //door.gameObject.SetActive(true);
+                    door.closedDoor.SetActive(false);
+                }
+            }
+            else
+            {
+                currRoom.GetComponentInChildren<Door>().doorCollider.SetActive(false);
+            }
+            if (currRoom.name.Contains("End"))
+            {
+                currRoom.endPoint.SetActive(true);
+            }
         }
     }
 
@@ -262,6 +365,15 @@ public class RoomController : MonoBehaviour
     public float getCurrentRoomMinRange()
     {
         return currRoom.Height;
+    }
+
+    public string GetRandomRoomName()
+    {
+        string[] possibleRooms = new string[] {
+            "Empty"
+        };
+
+        return possibleRooms[Random.Range(0, possibleRooms.Length)];
     }
 
 }
