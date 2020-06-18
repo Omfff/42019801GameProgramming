@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3007,6 +3007,36 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &557854960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 557854961}
+  m_Layer: 0
+  m_Name: PatrolS3
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &557854961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557854960}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.55, y: -1.71, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 768871335}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &574662482
 GameObject:
   m_ObjectHideFlags: 0
@@ -3458,8 +3488,8 @@ Transform:
   - {fileID: 1864649922}
   - {fileID: 1364040342}
   - {fileID: 1455448176}
-  - {fileID: 839441234}
   - {fileID: 1040323081}
+  - {fileID: 557854961}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3479,6 +3509,12 @@ MonoBehaviour:
   Height: 9
   X: 0
   Y: 0
+  leftDoor: {fileID: 0}
+  rightDoor: {fileID: 0}
+  topDoor: {fileID: 0}
+  bottomDoor: {fileID: 0}
+  doors: []
+  endPoint: {fileID: 0}
 --- !u!114 &768871337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3491,11 +3527,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248b0bc1c24a142199fe9f9fd9a90d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wavesData:
+  - enemyBornList:
+    - name: PatrolObstacle
+      positionList:
+      - {fileID: 1364040342}
+      - {fileID: 1864649922}
+      spawnerData: {fileID: 11400000, guid: 32f2db0e171d44329af5f64cc87eaab3, type: 2}
+    - name: PatrolObstacle
+      positionList:
+      - {fileID: 1864649922}
+      - {fileID: 1455448176}
+      spawnerData: {fileID: 11400000, guid: 32f2db0e171d44329af5f64cc87eaab3, type: 2}
+    - name: PatrolObstacle
+      positionList:
+      - {fileID: 1455448176}
+      - {fileID: 557854961}
+      spawnerData: {fileID: 11400000, guid: 32f2db0e171d44329af5f64cc87eaab3, type: 2}
+    - name: PatrolObstacle
+      positionList:
+      - {fileID: 557854961}
+      - {fileID: 1364040342}
+      spawnerData: {fileID: 11400000, guid: 32f2db0e171d44329af5f64cc87eaab3, type: 2}
+    - name: LaserEnemy
+      positionList:
+      - {fileID: 1040323081}
+      spawnerData: {fileID: 11400000, guid: abe170980e03a4084851e79ce10b78ae, type: 2}
   spawnerData:
   - name: PatrolEnemy
     positionList:
     - {fileID: 1364040342}
-    - {fileID: 839441234}
+    - {fileID: 0}
     spawnerData: {fileID: 11400000, guid: df12b9bf2337b4cf3b59c4f3c6c772fb, type: 2}
   - name: LaserEnemy
     positionList:
@@ -3506,6 +3568,7 @@ MonoBehaviour:
     - {fileID: 1864649922}
     - {fileID: 1455448176}
     spawnerData: {fileID: 11400000, guid: df12b9bf2337b4cf3b59c4f3c6c772fb, type: 2}
+  currWaveNum: 0
 --- !u!1 &776507663
 GameObject:
   m_ObjectHideFlags: 0
@@ -3852,36 +3915,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &839441233
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 839441234}
-  m_Layer: 0
-  m_Name: PatrolE2
-  m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &839441234
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839441233}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.87, y: 1.89, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 768871335}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1040323080
 GameObject:
   m_ObjectHideFlags: 0
@@ -3894,7 +3927,7 @@ GameObject:
   m_Layer: 0
   m_Name: BornPos1
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3906,11 +3939,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040323080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.04, y: -2.65, z: 0}
+  m_LocalPosition: {x: 0.12, y: -2.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 768871335}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1046936612
 GameObject:
@@ -4592,7 +4625,7 @@ GameObject:
   m_Layer: 0
   m_Name: PatrolS2
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4604,7 +4637,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364040341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.14, y: 1.84, z: 0}
+  m_LocalPosition: {x: -4.53, y: 2.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 768871335}
@@ -5012,7 +5045,7 @@ GameObject:
   m_Layer: 0
   m_Name: PatrolE1
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5024,7 +5057,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455448175}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.01, y: -1.71, z: 0}
+  m_LocalPosition: {x: 4.5, y: -1.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 768871335}
@@ -6409,7 +6442,7 @@ GameObject:
   m_Layer: 0
   m_Name: PatrolS1
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -6421,7 +6454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864649921}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.39, y: 1.88, z: 0}
+  m_LocalPosition: {x: 4.51, y: 2.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 768871335}

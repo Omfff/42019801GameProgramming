@@ -1807,6 +1807,36 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &667437306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 667437307}
+  m_Layer: 0
+  m_Name: BornPos3
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &667437307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667437306}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.37, y: 2.77, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 768871335}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &711282913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,7 +1849,7 @@ GameObject:
   m_Layer: 0
   m_Name: BornPos2
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2553,6 +2583,8 @@ Transform:
   - {fileID: 9046340115935166616}
   - {fileID: 1750301072}
   - {fileID: 711282914}
+  - {fileID: 1168921619}
+  - {fileID: 667437307}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2572,6 +2604,12 @@ MonoBehaviour:
   Height: 9
   X: 0
   Y: 0
+  leftDoor: {fileID: 0}
+  rightDoor: {fileID: 0}
+  topDoor: {fileID: 0}
+  bottomDoor: {fileID: 0}
+  doors: []
+  endPoint: {fileID: 0}
 --- !u!114 &768871337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2584,7 +2622,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248b0bc1c24a142199fe9f9fd9a90d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wavesData: []
+  wavesData:
+  - enemyBornList:
+    - name: DashEnemy
+      positionList:
+      - {fileID: 1750301072}
+      spawnerData: {fileID: 11400000, guid: 6d68211b924cd9d489a000be30466ef4, type: 2}
+    - name: PatrolEnemy
+      positionList:
+      - {fileID: 1757374846}
+      - {fileID: 443703975}
+      spawnerData: {fileID: 11400000, guid: df12b9bf2337b4cf3b59c4f3c6c772fb, type: 2}
+    - name: BombEnemy
+      positionList:
+      - {fileID: 711282914}
+      spawnerData: {fileID: 11400000, guid: 09a3fc0097db5476cae5eeefe7a38b88, type: 2}
+  - enemyBornList:
+    - name: BombEnemy
+      positionList:
+      - {fileID: 667437307}
+      spawnerData: {fileID: 11400000, guid: 09a3fc0097db5476cae5eeefe7a38b88, type: 2}
+    - name: BombEnemy
+      positionList:
+      - {fileID: 1168921619}
+      spawnerData: {fileID: 11400000, guid: 09a3fc0097db5476cae5eeefe7a38b88, type: 2}
   spawnerData:
   - name: DashEnemy
     positionList:
@@ -2600,6 +2661,36 @@ MonoBehaviour:
     - {fileID: 711282914}
     spawnerData: {fileID: 11400000, guid: 09a3fc0097db5476cae5eeefe7a38b88, type: 2}
   currWaveNum: 0
+--- !u!1 &1168921618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1168921619}
+  m_Layer: 0
+  m_Name: BornPos4
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1168921619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168921618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.49, y: -1.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 768871335}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1585824687
 GameObject:
   m_ObjectHideFlags: 0
@@ -2999,7 +3090,7 @@ GameObject:
   m_Layer: 0
   m_Name: BornPos1
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -3011,7 +3102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750301071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.52, y: 2.05, z: 0}
+  m_LocalPosition: {x: 4.93, y: 2.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 768871335}
@@ -3998,7 +4089,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 6f3cbe679d3714ba2ab5f9ce18e536d1,
+      objectReference: {fileID: 23800000, guid: 13b63bec22713473abfa3d010a4cbd8a,
         type: 2}
     - target: {fileID: 9046340114773862289, guid: 669940a8085b14b598a9fd3ccfe91c37,
         type: 3}

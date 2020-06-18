@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.AI;
 
 public class Room : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Room : MonoBehaviour
     public int Y;
 
     private bool updatedDoors = false;
+    private NavMeshSurface2d surface;
 
     public SeperatedDoor leftDoor;
     public SeperatedDoor rightDoor;
@@ -24,6 +26,7 @@ public class Room : MonoBehaviour
     {
         X = x;
         Y = y;
+        
     }
 
     // Start is called before the first frame update
@@ -34,6 +37,7 @@ public class Room : MonoBehaviour
             Debug.Log("You pressed play in the wrong scene!");
             return;
         }
+        
 
         SeperatedDoor[] ds = GetComponentsInChildren<SeperatedDoor>();
         foreach (SeperatedDoor d in ds)
@@ -54,6 +58,10 @@ public class Room : MonoBehaviour
                     bottomDoor = d;
                     break;
             }
+        }
+        if(ds.Length > 0)
+        {
+            gameObject.GetComponentInChildren<NavMeshSurface2d>().BuildNavMesh();
         }
         RoomController.instance.RegisterRoom(this);
     }

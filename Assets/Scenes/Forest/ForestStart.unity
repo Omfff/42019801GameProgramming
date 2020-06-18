@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3352,6 +3352,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248b0bc1c24a142199fe9f9fd9a90d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wavesData:
+  - enemyBornList:
+    - name: PatrolEnemy
+      positionList:
+      - {fileID: 552577428}
+      - {fileID: 1477992089}
+      spawnerData: {fileID: 11400000, guid: df12b9bf2337b4cf3b59c4f3c6c772fb, type: 2}
+    - name: DashEnemy
+      positionList:
+      - {fileID: 60714813}
+      spawnerData: {fileID: 11400000, guid: 6d68211b924cd9d489a000be30466ef4, type: 2}
+    - name: DashEnemy
+      positionList:
+      - {fileID: 112580515}
+      spawnerData: {fileID: 11400000, guid: 6d68211b924cd9d489a000be30466ef4, type: 2}
   spawnerData:
   - name: PatrolEnemy
     positionList:
@@ -3366,6 +3381,7 @@ MonoBehaviour:
     positionList:
     - {fileID: 112580515}
     spawnerData: {fileID: 11400000, guid: 09a3fc0097db5476cae5eeefe7a38b88, type: 2}
+  currWaveNum: 0
 --- !u!1 &849030357
 GameObject:
   m_ObjectHideFlags: 0

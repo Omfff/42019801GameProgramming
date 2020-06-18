@@ -331,26 +331,26 @@ public class RoomController : MonoBehaviour
         Enemy[] enemies = currRoom.GetComponentsInChildren<Enemy>();
         if (enemies == null || enemies.Length == 0)
         {
-            //if (!currRoom.GetComponent<ObjectRoomSpawner>().SpawnNextWaveEnemies())
-            //{
-            //}
-            Debug.Log("Unlock currRoom");
-            if (isProceduralGeneration)
+            if (!currRoom.GetComponent<ObjectRoomSpawner>().SpawnNextWaveEnemies())
             {
-                SeperatedDoor[] doors = currRoom.GetComponentsInChildren<SeperatedDoor>();
-                foreach (SeperatedDoor door in doors)
+                Debug.Log("Unlock currRoom");
+                if (isProceduralGeneration)
                 {
-                    //door.gameObject.SetActive(true);
-                    door.closedDoor.SetActive(false);
+                    SeperatedDoor[] doors = currRoom.GetComponentsInChildren<SeperatedDoor>();
+                    foreach (SeperatedDoor door in doors)
+                    {
+                        //door.gameObject.SetActive(true);
+                        door.closedDoor.SetActive(false);
+                    }
                 }
-            }
-            else
-            {
-                currRoom.GetComponentInChildren<Door>().doorCollider.SetActive(false);
-            }
-            if (currRoom.name.Contains("End"))
-            {
-                currRoom.endPoint.SetActive(true);
+                else
+                {
+                    currRoom.GetComponentInChildren<Door>().doorCollider.SetActive(false);
+                }
+                if (currRoom.name.Contains("End"))
+                {
+                    currRoom.endPoint.SetActive(true);
+                }
             }
         }
     }

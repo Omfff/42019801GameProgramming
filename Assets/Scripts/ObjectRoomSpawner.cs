@@ -29,8 +29,6 @@ public class ObjectRoomSpawner : MonoBehaviour
 
     public WaveSpanwer[] wavesData; 
 
-    // public GridController grid;
-    public RandomSpawner[] spawnerData;
 
     [SerializeField]
     private int currWaveNum;
@@ -42,34 +40,9 @@ public class ObjectRoomSpawner : MonoBehaviour
 
     public void InitialiseObjectSpawning()
     {
-        foreach (RandomSpawner rs in spawnerData)
-        {
-            SpawnObjects(rs);
-        }
-        //SpawnWave();
+        SpawnWave();
     }
 
-    void SpawnObjects(RandomSpawner data)
-    {  
-        Debug.Log("Spawned Enemy!");
-        if (data.spawnerData.name == "BossEnemy")
-        {
-            GameObject go = Instantiate(data.spawnerData.itemToSpawn, RoomController.instance.getCurrentRoomCenter(), Quaternion.identity, transform) as GameObject;
-        }
-        else if (data.spawnerData.name == "PatrolEnemy" && data.positionList.Length > 0)
-        {
-            GameObject enemy = Instantiate(data.spawnerData.itemToSpawn, data.positionList[0].position, Quaternion.identity, transform) as GameObject;
-            enemy.GetComponent<PatrolEnemyAi>().SetPatrolPos(data.positionList);   
-        }else if(data.spawnerData.name == "PatrolObstacle" && data.positionList.Length > 0)
-        {
-            GameObject obstacle = Instantiate(data.spawnerData.itemToSpawn, data.positionList[0].position, Quaternion.identity, transform) as GameObject;
-            obstacle.GetComponent<PatrolObstacle>().SetPatrolPos(data.positionList);
-        }
-        else
-        {
-            GameObject enemy = Instantiate(data.spawnerData.itemToSpawn, data.positionList[0].position, Quaternion.identity, transform) as GameObject;
-        }
-    }
     private Vector3[] GenerateRandomPos(Vector3 origin, float dist, int layermask, int num)
     {
         Vector3[] dirList = new Vector3[num];

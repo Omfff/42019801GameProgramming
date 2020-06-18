@@ -40,7 +40,7 @@ public class BossHpBar : MonoBehaviour
             Debug.Log(RoomController.instance.loadedRooms);
             bossRoom = RoomController.instance.loadedRooms.Find(delegate (Room room)
             {
-                return room.name.Contains("Basement-8");
+                return room.name.Contains("BasementEnd");
             });
         }
         if (CameraController.instance.currRoom == bossRoom)
