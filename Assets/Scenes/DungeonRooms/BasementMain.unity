@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1198,6 +1198,90 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0882353, y: 1.4117647}
   m_EdgeRadius: 0
+--- !u!1001 &437400788
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1364856780542504891, guid: b9c1c616356cd5349848772a3d44104a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364856780542504891, guid: b9c1c616356cd5349848772a3d44104a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364856780542504891, guid: b9c1c616356cd5349848772a3d44104a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364856780542504891, guid: b9c1c616356cd5349848772a3d44104a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364856780542504891, guid: b9c1c616356cd5349848772a3d44104a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364856780542504891, guid: b9c1c616356cd5349848772a3d44104a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364856780542504891, guid: b9c1c616356cd5349848772a3d44104a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364856780542504891, guid: b9c1c616356cd5349848772a3d44104a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364856780542504891, guid: b9c1c616356cd5349848772a3d44104a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364856780542504891, guid: b9c1c616356cd5349848772a3d44104a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364856780542504891, guid: b9c1c616356cd5349848772a3d44104a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364856780542504891, guid: b9c1c616356cd5349848772a3d44104a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364856780542504891, guid: b9c1c616356cd5349848772a3d44104a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364856780542504894, guid: b9c1c616356cd5349848772a3d44104a,
+        type: 3}
+      propertyPath: m_Name
+      value: BrotherBobby
+      objectReference: {fileID: 0}
+    - target: {fileID: 1364856780542504894, guid: b9c1c616356cd5349848772a3d44104a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Follower
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b9c1c616356cd5349848772a3d44104a, type: 3}
 --- !u!4 &454942056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 264595760315706896, guid: f2452e306fb56b241ba68468671394e0,
@@ -1382,6 +1466,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504483445}
   m_CullTransparentMesh: 0
+--- !u!1 &591937939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1364856780542504894, guid: b9c1c616356cd5349848772a3d44104a,
+    type: 3}
+  m_PrefabInstance: {fileID: 437400788}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &591937940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591937939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7a2934b0c960747b664b431cc108ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  familiar: {fileID: 11400000, guid: 20ee24a9abb165142a7cf465198427a0, type: 2}
+  currHealth: 0
+--- !u!58 &591937941
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591937939}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.382353
+--- !u!50 &591937945
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591937939}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &605327103
 GameObject:
   m_ObjectHideFlags: 0
@@ -4111,12 +4252,12 @@ GameObject:
   - component: {fileID: 1802513107}
   - component: {fileID: 1802513106}
   m_Layer: 0
-  m_Name: BrotherBobby
+  m_Name: BrotherBobbyOld
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1802513106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4130,6 +4271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   familiar: {fileID: 11400000, guid: 20ee24a9abb165142a7cf465198427a0, type: 2}
+  currHealth: 0
 --- !u!212 &1802513107
 SpriteRenderer:
   m_ObjectHideFlags: 0
