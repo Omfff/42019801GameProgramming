@@ -27,6 +27,7 @@ public class PatrolObstacle : MonoBehaviour
         if (destinationList != null && destinationList.Length > 0)
         {
             Move();
+            Rotate();
         }
     }
 
@@ -61,6 +62,11 @@ public class PatrolObstacle : MonoBehaviour
             patrolDir = PatrolDir.Go;
         }
         transform.position = Vector2.MoveTowards(transform.position, destinationList[currDestinationIndex].position, speed * Time.deltaTime);
+    }
+
+    private void Rotate()
+    {
+        transform.Rotate(Vector3.forward, 180 * Time.deltaTime);
     }
 
     protected IEnumerator CooldownHurtingPlayer()
