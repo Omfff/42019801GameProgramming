@@ -109,7 +109,7 @@ public class Enemy : MonoBehaviour
 
         GameObject itemSpawner = GameObject.FindGameObjectWithTag("ItemSpawner");
         itemSpawner.GetComponent<ItemSpawner>().dropItemAftherEnemyDeath(transform.position);
-
+        // check if currRoom still exits enemy, if not spawn next wave enemy or open doors
         RoomController.instance.StartCoroutine(RoomController.instance.RoomCoroutine(0));
 
         Destroy(gameObject);

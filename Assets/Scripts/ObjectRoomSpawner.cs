@@ -13,19 +13,40 @@ public class ObjectRoomSpawner : MonoBehaviour
         public SpawnerData spawnerData;
     }
 
+    [System.Serializable]
+    public struct EnemySpawner
+    {
+        public string name;
+        public Transform[] positionList;
+        public SpawnerData spawnerData;
+    }
+
+    [System.Serializable]
+    public struct WaveSpanwer
+    {
+        public EnemySpawner[] enemyBornList;
+    }
+
+    public WaveSpanwer[] wavesData; 
+
     // public GridController grid;
     public RandomSpawner[] spawnerData;
 
+    [SerializeField]
+    private int currWaveNum;
+
     void Start()
     {
+        currWaveNum = 0;
     }
 
     public void InitialiseObjectSpawning()
     {
-        foreach(RandomSpawner rs in spawnerData)
+        foreach (RandomSpawner rs in spawnerData)
         {
             SpawnObjects(rs);
         }
+        //SpawnWave();
     }
 
     void SpawnObjects(RandomSpawner data)
@@ -72,5 +93,51 @@ public class ObjectRoomSpawner : MonoBehaviour
         }
         return generatePos;
 
+    }
+
+    public void SpawnWave()
+    {
+        foreach (EnemySpawner es in wavesData[currWaveNum].enemyBornList)
+        {
+            SpawnEnemy(es);
+        }
+    }
+
+    void SpawnEnemy(EnemySpawner data)
+    {
+        Debug.Log("Spawned Enemy!");
+        if (data.spawnerData.name == "BossEnemy")
+        {
+            GameObject go = Instantiate(data.spawnerData.itemToSpawn, RoomController.instance.getCurrentRoomCenter(), Quaternion.identity, transform) as GameObject;
+        }
+        else if (data.spawnerData.name == "PatrolEnemy" && data.positionList.Length > 0)
+        {
+            GameObject enemy = Instantiate(data.spawnerData.itemToSpawn, data.positionList[0].position, Quaternion.identity, transform) as GameObject;
+            enemy.GetComponent<PatrolEnemyAi>().SetPatrolPos(data.positionList);
+        }
+        else if (data.spawnerData.name == "PatrolObstacle" && data.positionList.Length > 0)
+        {
+            GameObject obstacle = Instantiate(data.spawnerData.itemToSpawn, data.positionList[0].position, Quaternion.identity, transform) as GameObject;
+            obstacle.GetComponent<PatrolObstacle>().SetPatrolPos(data.positionList);
+        }
+        else
+        {
+            GameObject enemy = Instantiate(data.spawnerData.itemToSpawn, data.positionList[0].position, Quaternion.identity, transform) as GameObject;
+        }
+    }
+
+    // if has next wave enemy return true else return false
+    public bool SpawnNextWaveEnemies()
+    {
+        currWaveNum += 1;
+        if(currWaveNum < wavesData.Length)
+        {
+            SpawnWave();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

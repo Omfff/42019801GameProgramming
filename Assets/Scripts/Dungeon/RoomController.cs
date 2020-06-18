@@ -244,6 +244,9 @@ public class RoomController : MonoBehaviour
         Enemy[] enemies = currRoom.GetComponentsInChildren<Enemy>();
         if (enemies == null || enemies.Length == 0)
         {
+            //if (!currRoom.GetComponent<ObjectRoomSpawner>().SpawnNextWaveEnemies())
+            //{
+            //}
             Debug.Log("Unlock currRoom");
             currRoom.GetComponentInChildren<Door>().doorCollider.SetActive(false);
         }

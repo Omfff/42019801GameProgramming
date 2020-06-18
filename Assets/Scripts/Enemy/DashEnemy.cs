@@ -13,7 +13,10 @@ public class DashEnemy:FollowingEnemyAi
 
     protected override void Death()
     {
-        StopCoroutine(dashCoroutine);
+        if (dashCoroutine != null)
+        {
+            StopCoroutine(dashCoroutine);
+        }
         base.Death();
     }
 
