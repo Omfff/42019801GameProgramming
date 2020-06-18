@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     private static int health = 10;
     private static int maxHealth = 10;
     private static float moveSpeed = 5f;
-    private static float bulletSpeed = 7f;
+    private static float bulletSpeed = 14f;
     private static float fireRate = 0.5f;
     private static int xp = 10;
     private static int maxXp = 10;
@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
     private static float shieldCooldown = 10.0f;
     private static float useItemCooldown = 2.0f;
     private static float changeItemCooldown = 0.2f;
+    private static float attackCooldown = 2.0f;
 
     private static float bulletSize = 1.0f;
     public float lastShield;
@@ -54,6 +55,7 @@ public class GameController : MonoBehaviour
     public static float SheildCoolDown { get => shieldCooldown; set => shieldCooldown = value; }
     public static float UseItemCooldown { get => useItemCooldown; set => useItemCooldown = value; }
     public static float ChangeItemCooldown { get => changeItemCooldown; set => changeItemCooldown = value; }
+    public static float AttackCooldown { get => attackCooldown; set => attackCooldown = value; }
     public static int Xp { get => xp; set => xp = value; }
     public static int MaxXp { get => maxXp; set => maxXp = value; }
 
