@@ -5,11 +5,8 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Basement/Basement1.unity
+    path: Assets/Scenes/Basement/BasementStart.unity
     guid: d785e638b89fc4b7c874a765ad4b89fb
   - enabled: 1
     path: Assets/Scenes/Basement/Basement2.unity
@@ -30,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Basement/Basement7.unity
     guid: 57ed91e9619c846f29190fbee674e67c
   - enabled: 1
-    path: Assets/Scenes/Basement/Basement8.unity
+    path: Assets/Scenes/Basement/BasementEnd.unity
     guid: 31407fd44c55244b99603a84a6b78afc
   - enabled: 1
     path: Assets/Scenes/StartScene.unity
@@ -50,4 +47,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndScene.unity
     guid: 2f3c8b7c14173ae42b7662e559fa8e11
+  - enabled: 1
+    path: Assets/Scenes/Forest/ForestEmpty.unity
+    guid: 8c11bb86ca7b44c3190fece55e740939
+  - enabled: 1
+    path: Assets/Scenes/Forest/ForestStart.unity
+    guid: 69bbba988f7b5491fba53c8c101f8d4b
+  - enabled: 1
+    path: Assets/Scenes/Forest/ForestEnd.unity
+    guid: 2fb4dfe9ff505463095223f5e1929817
   m_configObjects: {}
