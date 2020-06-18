@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd3df7c27f0a05344ad151e91426ee19, type: 3}
   m_Name: PatrolEnemy
   m_EditorClassIdentifier: 
-  itemToSpawn: {fileID: 2347079144608428980, guid: 5f62856b807b547ce8c5afeb42157a1f,
+  itemToSpawn: {fileID: 718165370337781026, guid: 4e225d97fee0f4d7f9898c969f07ed24,
     type: 3}
   minSpawn: 0
   maxSpawn: 2
