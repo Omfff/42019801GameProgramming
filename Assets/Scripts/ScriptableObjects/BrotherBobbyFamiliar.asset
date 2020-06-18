@@ -15,5 +15,8 @@ MonoBehaviour:
   familirType: BrotherBobby
   speed: 2.5
   fireDelay: 2
+  maxHealth: 20
+  healInterval: 2.5
+  healthPercentageToBeActive: 0
   bulletPrefab: {fileID: 8912613753944397765, guid: b02d5786e5afaac479b933a6426437e5,
     type: 3}

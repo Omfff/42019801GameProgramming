@@ -175,4 +175,23 @@ public class PlayerController : MonoBehaviour
         isHoldingKey = !isHoldingKey;
         GameController.instance.uI_HotkeyBar.KeyStateChange(isHoldingKey);
     }
+
+    public void LetFamiliarFlashToPlayerBeside(int dir)
+    {
+        switch (dir)
+        {
+            case 0://left
+                Familiar.instance.FlashToPlayerBeside(new Vector3(transform.position.x, transform.position.y + 1,0 ));
+                break;
+            case 1://right
+                Familiar.instance.FlashToPlayerBeside(new Vector3(transform.position.x, transform.position.y - 1, 0));
+                break;
+            case 2://down
+                Familiar.instance.FlashToPlayerBeside(new Vector3(transform.position.x - 1, transform.position.y, 0));
+                break;
+            case 3://up
+                Familiar.instance.FlashToPlayerBeside(new Vector3(transform.position.x + 1, transform.position.y, 0));
+                break;
+        }
+    }
 }

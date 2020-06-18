@@ -306,6 +306,10 @@ public class BulletController : MonoBehaviour
             {
                 GameController.DamagePlayer(2);
             }
+            else if(collider.transform.tag == "Follower")
+            {
+                Familiar.instance.Hurt(2);
+            }
         }
 
         yield return new WaitForSeconds(0.1f);
@@ -420,6 +424,9 @@ public class BulletController : MonoBehaviour
         {
             col.gameObject.transform.parent.Find("Broken" + col.name).gameObject.SetActive(true);
             col.gameObject.SetActive(false);
+        }else if(col.tag == "Follower" && isEnemyBullet)
+        {
+            Familiar.instance.Hurt(1);
         }
     }
 
