@@ -51,7 +51,7 @@ public class CollectionController : MonoBehaviour
                     Destroy(gameObject);
                     break;
                 case ItemType.Weapon:
-                    GameObject prefab = GameController.instance.prefabList[Random.Range(0, 4)];
+                    GameObject prefab = GameController.instance.prefabList[Random.Range(0, 3)];
                     Instantiate(prefab, transform.position, transform.rotation);
                     Destroy(gameObject);
                     break;

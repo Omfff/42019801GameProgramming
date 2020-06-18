@@ -14,7 +14,9 @@ public enum BulletType
 
     Projectile,
 
-    Cruise
+    Cruise,
+
+    Sword
 };
 
 public class BulletController : MonoBehaviour
@@ -58,6 +60,8 @@ public class BulletController : MonoBehaviour
     public float radius;
 
     public int damageTimes = 1;
+
+    private Rigidbody2D rigidbody;
     // Start is called before the first frame update
     void Start() 
     {
@@ -86,15 +90,24 @@ public class BulletController : MonoBehaviour
                 //Physics2D.IgnoreCollision();
                 break;
             case BulletType.Cruise:
+                Player = GameObject.FindGameObjectWithTag("Player");
                 bulletSpeed = 200f;
                 radius = 2f;
                 angle = Random.Range(0, 360);
                 damageTimes = 3;
                 break;
+            case BulletType.Sword:
+                Player = GameObject.FindGameObjectWithTag("Player");
+                bulletSpeed = 430f;
+                radius = 1.2f;
+                angle = 0;
+                break;
         }
         if (!isEnemyBullet)
         {
             transform.localScale = new Vector2(GameController.BulletSize, GameController.BulletSize);
+            acceleration = -1f;
+            rigidbody = gameObject.GetComponent<Rigidbody2D>();
         }
     }
 
@@ -200,13 +213,52 @@ public class BulletController : MonoBehaviour
                     break;
                 case BulletType.Cruise:
                     angle += bulletSpeed * Time.deltaTime % 360;
+                    radius += Random.Range(-1f, 1f) * Time.deltaTime;
                     float posX = radius * Mathf.Cos(angle * Mathf.Deg2Rad);
                     float posY = radius * Mathf.Sin(angle * Mathf.Deg2Rad);
 
                     transform.position = new Vector3(posX, posY, 0) + Player.transform.position;
                     break;
+                
+                 
+                case BulletType.Sword:
+                    angle += bulletSpeed * Time.deltaTime;
+                    //Vector3 pos = RotateRound(transform.position, Player.transform.position, Vector3.forward, angle);
+                    //transform.position = pos;
+                    transform.Rotate(new Vector3(0, 0, bulletSpeed * Time.deltaTime));
+                    //Debug.Log("Rotation:  " + transform.rotation.eulerAngles);
+                    //transform.position = new Vector3();
+                    radius += Random.Range(-0.1f, 0.1f) * Time.deltaTime;
+                    float x = -radius * Mathf.Cos((transform.rotation.eulerAngles.z - 45f) * Mathf.Deg2Rad);
+                    float y = -radius * Mathf.Sin((transform.rotation.eulerAngles.z - 45f) * Mathf.Deg2Rad);
+                    transform.position = new Vector3(Player.transform.position.x + x, Player.transform.position.y + y, 0);
+                    //Debug.Log("Position:  " + transform.position);
+                    //Debug.Log("x, y:      " + x + ", " + y);
+                    if (angle > 180f)
+                    {
+                        Destroy(gameObject);
+                    }
+                    break;
+                default:
+                    
+                    rigidbody.velocity += new Vector2(
+                        (rigidbody.velocity.x == 0f ? 1f : 0.1f) * Random.Range(-10f, 10f),
+                        (rigidbody.velocity.y == 0f ? 1f : 0.1f) * Random.Range(-10f, 10f));
+                        
+                    //rigidbody.velocity += new Vector2(Mathf.Cos(lifeTime*Mathf.Deg2Rad), Mathf.Sin(lifeTime * Mathf.Deg2Rad));
+                    //lifeTime -= Time.deltaTime;
+                    //rigidbody.velocity += rigidbody.velocity * acceleration * Time.deltaTime;  
+                    break;
             }
         }
+    }
+
+
+    public Vector3 RotateRound(Vector3 position, Vector3 center, Vector3 axis, float angle)
+    {
+        Vector3 point = Quaternion.AngleAxis(angle, axis) * (position - center);
+        Vector3 resultVec3 = center + point;
+        return resultVec3;
     }
 
     // only used in tracking
@@ -290,7 +342,6 @@ public class BulletController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("Trigger    " + gameObject.name);
         if (col.tag == "Enemy" && !isEnemyBullet)
         {
             Enemy enemy = col.gameObject.GetComponent<Enemy>();
@@ -319,7 +370,7 @@ public class BulletController : MonoBehaviour
                     break;
             }
             //col.gameObject.GetComponent<Enemy>().getHurt(damage);
-            if (--damageTimes <= 0)
+            if (--damageTimes <= 0 && bulletType != BulletType.Sword)
             {
                 Destroy(gameObject);
             }

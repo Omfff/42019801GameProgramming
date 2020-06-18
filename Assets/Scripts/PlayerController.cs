@@ -17,12 +17,14 @@ public class PlayerController : MonoBehaviour
     public GameObject fireballPrefab;
     public GameObject waterballPrefab;
     public GameObject thunderballPrefab;
+    public GameObject SwordPrefab;
     public PlayerSwapWeapons playerSwapWeapons;
     private WeaponType weaponType;
     public bool isHoldingKey{ get; set; }
 
     private float lastUseItem;
     private float lastChangeItem;
+    private float lastAttack;
 
     //人物朝向
     private float direction_horizontal;
@@ -70,6 +72,20 @@ public class PlayerController : MonoBehaviour
             }
             lastFire = Time.time;
         }
+        // Melee Attack
+        if (Input.GetKey(KeyCode.Space) && Time.time > lastFire + fireDelay)
+        {
+            if (horizontal != 0 || vertical != 0)
+            {
+                Attack(horizontal, vertical);
+            }
+            else
+            {
+                Attack(direction_horizontal, direction_vertical);
+            }
+            lastFire = Time.time;
+        }
+
         rigidbody.velocity = new Vector3(horizontal * speed, vertical * speed, 0);
         //showedText.text = "Nothing to show for now";
 
@@ -139,6 +155,19 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+
+    void Attack(float x, float y)
+    {
+        GameObject sword;
+        if (x < 0 && y == 0)
+            sword = Instantiate(SwordPrefab, transform.position + new Vector3(-0.5f, 0, 0), Quaternion.Euler(0, 0, -45)) as GameObject;
+        if (x > 0 && y == 0)
+            sword = Instantiate(SwordPrefab, transform.position + new Vector3(0.5f, 0, 0), Quaternion.Euler(0, 0, 135)) as GameObject;
+        if (x == 0 && y > 0)
+            sword = Instantiate(SwordPrefab, transform.position + new Vector3(0, 0.5f, 0), Quaternion.Euler(0, 0, -135)) as GameObject;
+        if (x == 0 && y < 0)
+            sword = Instantiate(SwordPrefab, transform.position + new Vector3(0, -0.5f, 0), Quaternion.Euler(0, 0, 45)) as GameObject;
     }
 
     public void KeyStateChange()
