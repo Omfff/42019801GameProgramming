@@ -106,6 +106,10 @@ public class LaserEnemy:FollowingEnemyAi
                     {
                         GameController.DamagePlayer(1);
                     }
+                    if(hitInfo.transform.tag == "Follower")
+                    {
+                        Familiar.instance.Hurt(1f);
+                    }
 
                     //Instantiate(impactEffect, hitInfo.point, Quaternion.identity);
                     Debug.DrawLine(transform.position, hitInfo.point, Color.red);

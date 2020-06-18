@@ -160,6 +160,7 @@ public class RoomController : MonoBehaviour
 
     public void OnPlayerEnterRoom(Room room)
     {
+        Debug.Log("Enter room");
         if (room.name.Contains("Basement-1") || CouldLeaveCurrRoom())
         {
             CameraController.instance.currRoom = room;
@@ -196,8 +197,9 @@ public class RoomController : MonoBehaviour
     }
     public void OnPlayerExitRoom(Room room)
     {
-        CameraController.instance.currRoom = room;
-        currRoom = room;
+        Debug.Log("Exit room");
+        //CameraController.instance.currRoom = room;
+        //currRoom = room;
         Transform[] grandFa;
         grandFa = room.GetComponentsInChildren<Transform>();
         foreach (Transform child in grandFa)

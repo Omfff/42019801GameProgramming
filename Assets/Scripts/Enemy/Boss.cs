@@ -126,6 +126,7 @@ public class Boss : FollowingEnemyAi
         gameObject.GetComponent<OutlineEffect>().StopOutline();
         ScreenShakeController.instance.StartShake(.4f, .8f);
         GameController.DamagePlayer(2);
+        Familiar.instance.Hurt(2);
         yield return new WaitForSeconds(.8f);
         isAttacking = false;
         StartCoroutine(CoolDown());
