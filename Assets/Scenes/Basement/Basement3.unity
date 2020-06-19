@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1635,7 +1635,7 @@ GameObject:
   - component: {fileID: 440547627}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2612,15 +2612,6 @@ MonoBehaviour:
       positionList:
       - {fileID: 2107258291}
       spawnerData: {fileID: 11400000, guid: eeb2a5681c74749679ebe31f72e10222, type: 2}
-  spawnerData:
-  - name: ShootEnemy
-    positionList:
-    - {fileID: 2003840621}
-    spawnerData: {fileID: 11400000, guid: eeb2a5681c74749679ebe31f72e10222, type: 2}
-  - name: LaserEnemy
-    positionList:
-    - {fileID: 575672400}
-    spawnerData: {fileID: 11400000, guid: abe170980e03a4084851e79ce10b78ae, type: 2}
   currWaveNum: 0
 --- !u!1 &1188178464
 GameObject:

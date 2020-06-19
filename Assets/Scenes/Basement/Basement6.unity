@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2538,20 +2538,6 @@ MonoBehaviour:
       positionList:
       - {fileID: 2011094594}
       spawnerData: {fileID: 11400000, guid: 6d68211b924cd9d489a000be30466ef4, type: 2}
-  spawnerData:
-  - name: PatrolObstacle
-    positionList:
-    - {fileID: 1394702860}
-    - {fileID: 514683383}
-    spawnerData: {fileID: 11400000, guid: 32f2db0e171d44329af5f64cc87eaab3, type: 2}
-  - name: ShootEnemy
-    positionList:
-    - {fileID: 469761863}
-    spawnerData: {fileID: 11400000, guid: eeb2a5681c74749679ebe31f72e10222, type: 2}
-  - name: ShootEnemy
-    positionList:
-    - {fileID: 1920926623}
-    spawnerData: {fileID: 11400000, guid: eeb2a5681c74749679ebe31f72e10222, type: 2}
   currWaveNum: 0
 --- !u!1 &1192067258
 GameObject:
@@ -3034,7 +3020,7 @@ GameObject:
   - component: {fileID: 1793238581}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

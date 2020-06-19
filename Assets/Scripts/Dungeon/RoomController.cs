@@ -153,31 +153,40 @@ public class RoomController : MonoBehaviour
             "Basement",
             "Forest"
         };
-        currWorldIndex = 0;
-        currentWorldName = worldNames.First();
-        GetComponent<DungeonGenerator>().enabled = false;
-        LoadRoom("Start", 0, 0);
-        LoadRoom("2", 1, 0);
-        LoadRoom("3", 2, 0);
-        LoadRoom("4", 0, -1);
-        LoadRoom("5", 1, -1);
-        LoadRoom("6", 0, 1);
-        LoadRoom("7", 1, 1);
-        LoadRoom("End", 2, 1);
-
-        //StartCoroutine(SwitchWorld());
+        SwitchWorld("Basement");
+        SwitchWorld("Forest");
     }
 
-    public IEnumerator SwitchWorld()
+    public void SwitchWorld(string worldName)
     {
-        yield return new WaitForSeconds(1);
-        if (worldNames.Count > ++currWorldIndex)
+        DestroyAllRooms();
+        currentWorldName = worldName;
+        if (worldName == "Basement")
         {
-            DestroyAllRooms();
-            currentWorldName = worldNames[currWorldIndex];
+            currWorldIndex = 0;
+            GetComponent<DungeonGenerator>().enabled = false;
+            LoadRoom("Start", 0, 0);
+            LoadRoom("2", 1, 0);
+            LoadRoom("3", 2, 0);
+            LoadRoom("4", 0, -1);
+            LoadRoom("5", 1, -1);
+            LoadRoom("6", 0, 1);
+            LoadRoom("7", 1, 1);
+            LoadRoom("End", 2, 1);
+        }
+        else
+        {
             GetComponent<DungeonGenerator>().enabled = true;
             isProceduralGeneration = true;
             player.transform.position = new Vector2(0, 0);
+        }
+    }
+
+    public void NextWorld()
+    {
+        if (worldNames.Count > ++currWorldIndex)
+        {
+            SwitchWorld(worldNames[currWorldIndex]);
         }
     }
 
@@ -238,9 +247,19 @@ public class RoomController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if (loadRoomQueue.Count == 0)
         {
-            Room bossRoom = loadedRooms[loadedRooms.Count - 1];
-            Room tempRoom = new Room(bossRoom.X, bossRoom.Y);
-            Destroy(bossRoom.gameObject);
+            int maxDistance = 0;
+            Room farthestRoom = loadedRooms[0];
+            foreach (Room room in loadedRooms)
+            {
+                int distance = room.X * room.X + room.Y * room.Y;
+                if (maxDistance < distance)
+                {
+                    maxDistance = distance;
+                    farthestRoom = room;
+                }
+            }
+            Room tempRoom = new Room(farthestRoom.X, farthestRoom.Y);
+            Destroy(farthestRoom.gameObject);
             var roomToRemove = loadedRooms.Single(r => r.X == tempRoom.X && r.Y == tempRoom.Y);
             loadedRooms.Remove(roomToRemove);
             LoadRoom("End", tempRoom.X, tempRoom.Y);

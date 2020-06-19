@@ -15,8 +15,9 @@ public class Key : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == "Player")
         {
-            player.GetComponent<PlayerController>().KeyStateChange();
+            Debug.Log("Player get key");
             this.gameObject.SetActive(false);
+            player.GetComponent<PlayerController>().KeyStateChange(true);
         }
     }
 
