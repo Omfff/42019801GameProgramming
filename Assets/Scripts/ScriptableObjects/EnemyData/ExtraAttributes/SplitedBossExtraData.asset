@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d4f31c7ed9da4df18159e50027f3c98, type: 3}
-  m_Name: LaserExtraiData
+  m_Name: BossExtraData
   m_EditorClassIdentifier: 
-  range: 0
-  coolDown: 0
-  wanderRadius: 0
-  wanderChangeInterval: 0
+  range: 20
+  coolDown: 1
+  wanderRadius: 3
+  wanderChangeInterval: 2

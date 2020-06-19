@@ -61,7 +61,7 @@ public class DashEnemy:FollowingEnemyAi
                     break;
                 }
             }
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, 5 * speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, targetPos, 5 * baseAttributes.speed * Time.deltaTime);
             //Debug.Log("dash " + targetPos);
             //Debug.Log("dash" + Vector3.Distance(curPos, targetPos));
             yield return null;

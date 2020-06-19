@@ -128,19 +128,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currState: 0
-  enemyType: 5
-  health: 10
-  range: 50
-  speed: 3
-  attackRange: 4
-  coolDown: 3
-  wanderRadius: 0
-  wanderChangeInterval: 0
   notInRoom: 0
-  deathEffect: {fileID: 1755349173569476, guid: 3c45864be6a059a4a82a25e285298338,
-    type: 3}
-  damageTextPf: {fileID: 1341119808855457649, guid: fe41a03fff23a404f9ac793146a9e4a5,
-    type: 3}
+  baseAttributes: {fileID: 11400000, guid: be2dc1445d6e543e1ae7a9d4c30a8380, type: 2}
+  extraAttributes: {fileID: 11400000, guid: 5527dc65fd53d4788b550987bee57cd9, type: 2}
   splitedBossPf: {fileID: 6406367591672856722, guid: 4508868dba30b4417a3c5efe0d72fb82,
     type: 3}
   isSplittable: 0

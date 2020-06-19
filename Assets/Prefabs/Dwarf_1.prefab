@@ -135,19 +135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currState: 0
-  enemyType: 3
-  health: 10
-  range: 8
-  speed: 1
-  attackRange: 5
-  coolDown: 2
-  wanderRadius: 0
-  wanderChangeInterval: 0
   notInRoom: 0
-  deathEffect: {fileID: 1755349173569476, guid: 3c45864be6a059a4a82a25e285298338,
-    type: 3}
-  damageTextPf: {fileID: 1341119808855457649, guid: fe41a03fff23a404f9ac793146a9e4a5,
-    type: 3}
+  baseAttributes: {fileID: 11400000, guid: 9d7403419725142b78317303db989093, type: 2}
+  extraAttributes: {fileID: 11400000, guid: f1baf324be04a47d0adb1e3b9aa3b604, type: 2}
   bulletPrefab: {fileID: 8912613753944397765, guid: b02d5786e5afaac479b933a6426437e5,
     type: 3}
 --- !u!195 &870235057349992933

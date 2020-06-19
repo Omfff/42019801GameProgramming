@@ -122,7 +122,7 @@ public class LaserPatrolEnemy : PatrolEnemyAi
         }
         else
         {
-            if (enemyType == EnemyType.Laser)
+            if (baseAttributes.enemyType == EnemyType.Laser)
             {
                 lineRenderer.GetComponent<Destroyer>().DestroyMe();
             }

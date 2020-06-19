@@ -21,8 +21,6 @@ public class LaserEnemy:FollowingEnemyAi
     {
         lineRenderer = Instantiate(lineRenderPf, transform.position, Quaternion.identity) as LineRenderer;
         aimingRayLineRender = Instantiate(aimingRayPf, transform.position, Quaternion.identity) as LineRenderer;
-        attackRange = 7;
-        range = 11;
     }
 
     protected override void Death()
@@ -38,7 +36,7 @@ public class LaserEnemy:FollowingEnemyAi
         }
         else
         {
-            if (enemyType == EnemyType.Laser)
+            if (baseAttributes.enemyType == EnemyType.Laser)
             {
                 lineRenderer.GetComponent<Destroyer>().DestroyMe();
                 aimingRayLineRender.GetComponent<Destroyer>().DestroyMe();
