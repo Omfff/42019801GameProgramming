@@ -179,6 +179,7 @@ public class RoomController : MonoBehaviour
             GetComponent<DungeonGenerator>().enabled = true;
             isProceduralGeneration = true;
             player.transform.position = new Vector2(0, 0);
+            player.GetComponent<PlayerController>().LetFamiliarFlashToPlayerBeside(0);
         }
     }
 
@@ -264,6 +265,7 @@ public class RoomController : MonoBehaviour
             loadedRooms.Remove(roomToRemove);
             LoadRoom("End", tempRoom.X, tempRoom.Y);
         }
+
     }
 
     public void OnPlayerEnterRoom(Room room)

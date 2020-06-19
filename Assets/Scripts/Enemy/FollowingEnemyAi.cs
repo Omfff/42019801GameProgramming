@@ -5,14 +5,6 @@ public class FollowingEnemyAi : Enemy
 {
     const float minSpeed = 0.00001f;
 
-    public float range;
-
-    public float coolDown;
-
-    public float wanderRadius;
-
-    public float wanderChangeInterval;
-
     private float wanderTimer;
 
     private bool dead = false;
@@ -27,6 +19,8 @@ public class FollowingEnemyAi : Enemy
 
     protected Vector3 slowDownVelocity;
 
+    public FollowingEnemyAiData extraAttributes;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,29 +28,13 @@ public class FollowingEnemyAi : Enemy
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        agent.speed = speed;
-        wanderChangeInterval = 3f;
-        wanderRadius = range;
-        wanderTimer = wanderChangeInterval;
+        agent.speed = baseAttributes.speed;
+        wanderTimer = extraAttributes.wanderChangeInterval;
 
         if (!agent.isOnNavMesh)
         {
             agent.Warp(transform.position);
             Debug.Log("Enemy start: agent is not on navmesh");
-        }
-        switch (enemyType)
-        {
-            case (EnemyType.Ranged):
-                attackRange = 6;
-                range = 10;
-                break;
-            case (EnemyType.Dash):
-                attackRange = 3;
-                range = 8;
-                coolDown = 2;
-                break;
-            case EnemyType.Laser:
-                break;
         }
     }
 
@@ -91,17 +69,17 @@ public class FollowingEnemyAi : Enemy
         if (!notInRoom && !GameController.instance.isTimeStop)
         {
 
-            if (IsPlayerInRange(range) && currState != EnemyState.Die && GameController.instance.isPlayerVisible)
+            if (IsPlayerInRange(extraAttributes.range) && currState != EnemyState.Die && GameController.instance.isPlayerVisible)
             {
-                if(Vector3.Distance(transform.position, player.transform.position) > attackRange)
+                if(Vector3.Distance(transform.position, player.transform.position) > baseAttributes.attackRange)
                     changeStateToFollow();
             }
-            else if (!GameController.instance.isPlayerVisible || !IsPlayerInRange(range) && currState != EnemyState.Die)
+            else if (!GameController.instance.isPlayerVisible || !IsPlayerInRange(extraAttributes.range) && currState != EnemyState.Die)
             {
                 currState = EnemyState.Wander;
             }
 
-            if (Vector3.Distance(transform.position, player.transform.position) <= attackRange && GameController.instance.isPlayerVisible)
+            if (Vector3.Distance(transform.position, player.transform.position) <= baseAttributes.attackRange && GameController.instance.isPlayerVisible)
             {
                 currState = EnemyState.Attack;
                 if (agent.isOnNavMesh)
@@ -213,9 +191,9 @@ public class FollowingEnemyAi : Enemy
         agent.stoppingDistance = 0.5f;
         wanderTimer += Time.deltaTime;
 
-        if (wanderTimer >= wanderChangeInterval)
+        if (wanderTimer >= extraAttributes.wanderChangeInterval)
         {
-            Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
+            Vector3 newPos = RandomNavSphere(transform.position, extraAttributes.wanderRadius, -1);
             if (agent.isOnNavMesh)
             {
                 agent.SetDestination(newPos);
@@ -230,7 +208,7 @@ public class FollowingEnemyAi : Enemy
         setAnimator();
         DebugDrawPath(agent.path.corners);
 
-        if (IsPlayerInRange(range))
+        if (IsPlayerInRange(extraAttributes.range))
         {
             changeStateToFollow();
         }
@@ -242,7 +220,7 @@ public class FollowingEnemyAi : Enemy
         {
             //agent.ResetPath();
             agent.isStopped = false;
-            agent.stoppingDistance = attackRange - 0.5f;
+            agent.stoppingDistance = baseAttributes.attackRange/2 - 0.5f > 1f ? baseAttributes.attackRange / 2 - 0.5f :1f;
             currState = EnemyState.Follow;
         }
         else
@@ -254,7 +232,7 @@ public class FollowingEnemyAi : Enemy
     private void Follow()
     {
         //Debug.Log("Follow");
-        if (Vector3.Distance(transform.position, player.transform.position) >= attackRange - 1f)
+        if (Vector3.Distance(transform.position, player.transform.position) >= baseAttributes.attackRange - 1f)
         {
             agent.SetDestination(player.transform.position);
             setAnimator();
@@ -270,7 +248,7 @@ public class FollowingEnemyAi : Enemy
     protected IEnumerator CoolDown()
     {
         coolDownAttack = true;
-        yield return new WaitForSeconds(coolDown);
+        yield return new WaitForSeconds(extraAttributes.coolDown);
         coolDownAttack = false;
     }
 
@@ -328,17 +306,17 @@ public class FollowingEnemyAi : Enemy
 
     public override float GetCoolDownTime()
     {
-        return this.coolDown;
+        return this.extraAttributes.coolDown;
     }
 
     public override void IncreaseAttackCoolTime(float time)
     {
-        this.coolDown += time;
+        this.extraAttributes.coolDown += time;
     }
 
     public override void SetCoolDownTime(float time)
     {
-        this.coolDown = time;
+        this.extraAttributes.coolDown = time;
     }
 
 }
