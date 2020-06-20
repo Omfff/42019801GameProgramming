@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1843,7 +1843,7 @@ GameObject:
   - component: {fileID: 713137806}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3265,11 +3265,6 @@ MonoBehaviour:
       positionList:
       - {fileID: 1151422085}
       spawnerData: {fileID: 11400000, guid: de29cfb6bd94e4ed6b433967d162520c, type: 2}
-  spawnerData:
-  - name: BossEnemy
-    positionList:
-    - {fileID: 1151422085}
-    spawnerData: {fileID: 11400000, guid: de29cfb6bd94e4ed6b433967d162520c, type: 2}
   currWaveNum: 0
 --- !u!1 &849030357
 GameObject:

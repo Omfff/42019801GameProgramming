@@ -170,9 +170,9 @@ public class PlayerController : MonoBehaviour
             sword = Instantiate(SwordPrefab, transform.position + new Vector3(0, -0.5f, 0), Quaternion.Euler(0, 0, 45)) as GameObject;
     }
 
-    public void KeyStateChange()
+    public void KeyStateChange(bool isHolding)
     {
-        isHoldingKey = !isHoldingKey;
+        isHoldingKey = isHolding;
         GameController.instance.uI_HotkeyBar.KeyStateChange(isHoldingKey);
     }
 

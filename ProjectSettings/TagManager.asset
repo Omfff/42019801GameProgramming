@@ -15,6 +15,7 @@ TagManager:
   - Treasure
   - Bullet
   - Follower
+  - Wall
   layers:
   - Default
   - TransparentFX
