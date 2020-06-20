@@ -70,10 +70,12 @@ public class BossHpBar : MonoBehaviour
             SetHealth(boss.GetComponent<Boss>().health);
         }
         //for test
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GameController.DamagePlayer(1);
         }
+        */
     }
 
     private IEnumerator hideBarAfterBossDie()

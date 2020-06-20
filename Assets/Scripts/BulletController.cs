@@ -240,11 +240,11 @@ public class BulletController : MonoBehaviour
                     }
                     break;
                 default:
-                    
+                    /*
                     rigidbody.velocity += new Vector2(
                         (rigidbody.velocity.x == 0f ? 1f : 0.1f) * Random.Range(-5f, 5f),
                         (rigidbody.velocity.y == 0f ? 1f : 0.1f) * Random.Range(-5f, 5f));
-                        
+                    */
                     //rigidbody.velocity += new Vector2(Mathf.Cos(lifeTime*Mathf.Deg2Rad), Mathf.Sin(lifeTime * Mathf.Deg2Rad));
                     //lifeTime -= Time.deltaTime;
                     rigidbody.velocity += rigidbody.velocity * acceleration * Time.deltaTime;
