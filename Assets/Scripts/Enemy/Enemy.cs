@@ -45,19 +45,9 @@ public class Enemy : MonoBehaviour
 
     public EnemyState currState = EnemyState.Idle;
 
-    public EnemyType enemyType;
-
-    public float health;
-
-    public float speed;
-
-    public float attackRange;
-
     public bool notInRoom = false;
 
-    public GameObject deathEffect;
-
-    public GameObject damageTextPf;
+    public EnemyData baseAttributes;
 
 
     // Start is called before the first frame update
@@ -71,7 +61,7 @@ public class Enemy : MonoBehaviour
         gameObject.GetComponent<MaterialTintColor>().SetTintMaterial(material);
         gameObject.GetComponent<SpriteRenderer>().material = material;
 
-        switch (enemyType)
+        switch (baseAttributes.enemyType)
         {
             case (EnemyType.Ranged):
                 break;
@@ -91,7 +81,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Death()
     {
-        if (enemyType == EnemyType.Boss)
+        if (baseAttributes.enemyType == EnemyType.Boss)
         {
             Debug.Log("boss enemy death");
         }
@@ -105,7 +95,7 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Instantiate(baseAttributes.deathEffect, transform.position, Quaternion.identity);
 
         GameObject itemSpawner = GameObject.FindGameObjectWithTag("ItemSpawner");
         itemSpawner.GetComponent<ItemSpawner>().dropItemAftherEnemyDeath(transform.position);
@@ -128,14 +118,14 @@ public class Enemy : MonoBehaviour
 
     public void getHurt(float damage)
     {
-        health -= damage;
+        baseAttributes.health -= damage;
 
-        GameObject textPopUp = Instantiate(damageTextPf, transform.position, Quaternion.identity);
+        GameObject textPopUp = Instantiate(baseAttributes.damageTextPf, transform.position, Quaternion.identity);
         DamageTextPopUp damageText = textPopUp.GetComponent<DamageTextPopUp>();
         damageText.Setup((int)damage);
 
         //spriteRender.material = matWhite;
-        if (health > 0)
+        if (baseAttributes.health > 0)
         {
             // hurt effect:splash
             gameObject.GetComponent<MaterialTintColor>().SetTintFadeSpeed(6f);

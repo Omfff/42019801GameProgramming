@@ -17,7 +17,7 @@ public class EndPoint : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Move to next world!");
-            StartCoroutine(RoomController.instance.SwitchWorld());
+            RoomController.instance.NextWorld();
         }
     }
 }

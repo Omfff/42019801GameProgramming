@@ -17,8 +17,6 @@ public class BombEnemy:FollowingEnemyAi
             return;
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity) as GameObject;
         bullet.GetComponent<BulletController>().GetPlayer(player.transform);
-        //bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
-        //bullet.GetComponent<Rigidbody2D>().velocity = moveDirection * moveSpeed;
         bullet.GetComponent<Rigidbody2D>().angularVelocity = -100f;
         bullet.GetComponent<BulletController>().isEnemyBullet = true;
         StartCoroutine(CoolDown());   

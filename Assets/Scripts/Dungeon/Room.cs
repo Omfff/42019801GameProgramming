@@ -12,7 +12,6 @@ public class Room : MonoBehaviour
     public int Y;
 
     private bool updatedDoors = false;
-    private NavMeshSurface2d surface;
 
     public SeperatedDoor leftDoor;
     public SeperatedDoor rightDoor;
@@ -59,10 +58,11 @@ public class Room : MonoBehaviour
                     break;
             }
         }
-        if(ds.Length > 0)
-        {
-            gameObject.GetComponentInChildren<NavMeshSurface2d>().BuildNavMesh();
-        }
+        //if (true) //ds.Length > 0
+        //{
+        //    transform.Find("Navmesh").GetComponent<NavMeshSurface2d>().BuildNavMesh();
+        //    //gameObject.GetComponentInChildren<NavMeshSurface2d>().BuildNavMesh();
+        //}
         RoomController.instance.RegisterRoom(this);
     }
 

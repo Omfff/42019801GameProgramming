@@ -1835,7 +1835,7 @@ GameObject:
   - component: {fileID: 713137806}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3257,11 +3257,6 @@ MonoBehaviour:
       positionList:
       - {fileID: 2096220518}
       spawnerData: {fileID: 11400000, guid: abe170980e03a4084851e79ce10b78ae, type: 2}
-  spawnerData:
-  - name: DashEnemy
-    positionList:
-    - {fileID: 2096220518}
-    spawnerData: {fileID: 11400000, guid: 6d68211b924cd9d489a000be30466ef4, type: 2}
   currWaveNum: 0
 --- !u!1 &849030357
 GameObject:
@@ -7039,8 +7034,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: a28e8207aec0a4e15a8b61d5774f07a3,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 9046340114773862289, guid: 669940a8085b14b598a9fd3ccfe91c37,
         type: 3}
       propertyPath: m_Name
@@ -7114,3 +7108,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 9046340115935166615}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9046340115935166617 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9046340114773862289, guid: 669940a8085b14b598a9fd3ccfe91c37,
+    type: 3}
+  m_PrefabInstance: {fileID: 9046340115935166615}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9046340115935166618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9046340115935166617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63308781423684ab2a3fdfa6c77b7ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navMeshData: {fileID: 23800000, guid: f4a1c182cffa64c97948b5af6da760fe, type: 2}

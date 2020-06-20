@@ -53,7 +53,7 @@ public class Boss : FollowingEnemyAi
             switch (skill)
             {
                 case BossSkill.Heal:
-                    Debug.Log("health" + health);
+                    Debug.Log("health" + baseAttributes.health);
                     StartCoroutine(SelfHealing());
                     break;
                 case BossSkill.Invincible:
@@ -81,7 +81,7 @@ public class Boss : FollowingEnemyAi
     private IEnumerator ShieldOpen()
     {
         float shieldSize = 3f;
-        if(enemyType == EnemyType.SplittedBoss)
+        if(baseAttributes.enemyType == EnemyType.SplittedBoss)
         {
             shieldSize = 0.75f;
         }
@@ -99,8 +99,8 @@ public class Boss : FollowingEnemyAi
         gameObject.GetComponent<OutlineEffect>().StartOutline();
         while (healRemainTime > 0)
         {
-            health += 1;
-            Debug.Log("health" + health);
+            baseAttributes.health += 1;
+            Debug.Log("health" + baseAttributes.health);
             yield return new WaitForSeconds(healInterval);
             healRemainTime -= healInterval;
         }
@@ -316,7 +316,7 @@ public class Boss : FollowingEnemyAi
                 return;
             }
             Debug.Log("boss death");
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Instantiate(baseAttributes.deathEffect, transform.position, Quaternion.identity);
             int num = 4;
             Vector3[] generatePos = GenerateSplitedBossPos(transform.position, gameObject.GetComponent<Renderer>().bounds.size.x * 1.5f, -1, num);
             for (int i = 0; i < num; i++)

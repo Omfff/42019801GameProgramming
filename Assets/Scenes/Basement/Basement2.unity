@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1867,15 +1867,6 @@ MonoBehaviour:
       - {fileID: 1262310802}
       - {fileID: 1698715025}
       spawnerData: {fileID: 11400000, guid: df12b9bf2337b4cf3b59c4f3c6c772fb, type: 2}
-  spawnerData:
-  - name: DashEnemy
-    positionList:
-    - {fileID: 938763093}
-    spawnerData: {fileID: 11400000, guid: abe170980e03a4084851e79ce10b78ae, type: 2}
-  - name: BombEnemy
-    positionList:
-    - {fileID: 1262310802}
-    spawnerData: {fileID: 11400000, guid: 09a3fc0097db5476cae5eeefe7a38b88, type: 2}
   currWaveNum: 0
 --- !u!1 &938763092
 GameObject:
@@ -2084,7 +2075,7 @@ GameObject:
   - component: {fileID: 1638129150}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

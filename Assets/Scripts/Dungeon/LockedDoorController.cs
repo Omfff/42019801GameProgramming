@@ -19,7 +19,7 @@ public class LockedDoorController : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             openedDoor.SetActive(true);
-            player.GetComponent<PlayerController>().KeyStateChange();
+            player.GetComponent<PlayerController>().KeyStateChange(false);
         }
     }
 }
