@@ -56,4 +56,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Forest/ForestEnd.unity
     guid: 2fb4dfe9ff505463095223f5e1929817
+  - enabled: 1
+    path: Assets/Scenes/Forest/ForestSpikeAndLaser.unity
+    guid: f208ef7375f0246bcb4a7d198f928cbe
+  - enabled: 1
+    path: Assets/Scenes/Forest/ForestBombAndLaser.unity
+    guid: ebffb39c60825471c909c66638b59b3d
+  - enabled: 1
+    path: Assets/Scenes/Forest/ForestGears.unity
+    guid: 5fbd756f151ea4d34a027dc5fb3e01d6
   m_configObjects: {}
