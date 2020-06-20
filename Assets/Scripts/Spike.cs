@@ -9,6 +9,7 @@ public class Spike : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        //GameController.DamagePlayer(damage);
     }
 
 }

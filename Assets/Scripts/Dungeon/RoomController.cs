@@ -343,9 +343,33 @@ public class RoomController : MonoBehaviour
         }
         else //update entering room
         {
-            UpdateEnteringRoom();
+            currRoom.GetComponent<ObjectRoomSpawner>().InitialiseObjectSpawning();
+            if (CouldLeaveCurrRoom())//no enemy (only patrol obstacle)
+            {
+                OpenDoor();
+            }
         }
     }
+
+    private void OpenDoor()
+    {
+        //open door
+        Debug.Log("Unlock currRoom");
+        if (isProceduralGeneration)
+        {
+            SeperatedDoor[] doors = currRoom.GetComponentsInChildren<SeperatedDoor>();
+            foreach (SeperatedDoor door in doors)
+            {
+                //door.gameObject.SetActive(true);
+                door.closedDoor.SetActive(false);
+            }
+        }
+        else
+        {
+            currRoom.GetComponentInChildren<Door>().doorCollider.SetActive(false);
+        }
+    }
+
 
     private void UpdateCurrentRoom()
     {
@@ -354,20 +378,9 @@ public class RoomController : MonoBehaviour
         {
             if (!currRoom.GetComponent<ObjectRoomSpawner>().SpawnNextWaveEnemies())
             {
-                Debug.Log("Unlock currRoom");
-                if (isProceduralGeneration)
-                {
-                    SeperatedDoor[] doors = currRoom.GetComponentsInChildren<SeperatedDoor>();
-                    foreach (SeperatedDoor door in doors)
-                    {
-                        //door.gameObject.SetActive(true);
-                        door.closedDoor.SetActive(false);
-                    }
-                }
-                else
-                {
-                    currRoom.GetComponentInChildren<Door>().doorCollider.SetActive(false);
-                }
+                //open door
+                OpenDoor();
+
                 if (currRoom.name.Contains("End"))
                 {
                     currRoom.endPoint.SetActive(true);
@@ -376,10 +389,6 @@ public class RoomController : MonoBehaviour
         }
     }
 
-    private void UpdateEnteringRoom()
-    {
-        currRoom.GetComponent<ObjectRoomSpawner>().InitialiseObjectSpawning();
-    }
 
     public Vector3 getCurrentRoomCenter()
     {
