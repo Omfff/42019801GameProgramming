@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BombEnemyBaseData
   m_EditorClassIdentifier: 
   enemyType: 1
-  health: 10
+  health: 12
   speed: 1
   attackRange: 6
   deathEffect: {fileID: 1755349173569476, guid: 3c45864be6a059a4a82a25e285298338,

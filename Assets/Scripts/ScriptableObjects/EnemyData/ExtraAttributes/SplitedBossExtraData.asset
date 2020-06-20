@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SplitedBossExtraData
   m_EditorClassIdentifier: 
   range: 20
-  coolDown: 1
-  wanderRadius: 3
-  wanderChangeInterval: 2
+  coolDown: 2
+  wanderRadius: 4
+  wanderChangeInterval: 1
