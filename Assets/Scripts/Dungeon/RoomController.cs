@@ -153,7 +153,7 @@ public class RoomController : MonoBehaviour
             "Basement",
             "Forest"
         };
-        SwitchWorld("Basement");
+        //SwitchWorld("Basement");
         SwitchWorld("Forest");
     }
 
@@ -393,9 +393,16 @@ public class RoomController : MonoBehaviour
 
     public string GetRandomRoomName()
     {
-        string[] possibleRooms = new string[] {
-            "Empty"
-        };
+        string[] possibleRooms;
+        switch (currentWorldName)
+        {
+            case "Forest":
+                possibleRooms = new string[] { "Empty", "SpikeAndLaser", "BombAndLaser", "Gears" };
+                break;
+            default:
+                possibleRooms = new string[] { "Empty" };
+                break;
+        }
 
         return possibleRooms[Random.Range(0, possibleRooms.Length)];
     }
