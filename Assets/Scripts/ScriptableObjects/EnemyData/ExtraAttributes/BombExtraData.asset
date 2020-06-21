@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BombExtraData
   m_EditorClassIdentifier: 
   range: 10
-  coolDown: 2
+  coolDown: 3
   wanderRadius: 3
   wanderChangeInterval: 2
