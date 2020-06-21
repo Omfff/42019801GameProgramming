@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 4603476697501131399}
   - component: {fileID: 4603476697501131398}
   - component: {fileID: 4603476697501131401}
-  - component: {fileID: 4603476697485596727}
   - component: {fileID: 4603476697485596723}
   - component: {fileID: 4603476697485596720}
   - component: {fileID: 4603476697485596721}
   - component: {fileID: 6225389299091613506}
   - component: {fileID: 4603476698372318245}
-  - component: {fileID: 3225075860988047694}
+  - component: {fileID: -8914218489938212004}
   m_Layer: 0
   m_Name: BOSS1
   m_TagString: Enemy
@@ -116,37 +115,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4603476697485596727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4603476697501131403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29a28a84f25ee4fbb90d12db93140fb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currState: 0
-  notInRoom: 0
-  baseAttributes: {fileID: 11400000, guid: 8af425e0cbff04767a26b7f0186cf9c9, type: 2}
-  extraAttributes: {fileID: 11400000, guid: d89b66af262f54fedbcd64be5a456698, type: 2}
-  splitedBossPf: {fileID: 4603476697501131403, guid: 6b49e74c7d2224e3a90a30e97f819abb,
-    type: 3}
-  isSplittable: 1
-  healTime: 3
-  BossName: 
-  NormalPrefab: {fileID: 8912613753944397765, guid: b02d5786e5afaac479b933a6426437e5,
-    type: 3}
-  BombPrefab: {fileID: 2654382028659701182, guid: ca30230545e27489aa0e059007553731,
-    type: 3}
-  SlalomPrefab: {fileID: 8912613753944397765, guid: d15516a233f8c07498ae6935b6b1998a,
-    type: 3}
-  TrackingPrefab: {fileID: 8912613753944397765, guid: ca8cb3ff72b01a648a7765f0599a9615,
-    type: 3}
-  ProjectilePrefab: {fileID: 8912613753944397765, guid: a9a08406e8a60cc4a9b9d002a99147f5,
-    type: 3}
 --- !u!195 &4603476697485596723
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -229,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: c2a198d0fb32e4267859cfbc17880831, type: 2}
---- !u!114 &3225075860988047694
+--- !u!114 &-8914218489938212004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,3 +209,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e06ded4469c4e41bca929b98ad5195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currState: 0
+  notInRoom: 0
+  baseAttributes: {fileID: 11400000, guid: 8af425e0cbff04767a26b7f0186cf9c9, type: 2}
+  extraAttributes: {fileID: 11400000, guid: d89b66af262f54fedbcd64be5a456698, type: 2}
+  splitedBossPf: {fileID: 0}
+  isSplittable: 0
+  healTime: 3
+  BossName: 
+  NormalPrefab: {fileID: 8912613753944397765, guid: b02d5786e5afaac479b933a6426437e5,
+    type: 3}
+  BombPrefab: {fileID: 2654382028659701182, guid: ca30230545e27489aa0e059007553731,
+    type: 3}
+  SlalomPrefab: {fileID: 8912613753944397765, guid: d15516a233f8c07498ae6935b6b1998a,
+    type: 3}
+  TrackingPrefab: {fileID: 8912613753944397765, guid: ca8cb3ff72b01a648a7765f0599a9615,
+    type: 3}
+  ProjectilePrefab: {fileID: 8912613753944397765, guid: a9a08406e8a60cc4a9b9d002a99147f5,
+    type: 3}

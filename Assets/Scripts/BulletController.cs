@@ -415,9 +415,8 @@ public class BulletController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else if (col.tag == "Wall" && bulletType != BulletType.Projectile)  
+        else if (col.tag == "Wall" && bulletType != BulletType.Projectile && bulletType != BulletType.Cruise && bulletType != BulletType.Sword)  
         {
-            // 地图墙未加tag
             Destroy(gameObject);
         }
         else if (col.tag == "Jar" && !isEnemyBullet)

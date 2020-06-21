@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UltimateBoss : MonoBehaviour
+public class UltimateBoss : Boss
 {
-    // Start is called before the first frame update
-    void Start()
+    protected new enum BossSkill
     {
-        
-    }
+        Heal,
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        Invincible,
+
+        FullScreenAttack,
+
+        Omnidirection,
+
+        //Unidirection,
+    };
 }
