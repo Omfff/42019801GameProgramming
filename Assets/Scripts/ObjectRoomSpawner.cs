@@ -78,7 +78,7 @@ public class ObjectRoomSpawner : MonoBehaviour
 
     void SpawnEnemy(EnemySpawner data)
     {
-        Debug.Log("Spawned Enemy!");
+        Debug.Log("Spawned Enemy!" + data.spawnerData.name);
         if (data.spawnerData.name == "BossEnemy")
         {
             GameObject go = Instantiate(data.spawnerData.itemToSpawn, RoomController.instance.getCurrentRoomCenter(), Quaternion.identity, transform) as GameObject;
@@ -88,7 +88,7 @@ public class ObjectRoomSpawner : MonoBehaviour
             GameObject enemy = Instantiate(data.spawnerData.itemToSpawn, data.positionList[0].position, Quaternion.identity, transform) as GameObject;
             enemy.GetComponent<PatrolEnemyAi>().SetPatrolPos(data.positionList);
         }
-        else if (data.spawnerData.name == "PatrolObstacle" && data.positionList.Length > 0)
+        else if ((data.spawnerData.name == "PatrolObstacle" || data.spawnerData.name == "PatrolObstacleFree") && data.positionList.Length > 0)
         {
             GameObject obstacle = Instantiate(data.spawnerData.itemToSpawn, data.positionList[0].position, Quaternion.identity, transform) as GameObject;
             obstacle.GetComponent<PatrolObstacle>().SetPatrolPos(data.positionList);
