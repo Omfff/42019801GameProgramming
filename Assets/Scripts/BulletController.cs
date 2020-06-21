@@ -99,7 +99,7 @@ public class BulletController : MonoBehaviour
             case BulletType.Sword:
                 Player = GameObject.FindGameObjectWithTag("Player");
                 bulletSpeed = 430f;
-                radius = 1.2f;
+                radius = 1.0f;
                 angle = 0;
                 break;
         }

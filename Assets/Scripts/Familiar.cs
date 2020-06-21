@@ -98,7 +98,7 @@ public class Familiar : MonoBehaviour
                     float posY = pos.y - transform.position.y;
                     bullet.GetComponent<BulletController>().isEnemyBullet = false;
                     bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
-                    bullet.GetComponent<Rigidbody2D>().velocity = (new Vector2(posX, posY)).normalized * 3.0f +
+                    bullet.GetComponent<Rigidbody2D>().velocity = (new Vector2(posX, posY)).normalized * 10.0f +
                         new Vector2(rigidbody.velocity.x, rigidbody.velocity.y);
 
                 }

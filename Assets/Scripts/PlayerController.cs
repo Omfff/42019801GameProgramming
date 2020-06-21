@@ -161,13 +161,13 @@ public class PlayerController : MonoBehaviour
     {
         GameObject sword;
         if (x < 0 && y == 0)
-            sword = Instantiate(SwordPrefab, transform.position + new Vector3(-0.5f, 0, 0), Quaternion.Euler(0, 0, -45)) as GameObject;
+            sword = Instantiate(SwordPrefab, transform.position + new Vector3(0, 1.0f, 0), Quaternion.Euler(0, 0, -45)) as GameObject;
         if (x > 0 && y == 0)
-            sword = Instantiate(SwordPrefab, transform.position + new Vector3(0.5f, 0, 0), Quaternion.Euler(0, 0, 135)) as GameObject;
+            sword = Instantiate(SwordPrefab, transform.position + new Vector3(0, -1.0f, 0), Quaternion.Euler(0, 0, 135)) as GameObject;
         if (x == 0 && y > 0)
-            sword = Instantiate(SwordPrefab, transform.position + new Vector3(0, 0.5f, 0), Quaternion.Euler(0, 0, -135)) as GameObject;
+            sword = Instantiate(SwordPrefab, transform.position + new Vector3(1.0f, 0, 0), Quaternion.Euler(0, 0, -135)) as GameObject;
         if (x == 0 && y < 0)
-            sword = Instantiate(SwordPrefab, transform.position + new Vector3(0, -0.5f, 0), Quaternion.Euler(0, 0, 45)) as GameObject;
+            sword = Instantiate(SwordPrefab, transform.position + new Vector3(-1.0f, 0, 0), Quaternion.Euler(0, 0, 45)) as GameObject;
     }
 
     public void KeyStateChange(bool isHolding)
