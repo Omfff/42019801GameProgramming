@@ -15,4 +15,4 @@ MonoBehaviour:
   range: 10
   coolDown: 2
   wanderRadius: 3
-  wanderChangeInterval: 1
+  wanderChangeInterval: 2

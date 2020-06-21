@@ -17,8 +17,9 @@ GameObject:
   - component: {fileID: 4603476697485596721}
   - component: {fileID: 6225389299091613506}
   - component: {fileID: 4603476698372318245}
+  - component: {fileID: 7843212676350822523}
   m_Layer: 0
-  m_Name: BOSS
+  m_Name: BOSS2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +56,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9705882, y: 1.382353}
+    oldSize: {x: 3.5, y: 3.4411764}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -103,7 +104,7 @@ SpriteRenderer:
   m_SortingLayerID: -1491017799
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3839598667861816580, guid: 78bcdee49da558f4ba054b8f8843f525,
+  m_Sprite: {fileID: -3717686652356265191, guid: 67dec0603402c5b4fbc0079088bd1158,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -128,13 +129,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currState: 0
+  enemyType: 4
+  health: 50
+  speed: 3
+  attackRange: 6
   notInRoom: 0
-  baseAttributes: {fileID: 11400000, guid: 8af425e0cbff04767a26b7f0186cf9c9, type: 2}
-  extraAttributes: {fileID: 11400000, guid: d89b66af262f54fedbcd64be5a456698, type: 2}
+  deathEffect: {fileID: 1755349173569476, guid: 3c45864be6a059a4a82a25e285298338,
+    type: 3}
+  damageTextPf: {fileID: 1341119808855457649, guid: fe41a03fff23a404f9ac793146a9e4a5,
+    type: 3}
+  range: 50
+  coolDown: 1
+  wanderRadius: 0
+  wanderChangeInterval: 0
   splitedBossPf: {fileID: 4603476697501131403, guid: 6b49e74c7d2224e3a90a30e97f819abb,
     type: 3}
   isSplittable: 1
   healTime: 3
+  BossName: 
   NormalPrefab: {fileID: 8912613753944397765, guid: b02d5786e5afaac479b933a6426437e5,
     type: 3}
   BombPrefab: {fileID: 2654382028659701182, guid: ca30230545e27489aa0e059007553731,
@@ -227,3 +239,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: c2a198d0fb32e4267859cfbc17880831, type: 2}
+--- !u!114 &7843212676350822523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603476697501131403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3769a1540b3fb5d4586b2e1cd94e9e18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

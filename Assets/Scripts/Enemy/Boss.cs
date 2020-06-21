@@ -26,6 +26,8 @@ public class Boss : FollowingEnemyAi
     private float healInterval = 0.5f;
     private int direction = 16;
 
+    public string BossName;
+
     public GameObject NormalPrefab;
 
     public GameObject BombPrefab;
