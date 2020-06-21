@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BossBaseData
   m_EditorClassIdentifier: 
   enemyType: 4
-  health: 50
+  health: 60
   speed: 3
   attackRange: 6
   deathEffect: {fileID: 1755349173569476, guid: 3c45864be6a059a4a82a25e285298338,

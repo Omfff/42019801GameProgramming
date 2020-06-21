@@ -112,6 +112,7 @@ public class Enemy : MonoBehaviour
 
     protected bool IsPlayerInRange(float range)
     {
+        Debug.Log(player);
         return Vector3.Distance(transform.position, player.transform.position) <= range;
     }
 

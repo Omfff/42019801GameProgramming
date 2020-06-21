@@ -30,8 +30,8 @@ TagManager:
   - 
   - 
   - UnBullet
-  - 
-  - 
+  - FogOfWarMain
+  - FogOfWarSecondary
   - 
   - 
   - 
@@ -61,4 +61,7 @@ TagManager:
     locked: 0
   - name: Wall
     uniqueID: 3688842989
+    locked: 0
+  - name: FogOfWar
+    uniqueID: 35394959
     locked: 0

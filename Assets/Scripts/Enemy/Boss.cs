@@ -3,28 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public enum BossSkill
-{
-    Heal,
 
-    Invincible,
-
-    FullScreenAttack,
-
-    Omnidirection,
-
-    //Unidirection,
-
-    SingleShoot,
-};
 public class Boss : FollowingEnemyAi
 {
-    private bool isAttacking;
+    protected bool isAttacking;
     public GameObject splitedBossPf;
     public bool isSplittable;
     public float healTime = 3f;
-    private float healInterval = 0.5f;
-    private int direction = 16;
+    protected float healInterval = 0.5f;
+    protected int direction = 16;
+
+    protected enum BossSkill
+    {
+        Heal,
+
+        Invincible,
+
+        FullScreenAttack,
+
+        Omnidirection,
+
+        //Unidirection,
+
+        SingleShoot,
+    };
+
+    public string BossName;
 
     public GameObject NormalPrefab;
 
@@ -37,7 +41,6 @@ public class Boss : FollowingEnemyAi
     public GameObject ProjectilePrefab;
 
 
-
     protected override void Attack()
     {
         if (coolDownAttack)
@@ -47,6 +50,7 @@ public class Boss : FollowingEnemyAi
             isAttacking = true;
             gameObject.GetComponent<OutlineEffect>().StopOutline();
             BossSkill skill = RandomEnumValue<BossSkill>();
+            Debug.Log(skill);
             //skill = BossSkill.Omnidirection;
             switch (skill)
             {
@@ -76,7 +80,7 @@ public class Boss : FollowingEnemyAi
         }
     }
 
-    private IEnumerator ShieldOpen()
+    protected IEnumerator ShieldOpen()
     {
         float shieldSize = 3f;
         if(baseAttributes.enemyType == EnemyType.SplittedBoss)
@@ -90,7 +94,7 @@ public class Boss : FollowingEnemyAi
         StartCoroutine(CoolDown());
     }
 
-    private IEnumerator SelfHealing()
+    protected IEnumerator SelfHealing()
     {
         float healRemainTime = healTime;
         gameObject.GetComponent<OutlineEffect>().SetOutlineColor(new Color(0, 1, 0, 0.7f));
@@ -107,7 +111,7 @@ public class Boss : FollowingEnemyAi
         StartCoroutine(CoolDown());
     }
 
-    private IEnumerator FullScreenAttack()
+    protected IEnumerator FullScreenAttack()
     {
         gameObject.GetComponent<OutlineEffect>().SetOutlineColor(Color.red);
 
@@ -132,7 +136,7 @@ public class Boss : FollowingEnemyAi
         StartCoroutine(CoolDown());
     }
 
-    private IEnumerator OmnidirectionShoot()
+    protected IEnumerator OmnidirectionShoot()
     {
         gameObject.GetComponent<OutlineEffect>().SetOutlineColor(Color.blue);
 
@@ -221,7 +225,7 @@ public class Boss : FollowingEnemyAi
 
     }
 
-    private IEnumerator UnidirectionShoot()
+    protected IEnumerator UnidirectionShoot()
     {
         gameObject.GetComponent<OutlineEffect>().SetOutlineColor(Color.yellow);
 
@@ -231,7 +235,7 @@ public class Boss : FollowingEnemyAi
 
     }
 
-    private IEnumerator SingleShoot()
+    protected IEnumerator SingleShoot()
     {
         gameObject.GetComponent<OutlineEffect>().SetOutlineColor(Color.blue);
 
@@ -332,7 +336,7 @@ public class Boss : FollowingEnemyAi
        
     }
 
-    private Vector3[] GenerateSplitedBossPos(Vector3 origin, float dist, int layermask, int num)
+    protected Vector3[] GenerateSplitedBossPos(Vector3 origin, float dist, int layermask, int num)
     {
         Vector3[] dirList = new Vector3[num];
         Vector3[] generatePos = new Vector3[num];

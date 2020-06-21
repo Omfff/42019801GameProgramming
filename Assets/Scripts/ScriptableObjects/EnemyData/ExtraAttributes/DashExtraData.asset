@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 8
   coolDown: 2
-  wanderRadius: 3
+  wanderRadius: 4
   wanderChangeInterval: 1
