@@ -19,6 +19,7 @@ public class TreasureController : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             openedTreasure.SetActive(true);
+            GameObject.FindGameObjectWithTag("ItemSpawner").GetComponent<ItemSpawner>().dropTreasure(transform.position);
         }
     }
 }
