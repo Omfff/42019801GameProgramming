@@ -7,7 +7,8 @@ using static PlayerSwapWeapons;
 public class PlayerController : MonoBehaviour
 {
     Animator animator;
-    public float speed;
+    public float maxspeed;
+    private float speed;
     Rigidbody2D rigidbody;
     public Text showedText;
     private float lastFire;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public GameObject SwordPrefab;
     public PlayerSwapWeapons playerSwapWeapons;
     private WeaponType weaponType;
+    private float slowStart;
     public bool isHoldingKey{ get; set; }
 
     private float lastUseItem;
@@ -41,7 +43,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         fireDelay = GameController.FireRate;
-        speed = GameController.MoveSpeed;
+        maxspeed = GameController.MoveSpeed;
         bulletSpeed = GameController.BulletSpeed;
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -50,6 +52,10 @@ public class PlayerController : MonoBehaviour
         {
             direction_horizontal = horizontal;
             direction_vertical = vertical;
+        }
+        else
+        {
+            speed = 0;
         }
         animator.SetFloat("xSpeed", horizontal);
         animator.SetFloat("ySpeed", vertical);
@@ -86,7 +92,15 @@ public class PlayerController : MonoBehaviour
             lastFire = Time.time;
         }
 
-        rigidbody.velocity = new Vector3(horizontal * speed, vertical * speed, 0);
+        if (speed < maxspeed)
+        {
+            speed += 5f * Time.deltaTime;
+            rigidbody.velocity = new Vector3(horizontal * speed, vertical * speed, 0);
+        }
+        else
+        {
+            rigidbody.velocity = new Vector3(horizontal * maxspeed, vertical * maxspeed, 0);
+        }
         //showedText.text = "Nothing to show for now";
 
         //Skill

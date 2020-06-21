@@ -40,14 +40,15 @@ public class BossHpBar : MonoBehaviour
             Debug.Log(RoomController.instance.loadedRooms);
             bossRoom = RoomController.instance.loadedRooms.Find(delegate (Room room)
             {
-                return room.name.Contains("Basement-End");
+                return room.name.Contains("End");
             });
         }
         if (CameraController.instance.currRoom == bossRoom)
         {
             if(boss == null)
             {
-                boss = GameObject.Find("BOSS1(Clone)");
+                boss = GameObject.FindObjectOfType<Boss>().gameObject; 
+                //boss = GameObject.Find("BOSS1(Clone)");
                 if (boss != null)
                 {
                     SetMaxHealth(boss.GetComponent<Boss>().GetHealth());
