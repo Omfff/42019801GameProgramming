@@ -96,7 +96,7 @@ public class LaserEnemy:FollowingEnemyAi
                 {
 
                     hitInfo = hitInfoList[i];
-                    if (hitInfo.transform.tag == "Enemy" || hitInfo.transform.tag == "Bullet" || hitInfo.transform.tag == "Shield")
+                    if (hitInfo.transform.tag == "Enemy" || hitInfo.transform.tag == "Bullet" || hitInfo.transform.tag == "Shield" || hitInfo.transform.tag == "Swamp")
                     {
                         continue;
                     }
