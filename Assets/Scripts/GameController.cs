@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class GameController : MonoSingleton<GameController>
 {
     public static GameController instance;
 
@@ -36,6 +36,7 @@ public class GameController : MonoBehaviour
     public GameObject bombPrefab;
     public List<GameObject> prefabList = new List<GameObject>();
 
+    public GameObject deathMenu;
 
     private static int bulletCount = 3;
 
@@ -278,7 +279,14 @@ public class GameController : MonoBehaviour
 
     public static void KillPlayer()
     {
+        GameController.instance.deathMenu.SetActive(true);
+        GameObject.Destroy(instance.gameObject);
 
+    }
+
+    protected override void Init()
+    {
+        // 在这里写自己的代码
     }
 
     void Start()
