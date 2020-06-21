@@ -38,6 +38,10 @@ public class RoomController : MonoBehaviour
 
     private GameObject player;
 
+    private string newWorldName = "";
+
+    public string loadingSceneName = "";
+
     public bool DoesRoomExist(int x, int y)
     {
         return loadedRooms.Find(item => item.X == x && item.Y == y) != null;
@@ -156,12 +160,14 @@ public class RoomController : MonoBehaviour
         SwitchWorld("Basement");
         //SwitchWorld("Forest");
     }
+    public void BeginNewWorld() {
+        if (loadingSceneName != "")
+        {
+            SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(loadingSceneName));
+        }
 
-    public void SwitchWorld(string worldName)
-    {
-        DestroyAllRooms();
-        currentWorldName = worldName;
-        if (worldName == "Basement")
+        currentWorldName = newWorldName;
+        if (newWorldName == "Basement")
         {
             currWorldIndex = 0;
             GetComponent<DungeonGenerator>().enabled = false;
@@ -180,6 +186,27 @@ public class RoomController : MonoBehaviour
             isProceduralGeneration = true;
             player.transform.position = new Vector2(0, 0);
             player.GetComponent<PlayerController>().LetFamiliarFlashToPlayerBeside(0);
+        }
+    }
+
+    public void SwitchWorld(string worldName)
+    {
+        DestroyAllRooms();
+        if (newWorldName == "")
+        {
+            newWorldName = worldName;
+            BeginNewWorld();
+        }
+        else
+        {
+            newWorldName = worldName;
+            loadingSceneName = "AlfheimLoading";
+            AsyncOperation loaded = SceneManager.LoadSceneAsync("AlfheimLoading", LoadSceneMode.Additive);
+            //if (loaded.isDone)
+            //{
+            //    newWorldName = worldName;
+            //    loadingSceneName = "AlfheimLoading";
+            //}
         }
     }
 
