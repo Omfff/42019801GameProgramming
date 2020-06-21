@@ -12,8 +12,8 @@ public class GameController : MonoBehaviour
 
     public UI_HotkeyBar uI_HotkeyBar;
     // Start is called before the first frame update
-    private static int health = 10;
-    private static int maxHealth = 10;
+    private static int health = 20;
+    private static int maxHealth = 20;
     private static float moveSpeed = 5f;
     private static float bulletSpeed = 14f;
     private static float fireRate = 0.5f;

@@ -39,6 +39,18 @@ public class Enemy : MonoBehaviour
 {
     const float minSpeed = 0.00001f;
 
+    protected EnemyType enemyType;
+
+    protected float health;
+
+    protected float speed;
+
+    protected float attackRange;
+
+    protected GameObject deathEffect;
+
+    protected GameObject damageTextPf;
+
     protected Animator animator;
 
     protected GameObject player;
@@ -53,6 +65,13 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     protected void Init()
     {
+        enemyType = baseAttributes.enemyType;
+        health = baseAttributes.health;
+        speed = baseAttributes.speed;
+        attackRange = baseAttributes.attackRange;
+        deathEffect = baseAttributes.deathEffect;
+        damageTextPf = baseAttributes.damageTextPf;
+
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         Physics2D.queriesStartInColliders = false;
@@ -61,16 +80,7 @@ public class Enemy : MonoBehaviour
         gameObject.GetComponent<MaterialTintColor>().SetTintMaterial(material);
         gameObject.GetComponent<SpriteRenderer>().material = material;
 
-        switch (baseAttributes.enemyType)
-        {
-            case (EnemyType.Ranged):
-                break;
-            case (EnemyType.Dash):
-                break;
-            case EnemyType.Laser:
-
-                break;
-        }
+       
     }
 
     // Update is called once per frame
@@ -81,7 +91,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Death()
     {
-        if (baseAttributes.enemyType == EnemyType.Boss)
+        if (enemyType == EnemyType.Boss)
         {
             Debug.Log("boss enemy death");
         }
@@ -95,7 +105,7 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        Instantiate(baseAttributes.deathEffect, transform.position, Quaternion.identity);
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
 
         GameObject itemSpawner = GameObject.FindGameObjectWithTag("ItemSpawner");
         itemSpawner.GetComponent<ItemSpawner>().dropItemAftherEnemyDeath(transform.position);
@@ -119,14 +129,14 @@ public class Enemy : MonoBehaviour
 
     public void getHurt(float damage)
     {
-        baseAttributes.health -= damage;
+        health -= damage;
 
-        GameObject textPopUp = Instantiate(baseAttributes.damageTextPf, transform.position, Quaternion.identity);
+        GameObject textPopUp = Instantiate(damageTextPf, transform.position, Quaternion.identity);
         DamageTextPopUp damageText = textPopUp.GetComponent<DamageTextPopUp>();
         damageText.Setup((int)damage);
 
         //spriteRender.material = matWhite;
-        if (baseAttributes.health > 0)
+        if (health > 0)
         {
             // hurt effect:splash
             gameObject.GetComponent<MaterialTintColor>().SetTintFadeSpeed(6f);
@@ -137,6 +147,11 @@ public class Enemy : MonoBehaviour
             Death();
         }
     }
+
+    public float GetHealth() {
+        return health;
+    }
+    
 
     public virtual void FrozenMovement(){}
 

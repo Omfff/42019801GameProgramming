@@ -50,7 +50,7 @@ public class BossHpBar : MonoBehaviour
                 boss = GameObject.Find("BOSS(Clone)");
                 if (boss != null)
                 {
-                    SetMaxHealth(boss.GetComponent<Boss>().baseAttributes.health);
+                    SetMaxHealth(boss.GetComponent<Boss>().GetHealth());
                     gameObject.GetComponent<CanvasGroup>().alpha = 1;
                     isBossBorn = true;
                 }
@@ -67,7 +67,7 @@ public class BossHpBar : MonoBehaviour
         }
         else if(isBossBorn && boss!=null)
         {
-            SetHealth(boss.GetComponent<Boss>().baseAttributes.health);
+            SetHealth(boss.GetComponent<Boss>().GetHealth());
         }
         //for test
         /*

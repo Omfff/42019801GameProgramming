@@ -33,7 +33,7 @@ public class PatrolEnemyAi:Enemy
         if (destinationList != null && destinationList.Length > 0)
         {
             Move();
-            if (IsPlayerInRange(baseAttributes.attackRange))
+            if (IsPlayerInRange(attackRange))
             {
                 Attack();
             }
@@ -76,7 +76,7 @@ public class PatrolEnemyAi:Enemy
         }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, destinationList[currDestinationIndex].position, baseAttributes.speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, destinationList[currDestinationIndex].position, speed * Time.deltaTime);
         }
     }
 
@@ -104,13 +104,13 @@ public class PatrolEnemyAi:Enemy
         if (!isSlowDown)
         {
             isSlowDown = true;
-            slowDownSpeed = baseAttributes.speed * slowDownRate;
+            slowDownSpeed = speed * slowDownRate;
         }
     }
 
     public override void FrozenMovement()
     {
-        baseAttributes.speed = 0;
+        speed = 0;
     }
 
     public override void RecoverMovingSpeed()

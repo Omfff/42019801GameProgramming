@@ -29,7 +29,7 @@ public class TankBoss : Boss
             switch (skill)
             {
                 case BossSkill.Heal:
-                    Debug.Log("health" + baseAttributes.health);
+                    Debug.Log("health" + health);
                     StartCoroutine(SelfHealing());
                     break;
                 case BossSkill.Invincible:
