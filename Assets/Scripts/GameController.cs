@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoSingleton<GameController>
+public class GameController : Singleton<GameController>
 {
     public static GameController instance;
 
@@ -284,10 +284,6 @@ public class GameController : MonoSingleton<GameController>
 
     }
 
-    protected override void Init()
-    {
-        // 在这里写自己的代码
-    }
 
     void Start()
     {
