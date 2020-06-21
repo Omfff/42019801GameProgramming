@@ -91,15 +91,15 @@ public class BulletController : MonoBehaviour
                 break;
             case BulletType.Cruise:
                 Player = GameObject.FindGameObjectWithTag("Player");
-                bulletSpeed = 200f;
-                radius = 2f;
+                bulletSpeed = 400f;
+                radius = 1.5f;
                 angle = Random.Range(0, 360);
-                damageTimes = 3;
+                damageTimes = 4;
                 break;
             case BulletType.Sword:
                 Player = GameObject.FindGameObjectWithTag("Player");
                 bulletSpeed = 430f;
-                radius = 1.2f;
+                radius = 1.0f;
                 angle = 0;
                 break;
         }
