@@ -3,8 +3,6 @@ using UnityEngine;
 using System.Collections;
 public class DashEnemy:FollowingEnemyAi
 {
-    public GameObject dashEffect;
-
     private bool isDashing = false;
 
     private bool isHurtPlayerInDashing = false;
@@ -36,7 +34,6 @@ public class DashEnemy:FollowingEnemyAi
         isDashing = true;
         Vector3 targetPos = player.transform.position;
         Vector3 curPos = transform.position;
-        //Instantiate(dashEffect, transform.position, Quaternion.identity);
         while (Vector3.Distance(curPos, targetPos) > 0.1f)
         {
             RaycastHit2D[] hitInfoList = Physics2D.RaycastAll(transform.position,
@@ -61,7 +58,7 @@ public class DashEnemy:FollowingEnemyAi
                     break;
                 }
             }
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, 5 * baseAttributes.speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, targetPos, 5 * speed * Time.deltaTime);
             //Debug.Log("dash " + targetPos);
             //Debug.Log("dash" + Vector3.Distance(curPos, targetPos));
             yield return null;

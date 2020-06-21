@@ -20,7 +20,7 @@ public class DamageTextPopUp : MonoBehaviour
 
     public void Setup(int damageAmount)
     { 
-        textMesh.SetText(damageAmount.ToString());
+        textMesh.SetText("-" + damageAmount.ToString());
         textColor = textMesh.color;
 
         disappearTimer = DISAPPEAR_TIMER_MAX;

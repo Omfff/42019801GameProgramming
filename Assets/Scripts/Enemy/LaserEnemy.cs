@@ -36,7 +36,7 @@ public class LaserEnemy:FollowingEnemyAi
         }
         else
         {
-            if (baseAttributes.enemyType == EnemyType.Laser)
+            if (enemyType == EnemyType.Laser)
             {
                 lineRenderer.GetComponent<Destroyer>().DestroyMe();
                 aimingRayLineRender.GetComponent<Destroyer>().DestroyMe();
