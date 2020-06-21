@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1148,7 +1148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836d352be5dcfff40bc494a4e841dba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  maxspeed: 0
   showedText: {fileID: 0}
   fireDelay: 0.5
   bulletSpeed: 7.5
@@ -7203,13 +7203,13 @@ PrefabInstance:
     - target: {fileID: 4680913823551236062, guid: aa5a7c20d58315642a31ab4aa83b147c,
         type: 3}
       propertyPath: items.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4680913823551236062, guid: aa5a7c20d58315642a31ab4aa83b147c,
         type: 3}
       propertyPath: items.Array.data[3].gameObject
       value: 
-      objectReference: {fileID: 3795377286254830502, guid: e75d4617d8a360747a4d0cb15f5abc0c,
+      objectReference: {fileID: 2356090486376384773, guid: ea62d9cac2e0b454389ea04c203caae7,
         type: 3}
     - target: {fileID: 4680913823551236062, guid: aa5a7c20d58315642a31ab4aa83b147c,
         type: 3}
@@ -7241,12 +7241,23 @@ PrefabInstance:
     - target: {fileID: 4680913823551236062, guid: aa5a7c20d58315642a31ab4aa83b147c,
         type: 3}
       propertyPath: items.Array.data[0].weight
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4680913823551236062, guid: aa5a7c20d58315642a31ab4aa83b147c,
         type: 3}
       propertyPath: items.Array.data[1].weight
-      value: 0.2
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680913823551236062, guid: aa5a7c20d58315642a31ab4aa83b147c,
+        type: 3}
+      propertyPath: items.Array.data[6].gameObject
+      value: 
+      objectReference: {fileID: 9128840795421972778, guid: 10dbfca3a9894e84ea9b3eb5d1176ef0,
+        type: 3}
+    - target: {fileID: 4680913823551236062, guid: aa5a7c20d58315642a31ab4aa83b147c,
+        type: 3}
+      propertyPath: items.Array.data[6].weight
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4680913823551236063, guid: aa5a7c20d58315642a31ab4aa83b147c,
         type: 3}
