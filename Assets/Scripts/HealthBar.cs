@@ -28,9 +28,9 @@ public class HealthBar : MonoBehaviour
     {
         SetHealth(GameController.Health);
         //for test
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            GameController.DamagePlayer(1);
-        }
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    GameController.DamagePlayer(1);
+        //}
     }
 }

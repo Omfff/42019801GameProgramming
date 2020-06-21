@@ -153,8 +153,8 @@ public class RoomController : MonoBehaviour
             "Basement",
             "Forest"
         };
-        //SwitchWorld("Basement");
-        SwitchWorld("Forest");
+        SwitchWorld("Basement");
+        //SwitchWorld("Forest");
     }
 
     public void SwitchWorld(string worldName)

@@ -48,7 +48,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -62,7 +62,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.5, y: 3.5588236}
   m_EdgeRadius: 0
 --- !u!212 &4603476697501131401
 SpriteRenderer:
@@ -175,7 +175,7 @@ Animator:
   m_GameObject: {fileID: 4603476697501131403}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ab38ed52bb134934a885c8be28d9c9cf, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5c1c4e5b1265a5f44a648a862801efda, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
