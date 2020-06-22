@@ -88,7 +88,7 @@ public class ObjectRoomSpawner : MonoBehaviour
 
     void SpawnEnemy(EnemySpawner data)
     {
-        Debug.Log("Spawned Enemy!" + data.spawnerData.name);
+        //Debug.Log("Spawned Enemy!" + data.spawnerData.name);
         if (data.spawnerData.name == "BossEnemy")
         {
             GameObject go = Instantiate(data.spawnerData.itemToSpawn, RoomController.instance.getCurrentRoomCenter(), Quaternion.identity, transform) as GameObject;

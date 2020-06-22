@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 4603476697485596721}
   - component: {fileID: 6225389299091613506}
   - component: {fileID: 4603476698372318245}
-  - component: {fileID: 2591730282525044721}
+  - component: {fileID: -4558269415886567335}
   m_Layer: 0
-  m_Name: BOSS2
+  m_Name: BOSS3.1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,14 +55,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.5, y: 3.4411764}
+    oldSize: {x: 2.7941177, y: 2.764706}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.5, y: 3.4411764}
+  m_Size: {x: 2.7941177, y: 2.764706}
   m_EdgeRadius: 0
 --- !u!212 &4603476697501131401
 SpriteRenderer:
@@ -103,7 +103,7 @@ SpriteRenderer:
   m_SortingLayerID: -1491017799
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3717686652356265191, guid: 67dec0603402c5b4fbc0079088bd1158,
+  m_Sprite: {fileID: -5899927303015767666, guid: 69ed629da3f216b4eb8207fb995772cd,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -175,7 +175,7 @@ Animator:
   m_GameObject: {fileID: 4603476697501131403}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 55b3ce5d5273c0a49810aca507984cd2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8fd8eaf466b851a419bd7b6648e03470, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: c2a198d0fb32e4267859cfbc17880831, type: 2}
---- !u!114 &2591730282525044721
+--- !u!114 &-4558269415886567335
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,16 +206,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4603476697501131403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3769a1540b3fb5d4586b2e1cd94e9e18, type: 3}
+  m_Script: {fileID: 11500000, guid: 41368c23809d9cc489364648369986dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currState: 0
   notInRoom: 0
-  baseAttributes: {fileID: 11400000, guid: c700194e5ec47ef44ae4338c994dc93b, type: 2}
+  baseAttributes: {fileID: 11400000, guid: 32963b0f6ef64ee4eb138d331afe769a, type: 2}
   extraAttributes: {fileID: 11400000, guid: d89b66af262f54fedbcd64be5a456698, type: 2}
-  splitedBossPf: {fileID: 4603476697501131403, guid: 6a2066497b66523498c5016920089a5d,
-    type: 3}
-  isSplittable: 1
+  splitedBossPf: {fileID: 0}
+  isSplittable: 0
   healTime: 3
   BossName: 
   NormalPrefab: {fileID: 8912613753944397765, guid: b02d5786e5afaac479b933a6426437e5,

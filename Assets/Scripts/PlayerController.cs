@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
         if (speed < maxspeed)
         {
-            speed += 5f * Time.deltaTime;
+            speed += 8f * Time.deltaTime;
             rigidbody.velocity = new Vector3(horizontal * speed, vertical * speed, 0);
         }
         else

@@ -295,7 +295,7 @@ public class RoomController : MonoBehaviour
             CameraController.instance.currRoom = room;
             if (!enteredRooms.Contains(room))
             {
-                Debug.Log("Enter room " + room.name);
+                //Debug.Log("Enter room " + room.name);
                 enteredRooms.Add(room);
                 currRoom = room;
                 StartCoroutine(RoomCoroutine(1));
@@ -374,7 +374,7 @@ public class RoomController : MonoBehaviour
     private void OpenDoor()
     {
         //open door
-        Debug.Log("Unlock currRoom");
+        //Debug.Log("Unlock currRoom");
         if (isProceduralGeneration)
         {
             SeperatedDoor[] doors = currRoom.GetComponentsInChildren<SeperatedDoor>();

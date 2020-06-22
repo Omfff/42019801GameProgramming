@@ -123,7 +123,7 @@ public class PatrolEnemyAi:Enemy
     {
         if (!isHurtPlayerInPatrol && collision.gameObject.tag == "Player")
         {
-            Debug.Log("patrol collision");
+            //Debug.Log("patrol collision");
             GameController.DamagePlayer(1);
                
         }

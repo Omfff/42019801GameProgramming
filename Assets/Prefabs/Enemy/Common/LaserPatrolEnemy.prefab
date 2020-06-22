@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 718165370337781027}
   - component: {fileID: 5795854337457429164}
   - component: {fileID: 5617231848207678205}
+  - component: {fileID: -51347556813891559}
   m_Layer: 0
   m_Name: LaserPatrolEnemy
   m_TagString: Enemy
@@ -139,3 +140,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.4117646
+--- !u!114 &-51347556813891559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718165370337781026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6893fa1527270f948afbfeaee5536ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 0}

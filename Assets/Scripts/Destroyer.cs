@@ -20,7 +20,7 @@ public class Destroyer : MonoBehaviour
     {
         if (isDestroyMe)
         {
-            Debug.Log("line destroy");
+            //Debug.Log("line destroy");
             Destroy(gameObject);
         }
     }
