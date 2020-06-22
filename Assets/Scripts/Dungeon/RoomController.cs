@@ -149,7 +149,7 @@ public class RoomController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        SwitchWorld("Basement");
+        SwitchWorld("Hell");
     }
     public void BeginNewWorld() {
         if (loadingSceneName != "")
@@ -421,7 +421,7 @@ public class RoomController : MonoBehaviour
                 possibleRooms = new string[] { "Empty", "SpikeAndLaser", "BombAndLaser", "Gears" };
                 break;
             case "Hell":
-                possibleRooms = new string[] { "Empty" };
+                possibleRooms = new string[] { "Empty", "LavaSpikeAndGear" };
                 break;
             default:
                 possibleRooms = new string[] { "Empty" };
