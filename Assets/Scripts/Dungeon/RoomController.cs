@@ -149,7 +149,7 @@ public class RoomController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        SwitchWorld("Forest");
+        SwitchWorld("Basement");
     }
     public void BeginNewWorld() {
         if (loadingSceneName != "")
