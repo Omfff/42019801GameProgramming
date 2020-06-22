@@ -47,10 +47,12 @@ public class BossHpBar : MonoBehaviour
         {
             if(boss == null)
             {
+                Debug.Log("BOSS");
                 boss = GameObject.FindObjectOfType<Boss>().gameObject; 
                 //boss = GameObject.Find("BOSS1(Clone)");
                 if (boss != null)
                 {
+                    Debug.Log("BOSSHP");
                     SetMaxHealth(boss.GetComponent<Boss>().GetHealth());
                     gameObject.GetComponent<CanvasGroup>().alpha = 1;
                     isBossBorn = true;

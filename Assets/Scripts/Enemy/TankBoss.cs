@@ -15,6 +15,7 @@ public class TankBoss : Boss
 
         FullScreenAttack,
     };
+
     protected override void Attack()
     {
         if (coolDownAttack)
@@ -24,13 +25,19 @@ public class TankBoss : Boss
             isAttacking = true;
             gameObject.GetComponent<OutlineEffect>().StopOutline();
             BossSkill skill = RandomEnumValue<BossSkill>();
-            Debug.Log(skill);
             //skill = BossSkill.Omnidirection;
             switch (skill)
             {
                 case BossSkill.Heal:
                     Debug.Log("health" + health);
-                    StartCoroutine(SelfHealing());
+                    if (health < 70)
+                    {
+                        StartCoroutine(SelfHealing());
+                    }
+                    else
+                    {
+                        isAttacking = false;
+                    }
                     break;
                 case BossSkill.Invincible:
                     StartCoroutine(ShieldOpen());

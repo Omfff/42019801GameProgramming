@@ -229,6 +229,7 @@ public class BulletController : MonoBehaviour
                     //Debug.Log("Rotation:  " + transform.rotation.eulerAngles);
                     //transform.position = new Vector3();
                     radius += Random.Range(-0.1f, 0.1f) * Time.deltaTime;
+                    radius = radius < 0.5f ? 0.5f : radius;
                     float x = -radius * Mathf.Cos((transform.rotation.eulerAngles.z - 45f) * Mathf.Deg2Rad);
                     float y = -radius * Mathf.Sin((transform.rotation.eulerAngles.z - 45f) * Mathf.Deg2Rad);
                     transform.position = new Vector3(Player.transform.position.x + x, Player.transform.position.y + y, 0);
