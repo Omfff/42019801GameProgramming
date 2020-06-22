@@ -7036,8 +7036,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 51cf3c6c680234813aed7b29eb2f13c1,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 9046340114773862289, guid: 669940a8085b14b598a9fd3ccfe91c37,
         type: 3}
       propertyPath: m_Name
@@ -7129,4 +7128,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63308781423684ab2a3fdfa6c77b7ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshData: {fileID: 23800000, guid: 51cf3c6c680234813aed7b29eb2f13c1, type: 2}
+  navMeshData: {fileID: 23800000, guid: 3838692c6861744db937f17069df5c54, type: 2}

@@ -82,7 +82,7 @@ public class Boss : FollowingEnemyAi
 
     protected IEnumerator ShieldOpen()
     {
-        float shieldSize = 3f;
+        float shieldSize = 6f;
         if(enemyType == EnemyType.SplittedBoss)
         {
             shieldSize = 0.75f;

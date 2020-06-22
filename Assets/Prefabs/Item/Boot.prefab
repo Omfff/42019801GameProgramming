@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4782007233362905210}
   - component: {fileID: 4782007233362905209}
   - component: {fileID: 4782007233362905211}
+  - component: {fileID: -4504807980165035803}
   m_Layer: 0
   m_Name: Boot
   m_TagString: Item
@@ -105,3 +106,29 @@ MonoBehaviour:
   attackSpeedChange: 0
   bulletSizeChange: 0
   bulletCountChange: 0
+--- !u!61 &-4504807980165035803
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4782007233362905191}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

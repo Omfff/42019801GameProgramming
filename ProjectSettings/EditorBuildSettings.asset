@@ -33,14 +33,14 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: a39312b26874d3548b3c7e042e2b8ae7
   - enabled: 1
-    path: Assets/Scenes/LevelLoading/AlfheimLoading.unity
-    guid: b0ba66ca0061ee64891924cb1aa67efe
+    path: Assets/Scenes/LevelLoading/MidgardLoading.unity
+    guid: 6a8924caaaa8ac44facea5e5bb724c90
   - enabled: 1
     path: Assets/Scenes/DungeonRooms/BasementMain.unity
     guid: dc15af8a883dbad43b332d46e2c9b29b
   - enabled: 1
-    path: Assets/Scenes/LevelLoading/MidgardLoading.unity
-    guid: 6a8924caaaa8ac44facea5e5bb724c90
+    path: Assets/Scenes/LevelLoading/AlfheimLoading.unity
+    guid: b0ba66ca0061ee64891924cb1aa67efe
   - enabled: 1
     path: Assets/Scenes/LevelLoading/HelheimLoading.unity
     guid: 72541ed873304f2488c97e8ed75fd56f
