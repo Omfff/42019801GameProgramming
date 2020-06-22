@@ -82,6 +82,7 @@ public class PatrolObstacle : MonoBehaviour
         if (!isHurtPlayerInPatrol && collision.gameObject.tag == "Player")
         {
             GameController.DamagePlayer(1);
+            StartCoroutine(CooldownHurtingPlayer());
         }
     }
 }

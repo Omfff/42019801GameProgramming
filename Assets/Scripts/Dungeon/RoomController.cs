@@ -39,6 +39,11 @@ public class RoomController : MonoBehaviour
 
     public string loadingSceneName = "";
 
+    public static void ReInit()
+    {
+
+    }
+
     public bool DoesRoomExist(int x, int y)
     {
         return loadedRooms.Find(item => item.X == x && item.Y == y) != null;
@@ -142,15 +147,20 @@ public class RoomController : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        SwitchWorld("Basement");
+        SwitchWorld(PlayerPrefs.GetString("Level"));
     }
+
     public void BeginNewWorld() {
         if (loadingSceneName != "")
         {
@@ -158,6 +168,7 @@ public class RoomController : MonoBehaviour
         }
 
         currentWorldName = newWorldName;
+        PlayerPrefs.SetString("Level", currentWorldName);
         if (newWorldName == "Basement")
         {
             GetComponent<DungeonGenerator>().enabled = false;

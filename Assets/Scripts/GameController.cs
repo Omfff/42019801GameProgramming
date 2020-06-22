@@ -65,6 +65,8 @@ public class GameController : Singleton<GameController>
         attackCooldown = 2.0f;
         bulletSize = 1.0f;
 
+        GameController.instance.isPlayerVisible = true;
+        GameController.instance.isTimeStop = false;
         //isPlayerVisible = true;
         //isTimeStop = false;
         currentItems = 0;
@@ -312,8 +314,6 @@ public class GameController : Singleton<GameController>
     public static void KillPlayer()
     {
         GameController.instance.deathMenu.SetActive(true);
-        GameObject.Destroy(instance.gameObject);
-
     }
 
 

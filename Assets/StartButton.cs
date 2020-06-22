@@ -20,6 +20,24 @@ public class StartButton : MonoBehaviour
 
     public void onClick()
     {
+        PlayerPrefs.SetString("Level", "Basement");
         SceneManager.LoadScene("MidgardLoading");
+    }
+
+    public void onContinueClick()
+    {
+        var currentWorldName = PlayerPrefs.GetString("Level");
+        switch (currentWorldName)
+        {
+            case "Basement":
+                SceneManager.LoadScene("MidgardLoading");
+                break;
+            case "Forest":
+                SceneManager.LoadScene("AlfheimLoading");
+                break;
+            case "Hell":
+                SceneManager.LoadScene("HelheimLoading");
+                break;
+        }
     }
 }
