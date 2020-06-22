@@ -3504,23 +3504,23 @@ MonoBehaviour:
     - name: LaserEnemy
       positionList:
       - {fileID: 2096220518}
-      spawnerData: {fileID: 11400000, guid: abe170980e03a4084851e79ce10b78ae, type: 2}
+      spawnerData: {fileID: 11400000, guid: c6933fba45a954847a4215ef2e968013, type: 2}
     - name: BombEnemy
       positionList:
       - {fileID: 726603928}
-      spawnerData: {fileID: 11400000, guid: 09a3fc0097db5476cae5eeefe7a38b88, type: 2}
+      spawnerData: {fileID: 11400000, guid: 9f744cf02f0a541dbac3b25a61b85237, type: 2}
     - name: BombEnemy
       positionList:
       - {fileID: 603336107}
-      spawnerData: {fileID: 11400000, guid: 09a3fc0097db5476cae5eeefe7a38b88, type: 2}
+      spawnerData: {fileID: 11400000, guid: 9f744cf02f0a541dbac3b25a61b85237, type: 2}
     - name: BombEnemy
       positionList:
       - {fileID: 1103340234}
-      spawnerData: {fileID: 11400000, guid: 09a3fc0097db5476cae5eeefe7a38b88, type: 2}
+      spawnerData: {fileID: 11400000, guid: 9f744cf02f0a541dbac3b25a61b85237, type: 2}
     - name: BombEnemy
       positionList:
       - {fileID: 1053149577}
-      spawnerData: {fileID: 11400000, guid: 09a3fc0097db5476cae5eeefe7a38b88, type: 2}
+      spawnerData: {fileID: 11400000, guid: 9f744cf02f0a541dbac3b25a61b85237, type: 2}
   currWaveNum: 0
 --- !u!1 &849030357
 GameObject:
