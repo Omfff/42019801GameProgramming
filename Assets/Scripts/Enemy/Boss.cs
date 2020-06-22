@@ -316,7 +316,7 @@ public class Boss : FollowingEnemyAi
             Debug.Log("boss death");
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             int num = 4;
-            Vector3[] generatePos = GenerateSplitedBossPos(transform.position, gameObject.GetComponent<Renderer>().bounds.size.x * 1.5f, -1, num);
+            Vector3[] generatePos = GenerateSplitedBossPos(transform.position, gameObject.GetComponent<Renderer>().bounds.size.x * 1f, -1, num);
             for (int i = 0; i < num; i++)
             {
                 GameObject splitedBoss = Instantiate(splitedBossPf, generatePos[i], Quaternion.identity);
