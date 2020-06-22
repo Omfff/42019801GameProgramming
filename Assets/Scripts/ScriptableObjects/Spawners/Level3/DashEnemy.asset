@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd3df7c27f0a05344ad151e91426ee19, type: 3}
-  m_Name: LaserEnemy 1
+  m_Name: DashEnemy
   m_EditorClassIdentifier: 
-  itemToSpawn: {fileID: 2654122733158186543, guid: 94d5e08f086445345a908ee60f308745,
+  itemToSpawn: {fileID: 1194020886566750550, guid: 785abc785e67f144595a4690cc1e1317,
     type: 3}
   minSpawn: 0
   maxSpawn: 1

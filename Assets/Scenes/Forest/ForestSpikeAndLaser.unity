@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3990,7 +3990,7 @@ MonoBehaviour:
     - name: LaserEnemy
       positionList:
       - {fileID: 2096220518}
-      spawnerData: {fileID: 11400000, guid: abe170980e03a4084851e79ce10b78ae, type: 2}
+      spawnerData: {fileID: 11400000, guid: c6933fba45a954847a4215ef2e968013, type: 2}
   currWaveNum: 0
 --- !u!1001 &784541150
 PrefabInstance:

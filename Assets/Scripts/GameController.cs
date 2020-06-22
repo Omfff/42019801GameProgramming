@@ -47,6 +47,28 @@ public class GameController : Singleton<GameController>
             instance = this;
         }
     }
+    public static void reInitialize()
+    {
+        health = 20;
+        maxHealth = 20;
+        moveSpeed = 5f;
+        bulletSpeed = 14f;
+        fireRate = 0.5f;
+        xp = 10;
+        maxXp = 10;
+        buffLastTime = 4.0f;
+        shield = 0;
+        shieldLastTime = 5.0f;
+        shieldCooldown = 10.0f;
+        useItemCooldown = 2.0f;
+        changeItemCooldown = 0.2f;
+        attackCooldown = 2.0f;
+        bulletSize = 1.0f;
+
+        //isPlayerVisible = true;
+        //isTimeStop = false;
+        currentItems = 0;
+    }
     public static int Health { get => health; set => health = value; }
     public static float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
     public static float BulletSpeed { get => bulletSpeed; set => bulletSpeed = value; }

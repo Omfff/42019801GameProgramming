@@ -31,8 +31,8 @@ public class CollectionController : MonoBehaviour
     void Start()
     {
         GetComponent<SpriteRenderer>().sprite = item.itemImage;
-        Destroy(GetComponent<PolygonCollider2D>());
-        gameObject.AddComponent<PolygonCollider2D>();
+        //Destroy(GetComponent<PolygonCollider2D>());
+        //gameObject.AddComponent<PolygonCollider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

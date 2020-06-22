@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4541,7 +4541,7 @@ MonoBehaviour:
     - name: BossEnemy
       positionList:
       - {fileID: 1151422085}
-      spawnerData: {fileID: 11400000, guid: de29cfb6bd94e4ed6b433967d162520c, type: 2}
+      spawnerData: {fileID: 11400000, guid: 8d4046a6c620b874e8d801a4cc66b221, type: 2}
   currWaveNum: 0
 --- !u!1 &849030357
 GameObject:
