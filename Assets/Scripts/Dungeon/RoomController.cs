@@ -27,9 +27,6 @@ public class RoomController : MonoBehaviour
 
     public List<Room> enteredRooms = new List<Room>();
 
-    public List<string> worldNames;
-
-    private int currWorldIndex;
     bool spawnedBossRoom = false;
     bool updatedRooms = false;
     bool isProceduralGeneration = false;
@@ -152,13 +149,7 @@ public class RoomController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        worldNames = new List<string>()
-        {
-            "Basement",
-            "Forest"
-        };
         SwitchWorld("Basement");
-        //SwitchWorld("Forest");
     }
     public void BeginNewWorld() {
         if (loadingSceneName != "")
@@ -169,7 +160,6 @@ public class RoomController : MonoBehaviour
         currentWorldName = newWorldName;
         if (newWorldName == "Basement")
         {
-            currWorldIndex = 0;
             GetComponent<DungeonGenerator>().enabled = false;
             LoadRoom("Start", 0, 0);
             LoadRoom("2", 1, 0);
@@ -183,6 +173,9 @@ public class RoomController : MonoBehaviour
         else
         {
             GetComponent<DungeonGenerator>().enabled = true;
+            GetComponent<DungeonGenerator>().StartGeneration();
+            spawnedBossRoom = false;
+            updatedRooms = false;
             isProceduralGeneration = true;
             player.transform.position = new Vector2(0, 0);
             player.GetComponent<PlayerController>().LetFamiliarFlashToPlayerBeside(0);
@@ -207,14 +200,6 @@ public class RoomController : MonoBehaviour
             //    newWorldName = worldName;
             //    loadingSceneName = "AlfheimLoading";
             //}
-        }
-    }
-
-    public void NextWorld()
-    {
-        if (worldNames.Count > ++currWorldIndex)
-        {
-            SwitchWorld(worldNames[currWorldIndex]);
         }
     }
 
@@ -434,6 +419,9 @@ public class RoomController : MonoBehaviour
         {
             case "Forest":
                 possibleRooms = new string[] { "Empty", "SpikeAndLaser", "BombAndLaser", "Gears" };
+                break;
+            case "Hell":
+                possibleRooms = new string[] { "Empty" };
                 break;
             default:
                 possibleRooms = new string[] { "Empty" };

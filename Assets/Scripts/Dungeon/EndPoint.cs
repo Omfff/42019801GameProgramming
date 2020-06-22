@@ -4,20 +4,15 @@ using UnityEngine;
 
 public class EndPoint : MonoBehaviour
 {
-    private GameObject player;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
+    public string nextWorldName;
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
             Debug.Log("Move to next world!");
-            RoomController.instance.NextWorld();
+            RoomController.instance.SwitchWorld(nextWorldName);
+            //RoomController.instance.NextWorld();
         }
     }
 }

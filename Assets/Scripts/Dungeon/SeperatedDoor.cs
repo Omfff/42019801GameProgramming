@@ -17,8 +17,8 @@ public class SeperatedDoor : MonoBehaviour
 
     private GameObject player;
 
-    private float widthOffset = 9f;
-    private float heightOffset = 6f;
+    private float widthOffset = 9.2f;
+    private float heightOffset = 6.2f;
 
     // Start is called before the first frame update
     void Start()
