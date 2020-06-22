@@ -33,9 +33,19 @@ public class ObjectRoomSpawner : MonoBehaviour
     [SerializeField]
     private int currWaveNum;
 
+    public bool isRandomWave;//false by default
+
     void Start()
     {
-        currWaveNum = 0;
+        if (isRandomWave)
+        {
+            currWaveNum = Random.Range(0, wavesData.Length-1);
+        }
+        else
+        {
+            currWaveNum = 0;
+        }
+        
     }
 
     public void InitialiseObjectSpawning()
@@ -102,6 +112,20 @@ public class ObjectRoomSpawner : MonoBehaviour
     // if has next wave enemy return true else return false
     public bool SpawnNextWaveEnemies()
     {
+        if (isRandomWave)
+        {
+            int isSpawn = Random.Range(0, 1);
+            if (isSpawn == 1 && currWaveNum != wavesData.Length - 1)
+            {
+                currWaveNum = Random.Range(currWaveNum + 1, wavesData.Length - 1);
+                SpawnWave();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         currWaveNum += 1;
         if(currWaveNum < wavesData.Length)
         {

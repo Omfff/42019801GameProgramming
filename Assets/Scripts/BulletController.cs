@@ -335,6 +335,11 @@ public class BulletController : MonoBehaviour
                 collider.gameObject.GetComponent<Enemy>().getHurt(damage);
                 GameController.DamagePlayer(Mathf.FloorToInt(damage));
             }
+            if (collider.transform.tag == "Jar")
+            {
+                collider.transform.parent.Find("Broken" + collider.name).gameObject.SetActive(true);
+                collider.gameObject.SetActive(false);
+            }
         }
 
         Destroy(gameObject);
@@ -420,11 +425,12 @@ public class BulletController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else if (col.tag == "Jar" && !isEnemyBullet)
-        {
-            col.gameObject.transform.parent.Find("Broken" + col.name).gameObject.SetActive(true);
-            col.gameObject.SetActive(false);
-        }else if(col.tag == "Follower" && isEnemyBullet)
+        //else if (col.tag == "Jar" && !isEnemyBullet)
+        //{
+        //    col.gameObject.transform.parent.Find("Broken" + col.name).gameObject.SetActive(true);
+        //    col.gameObject.SetActive(false);
+        //}
+        else if(col.tag == "Follower" && isEnemyBullet)
         {
             Familiar.instance.Hurt(1);
         }

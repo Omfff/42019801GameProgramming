@@ -3773,6 +3773,7 @@ MonoBehaviour:
       - {fileID: 283984592}
       spawnerData: {fileID: 11400000, guid: df12b9bf2337b4cf3b59c4f3c6c772fb, type: 2}
   currWaveNum: 0
+  isRandomWave: 0
 --- !u!1 &849030357
 GameObject:
   m_ObjectHideFlags: 0
