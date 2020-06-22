@@ -20,6 +20,6 @@ public class StartButton : MonoBehaviour
 
     public void onClick()
     {
-        SceneManager.LoadScene("AlfheimLoading");
+        SceneManager.LoadScene("MidgardLoading");
     }
 }
