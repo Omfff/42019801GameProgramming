@@ -84,7 +84,7 @@ public class GameController : Singleton<GameController>
 
         if (Health <= 0)
         {
-            KillPlayer();
+            //KillPlayer();
         }
     }
     public static void RemoveXp(int damage)

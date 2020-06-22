@@ -65,4 +65,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Forest/ForestGears.unity
     guid: 5fbd756f151ea4d34a027dc5fb3e01d6
+  - enabled: 1
+    path: Assets/Scenes/Hell/HellEmpty.unity
+    guid: 43f8c07b248124a91be57138275b8e77
+  - enabled: 1
+    path: Assets/Scenes/Hell/HellEnd.unity
+    guid: 7a79cde196e334d6e80b33fb8a1cd443
+  - enabled: 1
+    path: Assets/Scenes/Hell/HellStart.unity
+    guid: 2b58351ca7f584b9983d2956f9493721
+  - enabled: 1
+    path: Assets/Scenes/Hell/HellLavaSpikeAndGear.unity
+    guid: 6854283ced8fd4b4889433f1b8a5d183
   m_configObjects: {}
