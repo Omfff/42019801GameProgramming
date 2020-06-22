@@ -149,7 +149,7 @@ public class RoomController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        SwitchWorld("Hell");
+        SwitchWorld("Basement");
     }
     public void BeginNewWorld() {
         if (loadingSceneName != "")
@@ -193,8 +193,16 @@ public class RoomController : MonoBehaviour
         else
         {
             newWorldName = worldName;
-            loadingSceneName = "AlfheimLoading";
-            AsyncOperation loaded = SceneManager.LoadSceneAsync("AlfheimLoading", LoadSceneMode.Additive);
+            if (newWorldName.Equals("Forest"))
+            {
+                loadingSceneName = "AlfheimLoading";
+                AsyncOperation loaded = SceneManager.LoadSceneAsync("AlfheimLoading", LoadSceneMode.Additive);
+            }
+            else if (newWorldName.Equals("Hell"))
+            {
+                loadingSceneName = "HelheimLoading";
+                AsyncOperation loaded = SceneManager.LoadSceneAsync("HelheimLoading", LoadSceneMode.Additive);
+            }
             //if (loaded.isDone)
             //{
             //    newWorldName = worldName;

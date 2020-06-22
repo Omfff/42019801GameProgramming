@@ -75,7 +75,7 @@ namespace DuloGames.UI
             //this.StartTween((this.bar.fillAmount == 0f ? 1f : 0f), this.Duration);
             if(this.bar.fillAmount == 1f)
             {
-				int index = SceneManager.GetSceneByName("AlfheimLoading").buildIndex;
+				int index = SceneManager.GetSceneByName("MidgardLoading").buildIndex;
 				if (index == SceneManager.GetActiveScene().buildIndex)
 				{
 					SceneManager.LoadScene(index + 1);
