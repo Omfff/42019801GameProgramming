@@ -395,6 +395,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4524407683161546824, guid: 75350b8e01684c8458b3fa2f61ef6062,
+        type: 3}
+      propertyPath: m_TagString
+      value: Spike
+      objectReference: {fileID: 0}
     - target: {fileID: 4524407683161546825, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -418,7 +423,7 @@ PrefabInstance:
     - target: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.96
+      value: 1.61
       objectReference: {fileID: 0}
     - target: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
@@ -486,6 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c5ea7f090c24637994483a3b63ab71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePerTouch: 1
 --- !u!4 &97678993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
@@ -503,6 +509,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spike (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524407683161546824, guid: 75350b8e01684c8458b3fa2f61ef6062,
+        type: 3}
+      propertyPath: m_TagString
+      value: Spike
       objectReference: {fileID: 0}
     - target: {fileID: 4524407683161546825, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
@@ -522,7 +533,7 @@ PrefabInstance:
     - target: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.03
+      value: -3.02
       objectReference: {fileID: 0}
     - target: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
@@ -595,6 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c5ea7f090c24637994483a3b63ab71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePerTouch: 1
 --- !u!4 &106231254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
@@ -612,6 +624,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spike (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524407683161546824, guid: 75350b8e01684c8458b3fa2f61ef6062,
+        type: 3}
+      propertyPath: m_TagString
+      value: Spike
       objectReference: {fileID: 0}
     - target: {fileID: 4524407683161546825, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
@@ -636,7 +653,7 @@ PrefabInstance:
     - target: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.01
+      value: -1.41
       objectReference: {fileID: 0}
     - target: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
@@ -704,6 +721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c5ea7f090c24637994483a3b63ab71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePerTouch: 1
 --- !u!4 &203518509 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
@@ -2801,6 +2819,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4524407683161546824, guid: 75350b8e01684c8458b3fa2f61ef6062,
+        type: 3}
+      propertyPath: m_TagString
+      value: Spike
+      objectReference: {fileID: 0}
     - target: {fileID: 4524407683161546825, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -2824,7 +2847,7 @@ PrefabInstance:
     - target: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.01
+      value: -1.43
       objectReference: {fileID: 0}
     - target: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
@@ -2892,6 +2915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c5ea7f090c24637994483a3b63ab71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePerTouch: 1
 --- !u!4 &552635729 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
@@ -2909,6 +2933,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spike (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524407683161546824, guid: 75350b8e01684c8458b3fa2f61ef6062,
+        type: 3}
+      propertyPath: m_TagString
+      value: Spike
       objectReference: {fileID: 0}
     - target: {fileID: 4524407683161546825, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
@@ -2933,7 +2962,7 @@ PrefabInstance:
     - target: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.99
+      value: 1.49
       objectReference: {fileID: 0}
     - target: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
@@ -3001,6 +3030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c5ea7f090c24637994483a3b63ab71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePerTouch: 1
 --- !u!4 &674253459 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
@@ -4469,6 +4499,7 @@ MonoBehaviour:
       - {fileID: 1849457632}
       spawnerData: {fileID: 11400000, guid: 32f2db0e171d44329af5f64cc87eaab3, type: 2}
   currWaveNum: 0
+  isRandomWave: 0
 --- !u!1 &849030357
 GameObject:
   m_ObjectHideFlags: 0
@@ -5880,6 +5911,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spike (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4524407683161546824, guid: 75350b8e01684c8458b3fa2f61ef6062,
+        type: 3}
+      propertyPath: m_TagString
+      value: Spike
+      objectReference: {fileID: 0}
     - target: {fileID: 4524407683161546825, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -5898,7 +5934,7 @@ PrefabInstance:
     - target: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.97
+      value: 3.01
       objectReference: {fileID: 0}
     - target: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
@@ -5971,6 +6007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c5ea7f090c24637994483a3b63ab71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePerTouch: 1
 --- !u!4 &1038592214 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
@@ -6017,6 +6054,11 @@ PrefabInstance:
     - target: {fileID: 4524407683161546824, guid: 75350b8e01684c8458b3fa2f61ef6062,
         type: 3}
       propertyPath: m_Name
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524407683161546824, guid: 75350b8e01684c8458b3fa2f61ef6062,
+        type: 3}
+      propertyPath: m_TagString
       value: Spike
       objectReference: {fileID: 0}
     - target: {fileID: 4524407683161546825, guid: 75350b8e01684c8458b3fa2f61ef6062,
@@ -6110,6 +6152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c5ea7f090c24637994483a3b63ab71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagePerTouch: 1
 --- !u!4 &1185954263 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4524407683161546827, guid: 75350b8e01684c8458b3fa2f61ef6062,
