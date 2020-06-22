@@ -37,7 +37,7 @@ public class BossHpBar : MonoBehaviour
         //Debug.Log(SceneManager.GetSceneByName("Basement8").GetRootGameObjects());
         if (bossRoom == null)
         {
-            Debug.Log(RoomController.instance.loadedRooms);
+            //Debug.Log(RoomController.instance.loadedRooms);
             bossRoom = RoomController.instance.loadedRooms.Find(delegate (Room room)
             {
                 return room.name.Contains("End");
@@ -71,6 +71,10 @@ public class BossHpBar : MonoBehaviour
         else if(isBossBorn && boss!=null)
         {
             SetHealth(boss.GetComponent<Boss>().GetHealth());
+        }
+        if (boss)
+        {
+            gameObject.GetComponent<CanvasGroup>().alpha = 1;
         }
         //for test
         /*

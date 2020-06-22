@@ -15,9 +15,9 @@ public class Swamp : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             var speed = GameController.MoveSpeed;
-            Debug.Log("Player enters swamp with speed " + speed);
+            //Debug.Log("Player enters swamp with speed " + speed);
             var roomName = gameObject.transform.parent.parent.GetComponent<Room>().name;
-            Debug.Log("swamp in " + roomName);
+            //Debug.Log("swamp in " + roomName);
             if (roomName == "Room")
             {
                 return;

@@ -175,7 +175,7 @@ Animator:
   m_GameObject: {fileID: 4603476697501131403}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ab38ed52bb134934a885c8be28d9c9cf, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8fd8eaf466b851a419bd7b6648e03470, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currState: 0
   notInRoom: 0
-  baseAttributes: {fileID: 11400000, guid: 8af425e0cbff04767a26b7f0186cf9c9, type: 2}
+  baseAttributes: {fileID: 11400000, guid: 32963b0f6ef64ee4eb138d331afe769a, type: 2}
   extraAttributes: {fileID: 11400000, guid: d89b66af262f54fedbcd64be5a456698, type: 2}
   splitedBossPf: {fileID: 0}
   isSplittable: 0

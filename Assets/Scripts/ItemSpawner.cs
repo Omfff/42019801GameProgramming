@@ -49,7 +49,6 @@ public class ItemSpawner : MonoBehaviour
     public void dropItemAftherEnemyDeath(Vector3 position)
     {
         float weight = Random.Range(0.0f, 1.0f);
-        Debug.Log(weight);
         float temp = 0;
         int itemIndex = 0;
         for(int i = 0; i < items.Count; ++i)

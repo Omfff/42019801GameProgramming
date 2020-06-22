@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4603476698372318245}
   - component: {fileID: 2591730282525044721}
   m_Layer: 0
-  m_Name: BOSS2
+  m_Name: BOSS2.1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 4603476697501131403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.41, y: 1.62, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -213,9 +213,8 @@ MonoBehaviour:
   notInRoom: 0
   baseAttributes: {fileID: 11400000, guid: c700194e5ec47ef44ae4338c994dc93b, type: 2}
   extraAttributes: {fileID: 11400000, guid: d89b66af262f54fedbcd64be5a456698, type: 2}
-  splitedBossPf: {fileID: 4603476697501131403, guid: 6a2066497b66523498c5016920089a5d,
-    type: 3}
-  isSplittable: 1
+  splitedBossPf: {fileID: 0}
+  isSplittable: 0
   healTime: 3
   BossName: 
   NormalPrefab: {fileID: 8912613753944397765, guid: b02d5786e5afaac479b933a6426437e5,

@@ -24,14 +24,14 @@ public class Door : MonoBehaviour
             Vector3 roomCentre = currRoom.GetRoomCentre();
             if (player.transform.position.x + 2f < roomCentre.x)
             {
-                Debug.Log("Player enter the left door");
+                //Debug.Log("Player enter the left door");
                 // player.transform.position = new Vector2(player.transform.position.x - widthOffset, player.transform.position.y);
                 player.transform.position = new Vector2(roomCentre.x - widthOffset, roomCentre.y);
                 player.GetComponent<PlayerController>().LetFamiliarFlashToPlayerBeside(0);
             }
             else if (player.transform.position.x - 2f > roomCentre.x)
             {
-                Debug.Log("Player enter the right door");
+                //Debug.Log("Player enter the right door");
                 // player.transform.position = new Vector2(player.transform.position.x + widthOffset, player.transform.position.y);
                 player.transform.position = new Vector2(roomCentre.x + widthOffset, roomCentre.y);
                 player.GetComponent<PlayerController>().LetFamiliarFlashToPlayerBeside(1);
