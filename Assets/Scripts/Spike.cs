@@ -31,7 +31,7 @@ public class Spike : MonoBehaviour
                 return;
             }
             var spikeSprite = GetComponent<SpriteRenderer>().sprite;
-            Debug.Log("Player stays on " + spikeSprite.name);
+            //Debug.Log("Player stays on " + spikeSprite.name);
             if (spikeSprite.name == "spike_2")
             {
                 if (spikeUp == false)

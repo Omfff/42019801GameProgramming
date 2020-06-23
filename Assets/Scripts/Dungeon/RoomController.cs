@@ -295,7 +295,7 @@ public class RoomController : MonoBehaviour
             CameraController.instance.currRoom = room;
             if (!enteredRooms.Contains(room))
             {
-                Debug.Log("Enter room " + room.name);
+                //Debug.Log("Enter room " + room.name);
                 enteredRooms.Add(room);
                 currRoom = room;
                 StartCoroutine(RoomCoroutine(1));
@@ -374,7 +374,7 @@ public class RoomController : MonoBehaviour
     private void OpenDoor()
     {
         //open door
-        Debug.Log("Unlock currRoom");
+        //Debug.Log("Unlock currRoom");
         if (isProceduralGeneration)
         {
             SeperatedDoor[] doors = currRoom.GetComponentsInChildren<SeperatedDoor>();
@@ -403,7 +403,14 @@ public class RoomController : MonoBehaviour
 
                 if (currRoom.name.Contains("End"))
                 {
-                    currRoom.endPoint.SetActive(true);
+                    if (currentWorldName == "Hell")
+                    {
+
+                    }
+                    else
+                    {
+                        currRoom.endPoint.SetActive(true);
+                    }
                 }
             }
         }
@@ -426,10 +433,10 @@ public class RoomController : MonoBehaviour
         switch (currentWorldName)
         {
             case "Forest":
-                possibleRooms = new string[] { "Empty", "SpikeAndLaser", "BombAndLaser", "Gears" };
+                possibleRooms = new string[] { "Empty", "Empty", "Empty", "SpikeAndLaser", "BombAndLaser", "Gears" };
                 break;
             case "Hell":
-                possibleRooms = new string[] { "Empty", "LavaSpikeAndGear" };
+                possibleRooms = new string[] { "Empty", "Empty", "Empty", "LavaSpikeAndGear" };
                 break;
             default:
                 possibleRooms = new string[] { "Empty" };

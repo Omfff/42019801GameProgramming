@@ -91,7 +91,7 @@ public class DashEnemy:FollowingEnemyAi
     {
         if (isDashing && !isHurtPlayerInDashing && collision.gameObject.tag == "Player")
         {
-            Debug.Log("dash collision");
+            //Debug.Log("dash collision");
             GameController.DamagePlayer(1);
             isHurtPlayerInDashing = true;
             StopCoroutine(dashCoroutine);

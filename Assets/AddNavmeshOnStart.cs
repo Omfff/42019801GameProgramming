@@ -14,7 +14,7 @@ public class AddNavmeshOnStart : MonoBehaviour
         if (navMeshData != null)
         {
             mInstance = NavMesh.AddNavMeshData(navMeshData, transform.position, transform.rotation);
-            Debug.Log("Add nav mesh data");
+            //Debug.Log("Add nav mesh data");
         }
     }
 

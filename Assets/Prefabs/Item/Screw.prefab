@@ -102,9 +102,9 @@ MonoBehaviour:
     itemImage: {fileID: 21300000, guid: c56feec71635e9a479e5a8ec8bc14b51, type: 3}
   healthChange: 0
   moveSpeedChange: 0
-  bulletSpeedChange: 0.1
-  attackSpeedChange: 0.1
-  bulletSizeChange: 0.1
+  bulletSpeedChange: 0.02
+  attackSpeedChange: 0.02
+  bulletSizeChange: 0.02
   bulletCountChange: 0
 --- !u!61 &2824046896629999286
 BoxCollider2D:

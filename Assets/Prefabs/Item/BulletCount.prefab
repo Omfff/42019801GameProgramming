@@ -55,7 +55,7 @@ MonoBehaviour:
   bulletSpeedChange: 0
   attackSpeedChange: 0
   bulletSizeChange: 0
-  bulletCountChange: 2
+  bulletCountChange: 1
 --- !u!212 &3795377286254830503
 SpriteRenderer:
   m_ObjectHideFlags: 0

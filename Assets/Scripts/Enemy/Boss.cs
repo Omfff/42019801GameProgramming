@@ -164,7 +164,6 @@ public class Boss : FollowingEnemyAi
                     bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
                     bullet.GetComponent<BulletController>().isEnemyBullet = true;
 
-                    Destroy(_gameObject);
                     break;
                 case BulletType.Bomb:
                     bullet = Instantiate(BombPrefab, transform.position, transform.rotation) as GameObject;
@@ -174,7 +173,6 @@ public class Boss : FollowingEnemyAi
                     bullet.GetComponent<BulletController>().GetPlayer(_gameObject.transform);
                     bullet.GetComponent<BulletController>().isEnemyBullet = true;
 
-                    Destroy(_gameObject);
 
                     break;
                 case BulletType.Slalom:
@@ -186,7 +184,6 @@ public class Boss : FollowingEnemyAi
                     bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
                     bullet.GetComponent<BulletController>().isEnemyBullet = true;
 
-                    Destroy(_gameObject);
                     break;
                 case BulletType.Tracking:
                     bullet = Instantiate(TrackingPrefab, transform.position + new Vector3(Mathf.Cos(i * 16), Mathf.Sin(i * 16), 0), transform.rotation) as GameObject;
@@ -205,7 +202,6 @@ public class Boss : FollowingEnemyAi
                     _gameObject.transform.position += new Vector3(Mathf.Cos(i * 22.5f * Mathf.Deg2Rad), Mathf.Sin(i * 22.5f * Mathf.Deg2Rad), 0) * dis;
                     bullet.GetComponent<BulletController>().GetPlayer(_gameObject.transform);
                     bullet.GetComponent<BulletController>().isEnemyBullet = true;
-                    Destroy(_gameObject);
 
                     break;
                 default:
@@ -216,7 +212,7 @@ public class Boss : FollowingEnemyAi
 
                     break;
             }
-
+            Destroy(_gameObject);
 
         }
         yield return new WaitForSeconds(.8f);
@@ -320,7 +316,7 @@ public class Boss : FollowingEnemyAi
             Debug.Log("boss death");
             Instantiate(deathEffect, transform.position, Quaternion.identity);
             int num = 4;
-            Vector3[] generatePos = GenerateSplitedBossPos(transform.position, gameObject.GetComponent<Renderer>().bounds.size.x * 1.5f, -1, num);
+            Vector3[] generatePos = GenerateSplitedBossPos(transform.position, gameObject.GetComponent<Renderer>().bounds.size.x * 1f, -1, num);
             for (int i = 0; i < num; i++)
             {
                 GameObject splitedBoss = Instantiate(splitedBossPf, generatePos[i], Quaternion.identity);

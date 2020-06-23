@@ -38,7 +38,7 @@ public class GameController : Singleton<GameController>
 
     public GameObject deathMenu;
 
-    private static int bulletCount = 3;
+    private static int bulletCount = 1;
 
     public void Awake()
     {
@@ -106,12 +106,12 @@ public class GameController : Singleton<GameController>
 
         if (Health <= 0)
         {
-            //KillPlayer();
+            KillPlayer();
         }
     }
     public static void RemoveXp(int damage)
     {
-        //xp -= damage;
+        xp -= damage;
     }
     public static void HealPlayer(int healAmount)
     {
@@ -299,6 +299,16 @@ public class GameController : Singleton<GameController>
         BulletCountChange(-2);
     }
 
+    IEnumerator XpRecovery()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1.0f);
+            xp += 1;
+            xp = xp > 10 ? 10 : xp;
+        }
+    }
+
     public static void KillPlayer()
     {
         GameController.instance.deathMenu.SetActive(true);
@@ -309,7 +319,7 @@ public class GameController : Singleton<GameController>
 
     void Start()
     {
-        
+        StartCoroutine(XpRecovery());
     }
 
     // Update is called once per frame

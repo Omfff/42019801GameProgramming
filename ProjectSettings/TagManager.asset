@@ -16,6 +16,8 @@ TagManager:
   - Bullet
   - Follower
   - Wall
+  - Swamp
+  - Spike
   layers:
   - Default
   - TransparentFX
