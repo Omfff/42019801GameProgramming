@@ -68,8 +68,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hell/HellEmpty.unity
     guid: 43f8c07b248124a91be57138275b8e77
-  - enabled: 1
-    path: Assets/Scenes/Hell/HellEnd.unity
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/7a79cde196e334d6e80b33fb8a1cd443
     guid: 7a79cde196e334d6e80b33fb8a1cd443
   - enabled: 1
     path: Assets/Scenes/Hell/HellStart.unity

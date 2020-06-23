@@ -24,8 +24,15 @@ public class DashEnemy:FollowingEnemyAi
             return;
         if (!isDashing)
         {
-            dashCoroutine = Dash();
-            StartCoroutine(dashCoroutine);
+            if (CouldAttackPlayer())
+            {
+                dashCoroutine = Dash();
+                StartCoroutine(dashCoroutine);
+            }
+            else
+            {
+                changeStateToFollow();
+            }
         }
     }
 
