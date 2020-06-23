@@ -20,7 +20,7 @@ public class RoomController : MonoBehaviour
     RoomInfo currentLoadRoomData;
 
     public Room currRoom;
-
+    public GameObject fogOfWar;
     Queue<RoomInfo> loadRoomQueue = new Queue<RoomInfo>();
 
     public List<Room> loadedRooms = new List<Room>();
@@ -159,6 +159,7 @@ public class RoomController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         SwitchWorld(PlayerPrefs.GetString("Level"));
+        //SwitchWorld("Hell");
     }
 
     public void BeginNewWorld() {
@@ -211,6 +212,7 @@ public class RoomController : MonoBehaviour
             }
             else if (newWorldName.Equals("Hell"))
             {
+                RoomController.instance.fogOfWar.SetActive(true);
                 loadingSceneName = "HelheimLoading";
                 AsyncOperation loaded = SceneManager.LoadSceneAsync("HelheimLoading", LoadSceneMode.Additive);
             }
