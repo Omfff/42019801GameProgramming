@@ -155,8 +155,8 @@ MonoBehaviour:
   m_TrailParent: {fileID: 0}
   m_SpriteToDuplicate: {fileID: 0}
   m_Layer: 0
-  m_ZMoveStep: 0.0001
-  m_ZMoveMax: 0.9999
+  m_ZMoveStep: 0
+  m_ZMoveMax: 0
   m_HideTrailOnDisabled: 1
   m_TrailActivationCondition: 0
   m_TrailDeactivationCondition: 0
