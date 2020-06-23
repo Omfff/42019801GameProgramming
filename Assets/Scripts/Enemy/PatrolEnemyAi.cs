@@ -23,7 +23,7 @@ public class PatrolEnemyAi:Enemy
     {
         base.Init();
         currDestinationIndex = 1;
-        destinationNum = 2;
+        //destinationNum = 2;
         patrolHurtingCoolTime = 1f;
     }
 
@@ -62,8 +62,16 @@ public class PatrolEnemyAi:Enemy
         }
         if(currDestinationIndex >= destinationNum)
         {
-            currDestinationIndex -= 2;
-            patrolDir = PatrolDir.Return;
+            if (destinationList[0].position == destinationList[destinationNum - 1].position)
+            {
+                currDestinationIndex = 1;
+                patrolDir = PatrolDir.Go;
+            }
+            else
+            {
+                currDestinationIndex -= 2;
+                patrolDir = PatrolDir.Return;
+            }
         }
         else if (currDestinationIndex < 0)
         {
@@ -123,7 +131,7 @@ public class PatrolEnemyAi:Enemy
     {
         if (!isHurtPlayerInPatrol && collision.gameObject.tag == "Player")
         {
-            //Debug.Log("patrol collision");
+            Debug.Log("patrol collision");
             GameController.DamagePlayer(1);
                
         }

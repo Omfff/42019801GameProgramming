@@ -734,7 +734,7 @@ GameObject:
   - component: {fileID: 142190972}
   m_Layer: 0
   m_Name: OpenedTreasure
-  m_TagString: Jar
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8799,7 +8799,7 @@ GameObject:
   - component: {fileID: 1335071233}
   m_Layer: 0
   m_Name: LockedTreasure
-  m_TagString: Jar
+  m_TagString: Treasure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8847,7 +8847,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.46079728, y: 0.40975738}
+  m_Offset: {x: 0.49061996, y: 0.4964757}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -8858,7 +8858,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6684603, y: 1.8953729}
+  m_Size: {x: 0.8986863, y: 0.90678406}
   m_EdgeRadius: 0
 --- !u!19719996 &1335071230
 TilemapCollider2D:
