@@ -207,8 +207,8 @@ public class RoomController : MonoBehaviour
             newWorldName = worldName;
             if (newWorldName.Equals("Forest"))
             {
-                loadingSceneName = "AlfheimLoading";
-                AsyncOperation loaded = SceneManager.LoadSceneAsync("AlfheimLoading", LoadSceneMode.Additive);
+                loadingSceneName = "MidgardLoading";
+                AsyncOperation loaded = SceneManager.LoadSceneAsync("MidgardLoading", LoadSceneMode.Additive);
             }
             else if (newWorldName.Equals("Hell"))
             {
