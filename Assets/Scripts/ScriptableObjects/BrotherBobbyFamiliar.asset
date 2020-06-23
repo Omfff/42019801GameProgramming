@@ -17,6 +17,7 @@ MonoBehaviour:
   fireDelay: 2
   maxHealth: 20
   healInterval: 2.5
-  healthPercentageToBeActive: 0
+  healthPercentageToBeActive: 0.5
   bulletPrefab: {fileID: 4556225848804796909, guid: 9017e7147e5f86648bb5c2763700e90f,
     type: 3}
+  idelTime: 8

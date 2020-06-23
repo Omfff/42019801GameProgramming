@@ -432,7 +432,27 @@ public class BulletController : MonoBehaviour
         //}
         else if(col.tag == "Follower" && isEnemyBullet)
         {
-            Familiar.instance.Hurt(1);
+            if (Familiar.instance.GetCurrHealth() > 0)
+            {
+                Familiar.instance.Hurt(1);
+                if (bulletType == BulletType.Slalom)
+                {
+                    if (!slalomFirst)
+                    {
+                        Destroy(gameObject);
+                    }
+                    
+                }
+                else
+                {
+                    if(bulletType == BulletType.Bomb)
+                    {
+                        Instantiate(explosionEffect, transform.position, Quaternion.identity);
+                    }
+                    Destroy(gameObject);
+                }
+            }
+
         }
     }
 

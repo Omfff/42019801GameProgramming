@@ -50,7 +50,7 @@ public class PatrolEnemyAi:Enemy
     {
         if (Vector2.Distance(transform.position, destinationList[currDestinationIndex].position) <= 0.1f)
         {
-            if(patrolDir == PatrolDir.Go)
+            if (patrolDir == PatrolDir.Go)
             {
                 currDestinationIndex += 1;
             }
@@ -58,7 +58,6 @@ public class PatrolEnemyAi:Enemy
             {
                 currDestinationIndex -= 1;
             }
-            
         }
         if(currDestinationIndex >= destinationNum)
         {
