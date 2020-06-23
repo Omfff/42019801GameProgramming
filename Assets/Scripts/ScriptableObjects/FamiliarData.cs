@@ -10,4 +10,5 @@ public class FamiliarData : ScriptableObject
     public float healInterval;
     public float healthPercentageToBeActive;
     public GameObject bulletPrefab;
+    public float idelTime;
 }

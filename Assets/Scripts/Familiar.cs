@@ -1,7 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public enum FamiliarState
+{
+    Active,
 
+    Notactive,
+
+    Idel
+}
 public class Familiar : MonoBehaviour
 {
     public static Familiar instance;
@@ -13,9 +20,12 @@ public class Familiar : MonoBehaviour
     private Rigidbody2D rigidbody;
     [SerializeField]
     private float currHealth;
+    [SerializeField]
+    private FamiliarState currState;
     private void Awake()
     {
         instance = this;
+        currState = FamiliarState.Active;
     }
 
     private void Start()
@@ -55,6 +65,10 @@ public class Familiar : MonoBehaviour
         if (currHealth < 0)
         {
             currHealth = 0;
+            StartCoroutine(Idel());
+        }else if (currHealth <= familiar.maxHealth * familiar.healthPercentageToBeActive)
+        {
+            currState = FamiliarState.Notactive;
         }
     }
 
@@ -84,11 +98,12 @@ public class Familiar : MonoBehaviour
         }
         return nearestPos;
     }
+
     private IEnumerator Shoot()
     {
         while (true)
         {
-            while (currHealth > familiar.maxHealth * familiar.healthPercentageToBeActive)
+            while (currState == FamiliarState.Active)
             {
                 Vector3 pos = GetNearestEnemy();
                 if (pos != transform.position)
@@ -113,11 +128,31 @@ public class Familiar : MonoBehaviour
         // while player is alive
         while (true)
         {
-            if (currHealth < familiar.maxHealth)
+            if (currState != FamiliarState.Idel) 
             {
-                currHealth += 1;
+                if (currHealth < familiar.maxHealth)
+                {
+                    currHealth += 1;
+                }
+                
+                if(currHealth > familiar.maxHealth * familiar.healthPercentageToBeActive)
+                {
+                    currState = FamiliarState.Active;
+                }
             }
             yield return new WaitForSeconds(familiar.healInterval);
         }
+    }
+
+    private IEnumerator Idel()
+    {
+        currState = FamiliarState.Idel;
+        yield return new WaitForSeconds(familiar.idelTime);
+        currState = FamiliarState.Notactive;
+    }
+
+    public float GetCurrHealth()
+    {
+        return currHealth;
     }
 }
