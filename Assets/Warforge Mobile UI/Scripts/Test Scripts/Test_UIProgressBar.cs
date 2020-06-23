@@ -69,25 +69,39 @@ namespace DuloGames.UI
 		
 		protected void OnTweenFinished()
 		{
+			Debug.Log("Loading1");
 			if (this.bar == null)
 				return;
 
             //this.StartTween((this.bar.fillAmount == 0f ? 1f : 0f), this.Duration);
             if(this.bar.fillAmount == 1f)
             {
+				Debug.Log("Loading2");
 				int index = SceneManager.GetSceneByName("MidgardLoading").buildIndex;
 				if (index == SceneManager.GetActiveScene().buildIndex)
 				{
+					Debug.Log("Loading3");
 					SceneManager.LoadScene(index + 1);
 				}
+				//else if(RoomController.instance == null && SceneManager.GetSceneByName("AlfheimLoading").buildIndex == SceneManager.GetActiveScene().buildIndex)
+				//{
+				//	Debug.Log("Loading4");
+				//	SceneManager.LoadScene(index + 1);
+				//}
+				//else if (RoomController.instance == null && SceneManager.GetSceneByName("HelheimLoading").buildIndex == SceneManager.GetActiveScene().buildIndex)
+				//{
+				//	SceneManager.LoadScene(index + 1);
+				//}
 				else
 				{
+					Debug.Log("Loading5");
 					RoomController.instance.BeginNewWorld();
 				}
             }
             else
             {
-                this.StartTween(1f, this.Duration);
+				Debug.Log("Loading6");
+				this.StartTween(1f, this.Duration);
             }
 		}
 		
@@ -95,7 +109,8 @@ namespace DuloGames.UI
 		{
 			if (this.bar == null)
 				return;
-			
+
+			Debug.Log("Loading0");
 			var floatTween = new FloatTween { duration = duration, startFloat = this.bar.fillAmount, targetFloat = targetFloat };
 			floatTween.AddOnChangedCallback(SetFillAmount);
 			floatTween.AddOnFinishCallback(OnTweenFinished);

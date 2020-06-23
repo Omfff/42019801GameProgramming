@@ -69,7 +69,7 @@ public class BulletController : MonoBehaviour
         switch (bulletType)
         {
             case BulletType.Normal:
-                bulletSpeed = 5f;
+                bulletSpeed = 4f;
                 StartCoroutine(DeathDelay());
                 break;
             case BulletType.Bomb:
@@ -81,11 +81,11 @@ public class BulletController : MonoBehaviour
                 slalomFirst = true;
                 break;
             case BulletType.Tracking:
-                bulletSpeed = 4f;
+                bulletSpeed = 3f;
                 StartCoroutine(DeathDelay());
                 break;
             case BulletType.Projectile:
-                bulletSpeed = 4f;
+                bulletSpeed = 3f;
                 projectileStart = true;
                 //Physics2D.IgnoreCollision();
                 break;
@@ -305,11 +305,11 @@ public class BulletController : MonoBehaviour
             collider = colliders[i];
             if (collider.transform.tag == "Player")
             {
-                GameController.DamagePlayer(2);
+                GameController.DamagePlayer(5);
             }
             else if(collider.transform.tag == "Follower")
             {
-                Familiar.instance.Hurt(2);
+                Familiar.instance.Hurt(5);
             }
         }
 

@@ -213,7 +213,7 @@ public class Boss : FollowingEnemyAi
                     break;
             }
             Destroy(_gameObject);
-
+            yield return new WaitForSeconds(0.5f);
         }
         yield return new WaitForSeconds(.8f);
         isAttacking = false;

@@ -220,14 +220,18 @@ MonoBehaviour:
   isEnemyBullet: 1
   destPos: {x: 0, y: 0}
   bulletSpeed: 2
-  damage: 1
+  damage: 5
   explosionEffect: {fileID: 1755349173569476, guid: 3c45864be6a059a4a82a25e285298338,
     type: 3}
   bulletType: 1
   Player: {fileID: 0}
   startPos: {x: 0, y: 0}
   slalomFirst: 0
+  acceleration: 10
   projectileStart: 0
+  angle: 0
+  radius: 0
+  damageTimes: 1
 --- !u!114 &4365052504725255425
 MonoBehaviour:
   m_ObjectHideFlags: 0

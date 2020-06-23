@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 711593668758540738}
   - component: {fileID: 711593668758540749}
   - component: {fileID: 711593668758540748}
+  - component: {fileID: 767835318390737639}
   m_Layer: 0
   m_Name: thunderball
   m_TagString: Bullet
@@ -106,7 +107,11 @@ MonoBehaviour:
   Player: {fileID: 0}
   startPos: {x: 0, y: 0}
   slalomFirst: 0
+  acceleration: 10
   projectileStart: 0
+  angle: 0
+  radius: 0
+  damageTimes: 1
 --- !u!61 &711593668758540748
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133,3 +138,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.33, y: 0.33}
   m_EdgeRadius: 0
+--- !u!114 &767835318390737639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711593668758540751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8edf2d55ca588547881b7472e926510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrailName: 
+  m_CurrentTrailPreset: {fileID: 11400000, guid: d968958ed89df2d4ea068fe4a5a29077,
+    type: 2}
+  m_TrailParent: {fileID: 0}
+  m_SpriteToDuplicate: {fileID: 0}
+  m_Layer: 0
+  m_ZMoveStep: 0.0001
+  m_ZMoveMax: 0
+  m_HideTrailOnDisabled: 1
+  m_TrailActivationCondition: 0
+  m_TrailDeactivationCondition: 0
+  m_StartIfUnderVelocity: 0
+  m_VelocityStartIsLocalSpace: 0
+  m_VelocityNeededToStart: 0
+  m_StopIfOverVelocity: 0
+  m_VelocityStopIsLocalSpace: 0
+  m_VelocityNeededToStop: 0
+  m_TrailActivationDuration: 0
+  m_SortingLayerID: 0
+  m_OrderInSortingLayer: 0
+  m_DisabledElementsInTrail: []
