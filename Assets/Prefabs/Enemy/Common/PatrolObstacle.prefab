@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4690471511093120176}
   - component: {fileID: 1639130076953693929}
   m_Layer: 0
-  m_Name: PatrolObstacleTest
-  m_TagString: Untagged
+  m_Name: PatrolObstacle
+  m_TagString: Gear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
