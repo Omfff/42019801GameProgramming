@@ -112,6 +112,10 @@ public class HotkeyAbilitySystem {
         if (Input.GetKeyDown(KeyCode.Alpha5)) {
             hotkeyAbilityList[4].activateAbilityAction();
         }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            extraHotkeyAbilityList[0].activateAbilityAction();
+        }
         //if (Input.GetKeyDown(KeyCode.M))
         //{
         //    removeAbility();
