@@ -350,12 +350,19 @@ public class Boss : FollowingEnemyAi
 
             if (NavMesh.SamplePosition(tempPos, out navHit, dist, layermask))
             {
-                generatePos[i] = navHit.position;
+                if (RoomController.instance.isPosInCurrentRoom(tempPos))
+                {
+                    generatePos[i] = navHit.position;
+                }
+                else {
+                    generatePos[i] = origin;
+                }
             }
             else
             {
                 generatePos[i] = origin;
             }
+            
         }
         return generatePos;
 

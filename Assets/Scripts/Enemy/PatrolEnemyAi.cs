@@ -23,7 +23,7 @@ public class PatrolEnemyAi:Enemy
     {
         base.Init();
         currDestinationIndex = 1;
-        destinationNum = 2;
+        //destinationNum = 2;
         patrolHurtingCoolTime = 1f;
     }
 
@@ -50,7 +50,7 @@ public class PatrolEnemyAi:Enemy
     {
         if (Vector2.Distance(transform.position, destinationList[currDestinationIndex].position) <= 0.1f)
         {
-            if(patrolDir == PatrolDir.Go)
+            if (patrolDir == PatrolDir.Go)
             {
                 currDestinationIndex += 1;
             }
@@ -58,7 +58,6 @@ public class PatrolEnemyAi:Enemy
             {
                 currDestinationIndex -= 1;
             }
-            
         }
         if(currDestinationIndex >= destinationNum)
         {
