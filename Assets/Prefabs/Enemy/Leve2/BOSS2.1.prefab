@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currState: 0
   notInRoom: 0
-  baseAttributes: {fileID: 11400000, guid: c700194e5ec47ef44ae4338c994dc93b, type: 2}
+  baseAttributes: {fileID: 11400000, guid: b26e8c4da3017b940835e5c465cb197c, type: 2}
   extraAttributes: {fileID: 11400000, guid: d89b66af262f54fedbcd64be5a456698, type: 2}
   splitedBossPf: {fileID: 0}
   isSplittable: 0
