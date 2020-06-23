@@ -19,7 +19,7 @@ public class GameController : Singleton<GameController>
     private static float fireRate = 0.5f;
     private static int xp = 10;
     private static int maxXp = 10;
-    private static float buffLastTime = 4.0f;
+    private static float buffLastTime = 8.0f;
     private static int shield = 0;
     private static float shieldLastTime = 5.0f;
     private static float shieldCooldown = 10.0f;
@@ -65,6 +65,8 @@ public class GameController : Singleton<GameController>
         attackCooldown = 2.0f;
         bulletSize = 1.0f;
 
+        GameController.instance.isPlayerVisible = true;
+        GameController.instance.isTimeStop = false;
         //isPlayerVisible = true;
         //isTimeStop = false;
         currentItems = 0;
@@ -312,8 +314,6 @@ public class GameController : Singleton<GameController>
     public static void KillPlayer()
     {
         GameController.instance.deathMenu.SetActive(true);
-        GameObject.Destroy(instance.gameObject);
-
     }
 
 

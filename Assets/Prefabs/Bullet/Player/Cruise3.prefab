@@ -127,7 +127,7 @@ MonoBehaviour:
   projectileStart: 0
   angle: 0
   radius: 0
-  damageTimes: 1
+  damageTimes: 2
 --- !u!50 &7651761745183118895
 Rigidbody2D:
   serializedVersion: 4
