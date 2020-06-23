@@ -403,7 +403,14 @@ public class RoomController : MonoBehaviour
 
                 if (currRoom.name.Contains("End"))
                 {
-                    currRoom.endPoint.SetActive(true);
+                    if (currentWorldName == "Hell")
+                    {
+
+                    }
+                    else
+                    {
+                        currRoom.endPoint.SetActive(true);
+                    }
                 }
             }
         }
@@ -426,10 +433,10 @@ public class RoomController : MonoBehaviour
         switch (currentWorldName)
         {
             case "Forest":
-                possibleRooms = new string[] { "Empty", "SpikeAndLaser", "BombAndLaser", "Gears" };
+                possibleRooms = new string[] { "Empty", "Empty", "Empty", "SpikeAndLaser", "BombAndLaser", "Gears" };
                 break;
             case "Hell":
-                possibleRooms = new string[] { "Empty", "LavaSpikeAndGear" };
+                possibleRooms = new string[] { "Empty", "Empty", "Empty", "LavaSpikeAndGear" };
                 break;
             default:
                 possibleRooms = new string[] { "Empty" };

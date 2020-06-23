@@ -17,7 +17,7 @@ public class PatrolObstacle : MonoBehaviour
     void Start()
     {
         currDestinationIndex = 1;
-        destinationNum = 2;
+        //destinationNum = 2;
         patrolHurtingCoolTime = 1f;
     }
 
@@ -53,8 +53,18 @@ public class PatrolObstacle : MonoBehaviour
         }
         if (currDestinationIndex >= destinationNum)
         {
-            currDestinationIndex -= 2;
-            patrolDir = PatrolDir.Return;
+            //currDestinationIndex -= 2;
+            //patrolDir = PatrolDir.Return;
+            if (destinationList[0].position == destinationList[destinationNum - 1].position)
+            {
+                currDestinationIndex = 1;
+                patrolDir = PatrolDir.Go;
+            }
+            else
+            {
+                currDestinationIndex -= 2;
+                patrolDir = PatrolDir.Return;
+            }
         }
         else if (currDestinationIndex < 0)
         {
