@@ -51,4 +51,28 @@
 + UI: start interface and transition interface
 + Map: add decorations and obstacle.
 
-  
+### Week6(6.4- 6.10)
+
++ Enemy: random spawn in room
++ RoomControl:update the door open/close logic and record entered rooms
++ UI: Start scene、bossHpBar、key bar
++ Integration: add animation in enemy, enemy outline effect, completed minimap  
+
+### Week7(6.10- 6.17)
+
++ Enemy: add patrol enemy/obstacle and change enemy spwan way and modify the class structure for enemy, enemy slow down logic , change sprites of boss bullet
++ Player: buff fix, bomb item, fix bullet bugs
++ GUI: end scene
+
+### Week8(6.18- 6.24)
+
++ GUI: pause scene, death menu
++ Player: Melee attack + offset bullet,  update bullet track
++ Follower: add attack, movement, heal,idel
++ Enemy: change sprites, and using scriptableObject to record enemy attributes, add enemy wave spawer, Enemy attributes adjustment
++ Boss: design bosses for three levels
++ Room: Add Procedural Dungeon Generation, update door open condition
++ Map: add level2 and level3 map, add spike, swamp, update navmesh generation method 
++ FogWar: complete fog of war
+
++ 
