@@ -4541,8 +4541,9 @@ MonoBehaviour:
     - name: BossEnemy
       positionList:
       - {fileID: 1151422085}
-      spawnerData: {fileID: 11400000, guid: 8d4046a6c620b874e8d801a4cc66b221, type: 2}
+      spawnerData: {fileID: 11400000, guid: de29cfb6bd94e4ed6b433967d162520c, type: 2}
   currWaveNum: 0
+  isRandomWave: 0
 --- !u!1 &849030357
 GameObject:
   m_ObjectHideFlags: 0
