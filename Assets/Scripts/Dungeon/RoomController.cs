@@ -416,7 +416,7 @@ public class RoomController : MonoBehaviour
                 {
                     if (currentWorldName == "Hell")
                     {
-
+                        SceneManager.LoadScene("EndScene");
                     }
                     else
                     {

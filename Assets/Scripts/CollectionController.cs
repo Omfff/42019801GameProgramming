@@ -43,6 +43,7 @@ public class CollectionController : MonoBehaviour
             {
                 case ItemType.Buff:
                     GameController.HealPlayer(healthChange);
+                    Debug.Log(bulletCountChange);
                     GameController.Buff(moveSpeedChange, attackSpeedChange, bulletSizeChange, bulletCountChange, bulletSpeedChange);
                     Destroy(gameObject);
                     break;

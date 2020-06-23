@@ -151,8 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TrailName: 
-  m_CurrentTrailPreset: {fileID: 11400000, guid: d968958ed89df2d4ea068fe4a5a29077,
-    type: 2}
+  m_CurrentTrailPreset: {fileID: 0}
   m_TrailParent: {fileID: 0}
   m_SpriteToDuplicate: {fileID: 0}
   m_Layer: 0

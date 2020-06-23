@@ -3330,7 +3330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wavesData:
   - enemyBornList:
-    - name: LaserEnemy
+    - name: BossEnemy
       positionList:
       - {fileID: 2096220518}
       spawnerData: {fileID: 11400000, guid: d400f229ff776a445aa5864256ee5152, type: 2}

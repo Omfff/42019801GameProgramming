@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: -8472734112651011821}
   - component: {fileID: 5921054472145767861}
   - component: {fileID: 3815209151996632037}
+  - component: {fileID: 3718769996201958422}
   m_Layer: 0
-  m_Name: Ghost_1
+  m_Name: L1DashEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,7 +139,6 @@ MonoBehaviour:
   notInRoom: 0
   baseAttributes: {fileID: 11400000, guid: e7c2db13ed50849b3a92506b9d4ff735, type: 2}
   extraAttributes: {fileID: 11400000, guid: 42e5cf00475fe4c63958343565015e80, type: 2}
-  dashEffect: {fileID: 0}
 --- !u!195 &5921054472145767861
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -174,3 +174,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: c2a198d0fb32e4267859cfbc17880831, type: 2}
+--- !u!114 &3718769996201958422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82477169197303021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8edf2d55ca588547881b7472e926510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrailName: 
+  m_CurrentTrailPreset: {fileID: 11400000, guid: b267638f7d1b7ca41bd6977b96b8348e,
+    type: 2}
+  m_TrailParent: {fileID: 0}
+  m_SpriteToDuplicate: {fileID: 0}
+  m_Layer: 0
+  m_ZMoveStep: 0
+  m_ZMoveMax: 0
+  m_HideTrailOnDisabled: 1
+  m_TrailActivationCondition: 0
+  m_TrailDeactivationCondition: 0
+  m_StartIfUnderVelocity: 0
+  m_VelocityStartIsLocalSpace: 0
+  m_VelocityNeededToStart: 0
+  m_StopIfOverVelocity: 0
+  m_VelocityStopIsLocalSpace: 0
+  m_VelocityNeededToStop: 0
+  m_TrailActivationDuration: 0
+  m_SortingLayerID: 0
+  m_OrderInSortingLayer: 0
+  m_DisabledElementsInTrail: []
