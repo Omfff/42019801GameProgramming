@@ -75,4 +75,4 @@
 + Map: add level2 and level3 map, add spike, swamp, update navmesh generation method 
 + FogWar: complete fog of war
 
-+ 
++ Testing, Fix bug and Building
