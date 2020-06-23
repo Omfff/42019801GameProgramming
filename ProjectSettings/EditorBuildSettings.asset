@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: a39312b26874d3548b3c7e042e2b8ae7
+  - enabled: 1
     path: Assets/Scenes/Basement/BasementStart.unity
     guid: d785e638b89fc4b7c874a765ad4b89fb
   - enabled: 1
@@ -29,9 +32,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Basement/BasementEnd.unity
     guid: 31407fd44c55244b99603a84a6b78afc
-  - enabled: 1
-    path: Assets/Scenes/StartScene.unity
-    guid: a39312b26874d3548b3c7e042e2b8ae7
   - enabled: 1
     path: Assets/Scenes/LevelLoading/MidgardLoading.unity
     guid: 6a8924caaaa8ac44facea5e5bb724c90

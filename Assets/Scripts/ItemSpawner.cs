@@ -48,32 +48,34 @@ public class ItemSpawner : MonoBehaviour
 
     public void dropItemAftherEnemyDeath(Vector3 position)
     {
-        float weight = Random.Range(0.0f, 1.0f);
-        float temp = 0;
-        int itemIndex = 0;
-        for(int i = 0; i < items.Count; ++i)
+        if(Random.Range(0.0f, 1.0f) > 0.5f)
         {
-            temp += items[i].weight;
-            if (temp < weight)
+            float weight = Random.Range(0.0f, 1.0f);
+            float temp = 0;
+            int itemIndex = 0;
+            for (int i = 0; i < items.Count; ++i)
             {
-                if (temp + items[i + 1].weight > weight)
+                temp += items[i].weight;
+                if (temp < weight)
                 {
-                    itemIndex = i + 1;
+                    if (temp + items[i + 1].weight > weight)
+                    {
+                        itemIndex = i + 1;
+                        break;
+                    }
+                }
+                else
+                {
+                    itemIndex = i;
                     break;
                 }
             }
-            else
+
+            if (itemIndex < items.Count)
             {
-                itemIndex = i;
-                break;
+                GameObject i = Instantiate(items[itemIndex].gameObject, position, Quaternion.identity) as GameObject;
             }
         }
-
-        if (itemIndex < items.Count)
-        {
-            GameObject i = Instantiate(items[itemIndex].gameObject, position, Quaternion.identity) as GameObject;
-        }
-
     }
 
     public void dropTreasure(Vector3 position)
