@@ -31,6 +31,7 @@ public class PlayerSwapWeapons : MonoBehaviour
     public void ConsumeHealthPotion()
     {
         FlashColor(Color.green);
+        GameController.RemoveXp(2);
         GameController.HealPlayer(1);
     }
 

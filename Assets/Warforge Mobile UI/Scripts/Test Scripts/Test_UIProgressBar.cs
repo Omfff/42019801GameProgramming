@@ -77,7 +77,7 @@ namespace DuloGames.UI
             if(this.bar.fillAmount == 1f)
             {
 				Debug.Log("Loading2");
-				int index = SceneManager.GetSceneByName("MidgardLoading").buildIndex;
+				int index = SceneManager.GetSceneByName("AlfheimLoading").buildIndex;
 				if (index == SceneManager.GetActiveScene().buildIndex)
 				{
 					Debug.Log("Loading3");

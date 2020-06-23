@@ -305,7 +305,7 @@ public class GameController : Singleton<GameController>
     {
         while (true)
         {
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(2.0f);
             xp += 1;
             xp = xp > 10 ? 10 : xp;
         }
