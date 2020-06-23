@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -691,7 +691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &438217761
 RectTransform:
   m_ObjectHideFlags: 0
@@ -800,7 +800,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 389, y: -31}
+  m_AnchoredPosition: {x: 322, y: -31}
   m_SizeDelta: {x: 52, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &551418105
@@ -980,7 +980,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 298, y: -40}
+  m_AnchoredPosition: {x: 163, y: -40}
   m_SizeDelta: {x: 86, y: 40}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &660718641
@@ -1552,7 +1552,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -182, y: 120}
+  m_AnchoredPosition: {x: -97, y: 120}
   m_SizeDelta: {x: 190, y: 190}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1172167206
@@ -1648,7 +1648,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1562328323}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1213046307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,6 +1789,7 @@ GameObject:
   - component: {fileID: 1299695316}
   - component: {fileID: 1299695315}
   - component: {fileID: 1299695314}
+  - component: {fileID: 1299695319}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1889,6 +1901,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1299695319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299695313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f6c17067f02a949870ee0075db2354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1395095817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2109,7 +2133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1623897689
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2271,7 +2295,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 458, y: -40}
+  m_AnchoredPosition: {x: 397, y: -40}
   m_SizeDelta: {x: 86, y: 40}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1714059916
@@ -2365,7 +2389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 223, y: -27}
+  m_AnchoredPosition: {x: 87, y: -27}
   m_SizeDelta: {x: 58, y: 58}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1896457830
@@ -2586,7 +2610,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2135274571
 RectTransform:
   m_ObjectHideFlags: 0
