@@ -77,4 +77,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hell/HellLavaSpikeAndGear.unity
     guid: 6854283ced8fd4b4889433f1b8a5d183
+  - enabled: 1
+    path: Assets/Scenes/Hell/HellEnd.unity
+    guid: 6beb3873199e24549b2247f5f8c3c5f5
   m_configObjects: {}

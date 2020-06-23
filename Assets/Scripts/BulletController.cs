@@ -333,12 +333,15 @@ public class BulletController : MonoBehaviour
             if (collider.transform.tag == "Enemy")
             {
                 collider.gameObject.GetComponent<Enemy>().getHurt(damage);
-                GameController.DamagePlayer(Mathf.FloorToInt(damage));
             }
             if (collider.transform.tag == "Jar")
             {
                 collider.transform.parent.Find("Broken" + collider.name).gameObject.SetActive(true);
                 collider.gameObject.SetActive(false);
+            }
+            if (collider.transform.tag == "Player")
+            {
+                GameController.DamagePlayer(Mathf.FloorToInt(damage));
             }
         }
 

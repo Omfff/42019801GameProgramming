@@ -117,7 +117,7 @@ MonoBehaviour:
   isEnemyBullet: 0
   destPos: {x: 0, y: 0}
   bulletSpeed: 0
-  damage: 5
+  damage: 15
   explosionEffect: {fileID: 1755349173569476, guid: 3c45864be6a059a4a82a25e285298338,
     type: 3}
   bulletType: 1
@@ -126,6 +126,9 @@ MonoBehaviour:
   slalomFirst: 0
   acceleration: 10
   projectileStart: 0
+  angle: 0
+  radius: 0
+  damageTimes: 1
 --- !u!95 &-7686686808689347125
 Animator:
   serializedVersion: 3
