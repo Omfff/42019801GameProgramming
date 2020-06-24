@@ -34,7 +34,7 @@ public class PlayerSwapWeapons : MonoBehaviour
         {
             FlashColor(Color.green);
             GameController.RemoveXp(2);
-            GameController.HealPlayer(1);
+            GameController.HealPlayer(2);
         }
     }
 
