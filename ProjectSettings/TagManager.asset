@@ -5,22 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - room
-<<<<<<< HEAD
-=======
-  - ItemSpawner
-  - Shield
-  - Item
-  - Jar
-  - Key
-  - LockedDoor
-  - Treasure
   - Bullet
-  - Follower
-  - Wall
-  - Swamp
-  - Spike
->>>>>>> omf
+  - Item
+  - Shield
+  - Gear
   layers:
   - Default
   - TransparentFX
@@ -30,7 +18,6 @@ TagManager:
   - UI
   - 
   - 
-<<<<<<< HEAD
   - 
   - 
   - 
@@ -38,15 +25,6 @@ TagManager:
   - 
   - 
   - 
-=======
-  - Minimap
-  - Bullet
-  - 
-  - 
-  - UnBullet
-  - FogOfWarMain
-  - FogOfWarSecondary
->>>>>>> omf
   - 
   - 
   - 
@@ -65,21 +43,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Behind
-    uniqueID: 2368450815
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Door
-    uniqueID: 2803949497
-    locked: 0
-  - name: Wall
-    uniqueID: 3688842989
-    locked: 0
-<<<<<<< HEAD
-=======
-  - name: FogOfWar
-    uniqueID: 35394959
-    locked: 0
->>>>>>> omf

@@ -1,8 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-<<<<<<< HEAD
-using UnityEngine;
-=======
 using System.Security.Cryptography;
 using UnityEngine;
 public enum BulletType
@@ -21,25 +18,10 @@ public enum BulletType
 
     Sword
 };
->>>>>>> omf
 
 public class BulletController : MonoBehaviour
 {
     public float lifeTime;
-<<<<<<< HEAD
-    public bool isEnemyBullet = false;
-
-    private Vector2 lastPos;
-    private Vector2 curPos;
-    private Vector2 playerPos;
-    // Start is called before the first frame update
-    void Start() 
-    {
-        StartCoroutine(DeathDelay());
-        if(!isEnemyBullet)
-        { 
-            transform.localScale = new Vector2(GameController.BulletSize, GameController.BulletSize);
-=======
 
     public bool isEnemyBullet = false;
 
@@ -126,7 +108,6 @@ public class BulletController : MonoBehaviour
             transform.localScale = new Vector2(GameController.BulletSize, GameController.BulletSize);
             acceleration = -1f;
             rigidbody = gameObject.GetComponent<Rigidbody2D>();
->>>>>>> omf
         }
     }
 
@@ -134,21 +115,6 @@ public class BulletController : MonoBehaviour
     {
         if(isEnemyBullet)
         {
-<<<<<<< HEAD
-            curPos = transform.position;
-            transform.position = Vector2.MoveTowards(transform.position, playerPos, 5f * Time.deltaTime);
-            if(curPos == lastPos)
-            {
-                Destroy(gameObject);
-            }
-            lastPos = curPos;
-        }
-    }
-
-    public void GetPlayer(Transform player)
-    {
-        playerPos = player.position;
-=======
             //curPos = transform.position;
             //transform.position = Vector2.MoveTowards(transform.position, playerPos, 5f * Time.deltaTime);
             //if(curPos == lastPos)
@@ -309,7 +275,6 @@ public class BulletController : MonoBehaviour
         playerPos = player.position;
         moveDir = new Vector2(playerPos.x - transform.position.x, playerPos.y - transform.position.y);
         moveDir = moveDir.normalized;
->>>>>>> omf
     }
 
     IEnumerator DeathDelay()
@@ -318,21 +283,6 @@ public class BulletController : MonoBehaviour
         Destroy(gameObject);
     }
 
-<<<<<<< HEAD
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        if(col.tag == "Enemy" && !isEnemyBullet)
-        {
-            col.gameObject.GetComponent<EnemyController>().Death();
-            Destroy(gameObject);
-        }
-
-        if(col.tag == "Player" && isEnemyBullet)
-        {
-            GameController.DamagePlayer(1);
-            Destroy(gameObject);
-        }
-=======
     IEnumerator BombCountdownToStart()
     {
         isBombing = true;
@@ -531,6 +481,5 @@ public class BulletController : MonoBehaviour
             enemy.getHurt(damage / times);
             yield return new WaitForSeconds(0.7f);
         }
->>>>>>> omf
     }
 }

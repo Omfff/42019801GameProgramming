@@ -18,11 +18,7 @@ QualitySettings:
     shadowCascade2Split: 0.33333334
     shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}
     shadowmaskMode: 0
-<<<<<<< HEAD
-    blendWeights: 1
-=======
     skinWeights: 1
->>>>>>> omf
     textureQuality: 1
     anisotropicTextures: 0
     antiAliasing: 0
@@ -44,10 +40,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-<<<<<<< HEAD
-=======
     customRenderPipeline: {fileID: 0}
->>>>>>> omf
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Low
@@ -61,11 +54,7 @@ QualitySettings:
     shadowCascade2Split: 0.33333334
     shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}
     shadowmaskMode: 0
-<<<<<<< HEAD
-    blendWeights: 2
-=======
     skinWeights: 2
->>>>>>> omf
     textureQuality: 0
     anisotropicTextures: 0
     antiAliasing: 0
@@ -87,10 +76,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-<<<<<<< HEAD
-=======
     customRenderPipeline: {fileID: 0}
->>>>>>> omf
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Medium
@@ -104,11 +90,7 @@ QualitySettings:
     shadowCascade2Split: 0.33333334
     shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}
     shadowmaskMode: 0
-<<<<<<< HEAD
-    blendWeights: 2
-=======
     skinWeights: 2
->>>>>>> omf
     textureQuality: 0
     anisotropicTextures: 1
     antiAliasing: 0
@@ -130,10 +112,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-<<<<<<< HEAD
-=======
     customRenderPipeline: {fileID: 0}
->>>>>>> omf
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: High
@@ -147,11 +126,7 @@ QualitySettings:
     shadowCascade2Split: 0.33333334
     shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}
     shadowmaskMode: 1
-<<<<<<< HEAD
-    blendWeights: 2
-=======
     skinWeights: 2
->>>>>>> omf
     textureQuality: 0
     anisotropicTextures: 1
     antiAliasing: 0
@@ -173,10 +148,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-<<<<<<< HEAD
-=======
     customRenderPipeline: {fileID: 0}
->>>>>>> omf
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Very High
@@ -190,11 +162,7 @@ QualitySettings:
     shadowCascade2Split: 0.33333334
     shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}
     shadowmaskMode: 1
-<<<<<<< HEAD
-    blendWeights: 4
-=======
     skinWeights: 4
->>>>>>> omf
     textureQuality: 0
     anisotropicTextures: 2
     antiAliasing: 2
@@ -216,10 +184,7 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-<<<<<<< HEAD
-=======
     customRenderPipeline: {fileID: 0}
->>>>>>> omf
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Ultra
@@ -233,17 +198,10 @@ QualitySettings:
     shadowCascade2Split: 0.33333334
     shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}
     shadowmaskMode: 1
-<<<<<<< HEAD
-    blendWeights: 4
+    skinWeights: 255
     textureQuality: 0
     anisotropicTextures: 2
     antiAliasing: 2
-=======
-    skinWeights: 4
-    textureQuality: 0
-    anisotropicTextures: 2
-    antiAliasing: 0
->>>>>>> omf
     softParticles: 1
     softVegetation: 1
     realtimeReflectionProbes: 1
@@ -262,18 +220,14 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-<<<<<<< HEAD
-=======
     customRenderPipeline: {fileID: 0}
->>>>>>> omf
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
     Android: 2
     Lumin: 5
-    Nintendo 3DS: 5
     Nintendo Switch: 5
     PS4: 5
-    PSP2: 2
+    Stadia: 5
     Standalone: 5
     WebGL: 3
     Windows Store Apps: 5

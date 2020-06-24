@@ -1,11 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
-
-public class Familiar : MonoBehaviour
-{
-=======
 public enum FamiliarState
 {
     Active,
@@ -17,14 +12,11 @@ public enum FamiliarState
 public class Familiar : MonoBehaviour
 {
     public static Familiar instance;
->>>>>>> omf
     private float lastFire;
     private GameObject player;
     public FamiliarData familiar;
     private float lastOffsetX;
     private float lastOffsetY;
-<<<<<<< HEAD
-=======
     private Rigidbody2D rigidbody;
     [SerializeField]
     private float currHealth;
@@ -35,37 +27,21 @@ public class Familiar : MonoBehaviour
         instance = this;
         currState = FamiliarState.Active;
     }
->>>>>>> omf
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-<<<<<<< HEAD
-=======
         currHealth = familiar.maxHealth;
         rigidbody = gameObject.GetComponent<Rigidbody2D>();
         StartCoroutine(Healing());
         StartCoroutine(Shoot());
->>>>>>> omf
     }
 
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-<<<<<<< HEAD
-
-        float shootHor = Input.GetAxis("ShootHorizontal");
-        float shootVert = Input.GetAxis("ShootVertical");
-        if((shootHor != 0 || shootVert != 0) && Time.time > lastFire + familiar.fireDelay)
-        {
-            Shoot(shootHor, shootVert);
-            lastFire = Time.time;
-        }
-
-=======
         
->>>>>>> omf
         if(horizontal != 0 || vertical != 0)
         {
             float offsetX = (horizontal < 0) ? Mathf.Floor(horizontal) : Mathf.Ceil(horizontal);
@@ -78,20 +54,6 @@ public class Familiar : MonoBehaviour
         {
             if(!(transform.position.x < lastOffsetX + 0.5f) || !(transform.position.y < lastOffsetY + 0.5f))
             {
-<<<<<<< HEAD
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x - lastOffsetX, player.transform.position.y - lastOffsetY), familiar.speed * Time.deltaTime);
-            }
-        }
-    }
-
-    void Shoot(float x, float y)
-    {
-        GameObject bullet = Instantiate(familiar.bulletPrefab, transform.position, Quaternion.identity) as GameObject;
-        float posX = (x < 0) ? Mathf.Floor(x) * familiar.speed : Mathf.Ceil(x) * familiar.speed;
-        float posY = (y < 0) ? Mathf.Floor(y) * familiar.speed : Mathf.Ceil(y) * familiar.speed;
-        bullet.AddComponent<Rigidbody2D>().gravityScale = 0;
-        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(posX, posY);
-=======
                 transform.position = Vector2.MoveTowards(transform.position, new Vector2(player.transform.position.x - lastOffsetX,
                     player.transform.position.y - lastOffsetY ), familiar.speed * Time.deltaTime);
             }
@@ -192,6 +154,5 @@ public class Familiar : MonoBehaviour
     public float GetCurrHealth()
     {
         return currHealth;
->>>>>>> omf
     }
 }

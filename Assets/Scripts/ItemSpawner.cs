@@ -45,8 +45,6 @@ public class ItemSpawner : MonoBehaviour
     {
         
     }
-<<<<<<< HEAD
-=======
 
     public void dropItemAftherEnemyDeath(Vector3 position)
     {
@@ -85,5 +83,4 @@ public class ItemSpawner : MonoBehaviour
         int itemIndex = items.Count - 1;
         GameObject i = Instantiate(items[itemIndex].gameObject, position, Quaternion.identity) as GameObject;
     }
->>>>>>> omf
 }

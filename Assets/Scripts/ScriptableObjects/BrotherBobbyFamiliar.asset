@@ -15,14 +15,9 @@ MonoBehaviour:
   familirType: BrotherBobby
   speed: 2.5
   fireDelay: 2
-<<<<<<< HEAD
-  bulletPrefab: {fileID: 8912613753944397765, guid: b02d5786e5afaac479b933a6426437e5,
-    type: 3}
-=======
   maxHealth: 20
   healInterval: 2.5
   healthPercentageToBeActive: 0.5
   bulletPrefab: {fileID: 4556225848804796909, guid: 9017e7147e5f86648bb5c2763700e90f,
     type: 3}
   idelTime: 8
->>>>>>> omf
