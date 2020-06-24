@@ -45,7 +45,7 @@ public class BossHpBar : MonoBehaviour
         }
         if (CameraController.instance.currRoom == bossRoom)
         {
-            if(boss == null)
+            if(boss == null && !isBossBorn)
             {
                 Debug.Log("BOSS");
                 boss = GameObject.FindObjectOfType<Boss>().gameObject; 
@@ -65,7 +65,7 @@ public class BossHpBar : MonoBehaviour
         }
         if (boss == null && isBossBorn)
         {
-            SetHealth(0);
+            SetHealth(0.0f);
             StartCoroutine(hideBarAfterBossDie());
         }
         else if(isBossBorn && boss!=null)
