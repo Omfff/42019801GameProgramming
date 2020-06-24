@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 4ceed0e030dd3ae47aab932e8fe84ac9
+=======
+guid: 5c9e4324aee779d41be2c76ceb1f72f9
+>>>>>>> omf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -58,7 +62,11 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
+<<<<<<< HEAD
   - serializedVersion: 2
+=======
+  - serializedVersion: 3
+>>>>>>> omf
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -69,6 +77,10 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+<<<<<<< HEAD
+=======
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+>>>>>>> omf
   spriteSheet:
     serializedVersion: 2
     sprites: []
@@ -83,7 +95,11 @@ TextureImporter:
       - {x: 2, y: 2}
       - {x: 2, y: -2}
     bones: []
+<<<<<<< HEAD
     spriteID: d3c1edcd1efebfd4eadbc8248f843946
+=======
+    spriteID: 5e97eb03825dee720800000000000000
+>>>>>>> omf
     internalID: 0
     vertices: []
     indices: 

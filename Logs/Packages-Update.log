@@ -1,8 +1,15 @@
 
+<<<<<<< HEAD
 === Fri May 29 22:46:53 2020
 
 Packages were changed.
 Update Mode: resetToDefaultDependencies
+=======
+=== Thu May 21 15:17:36 2020
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+>>>>>>> omf
 
 The following packages were added:
   com.unity.textmeshpro@2.0.1

@@ -6,7 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/Basement/Basement1.unity
+=======
+    path: Assets/Scenes/StartScene.unity
+    guid: a39312b26874d3548b3c7e042e2b8ae7
+  - enabled: 1
+    path: Assets/Scenes/Basement/BasementStart.unity
+>>>>>>> omf
     guid: d785e638b89fc4b7c874a765ad4b89fb
   - enabled: 1
     path: Assets/Scenes/Basement/Basement2.unity
@@ -27,6 +34,59 @@ EditorBuildSettings:
     path: Assets/Scenes/Basement/Basement7.unity
     guid: 57ed91e9619c846f29190fbee674e67c
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/Basement/Basement8.unity
     guid: 31407fd44c55244b99603a84a6b78afc
+=======
+    path: Assets/Scenes/Basement/BasementEnd.unity
+    guid: 31407fd44c55244b99603a84a6b78afc
+  - enabled: 1
+    path: Assets/Scenes/LevelLoading/AlfheimLoading.unity
+    guid: b0ba66ca0061ee64891924cb1aa67efe
+  - enabled: 1
+    path: Assets/Scenes/DungeonRooms/BasementMain.unity
+    guid: dc15af8a883dbad43b332d46e2c9b29b
+  - enabled: 1
+    path: Assets/Scenes/LevelLoading/MidgardLoading.unity
+    guid: 6a8924caaaa8ac44facea5e5bb724c90
+  - enabled: 1
+    path: Assets/Scenes/LevelLoading/HelheimLoading.unity
+    guid: 72541ed873304f2488c97e8ed75fd56f
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 2f3c8b7c14173ae42b7662e559fa8e11
+  - enabled: 1
+    path: Assets/Scenes/Forest/ForestEmpty.unity
+    guid: 8c11bb86ca7b44c3190fece55e740939
+  - enabled: 1
+    path: Assets/Scenes/Forest/ForestStart.unity
+    guid: 69bbba988f7b5491fba53c8c101f8d4b
+  - enabled: 1
+    path: Assets/Scenes/Forest/ForestEnd.unity
+    guid: 2fb4dfe9ff505463095223f5e1929817
+  - enabled: 1
+    path: Assets/Scenes/Forest/ForestSpikeAndLaser.unity
+    guid: f208ef7375f0246bcb4a7d198f928cbe
+  - enabled: 1
+    path: Assets/Scenes/Forest/ForestBombAndLaser.unity
+    guid: ebffb39c60825471c909c66638b59b3d
+  - enabled: 1
+    path: Assets/Scenes/Forest/ForestGears.unity
+    guid: 5fbd756f151ea4d34a027dc5fb3e01d6
+  - enabled: 1
+    path: Assets/Scenes/Hell/HellEmpty.unity
+    guid: 43f8c07b248124a91be57138275b8e77
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/7a79cde196e334d6e80b33fb8a1cd443
+    guid: 7a79cde196e334d6e80b33fb8a1cd443
+  - enabled: 1
+    path: Assets/Scenes/Hell/HellStart.unity
+    guid: 2b58351ca7f584b9983d2956f9493721
+  - enabled: 1
+    path: Assets/Scenes/Hell/HellLavaSpikeAndGear.unity
+    guid: 6854283ced8fd4b4889433f1b8a5d183
+  - enabled: 1
+    path: Assets/Scenes/Hell/HellEnd.unity
+    guid: 6beb3873199e24549b2247f5f8c3c5f5
+>>>>>>> omf
   m_configObjects: {}

@@ -73,6 +73,10 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+<<<<<<< HEAD
+=======
+  m_RayTracingMode: 0
+>>>>>>> omf
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -84,6 +88,10 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+<<<<<<< HEAD
+=======
+  m_ReceiveGI: 1
+>>>>>>> omf
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -96,7 +104,11 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 4ceed0e030dd3ae47aab932e8fe84ac9, type: 3}
+=======
+  m_Sprite: {fileID: 21300000, guid: 5c9e4324aee779d41be2c76ceb1f72f9, type: 3}
+>>>>>>> omf
   m_Color: {r: 0.8301887, g: 0.46600214, b: 0.46600214, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,4 +138,8 @@ MonoBehaviour:
   attackRange: 1
   bulletSpeed: 0
   coolDown: 2
+<<<<<<< HEAD
+=======
+  notInRoom: 0
+>>>>>>> omf
   bulletPrefab: {fileID: 0}

@@ -6,6 +6,21 @@ TagManager:
   tags:
   - Enemy
   - room
+<<<<<<< HEAD
+=======
+  - ItemSpawner
+  - Shield
+  - Item
+  - Jar
+  - Key
+  - LockedDoor
+  - Treasure
+  - Bullet
+  - Follower
+  - Wall
+  - Swamp
+  - Spike
+>>>>>>> omf
   layers:
   - Default
   - TransparentFX
@@ -15,6 +30,7 @@ TagManager:
   - UI
   - 
   - 
+<<<<<<< HEAD
   - 
   - 
   - 
@@ -22,6 +38,15 @@ TagManager:
   - 
   - 
   - 
+=======
+  - Minimap
+  - Bullet
+  - 
+  - 
+  - UnBullet
+  - FogOfWarMain
+  - FogOfWarSecondary
+>>>>>>> omf
   - 
   - 
   - 
@@ -52,3 +77,9 @@ TagManager:
   - name: Wall
     uniqueID: 3688842989
     locked: 0
+<<<<<<< HEAD
+=======
+  - name: FogOfWar
+    uniqueID: 35394959
+    locked: 0
+>>>>>>> omf
