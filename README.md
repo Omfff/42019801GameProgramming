@@ -591,7 +591,7 @@ Room 中一些主要的 GameObject:
 | ------------------------------------ | ------------------- | ------ | ------------------------------------------------------------ | ------ |
 | ![](readme_assets/Potion.png) | Healing Potion      | `Buff` | Heal player with `4` HP.                                     | `0.3`  |
 | ![](readme_assets/Boot.png)   | Speed Boot          | `Buff` | Increase player's speed by `0.02`.                           | `0.1`  |
-| ![](readme_assetsScrew.png)  | Strengthen Screw    | `Buff` | Strengthen player's attack by `0.02` including bullet size, fire rate, bullet speed | `0.1`  |
+| ![](readme_assets/Screw.png)  | Strengthen Screw    | `Buff` | Strengthen player's attack by `0.02` including bullet size, fire rate, bullet speed | `0.1`  |
 | ![](readme_assets/invisible.png) | Invisibility Potion | `Use`  | Make player stealth for `8` sec.                             | `0.05` |
 | ![](readme_assets/time.png)   | Time Stop Potion    | `Use`  | Make enemies stop for `8` sec.                               | `0.05` |
 | ![](readme_assets/countIncrease.png) | Bullet Splitation   | `Buff` | Increase player's bullet split by `2`.                       | `0.0`  |
