@@ -589,14 +589,14 @@ Room 中一些主要的 GameObject:
 
 | GameObjects                          | Name                | Type   | Description                                                  | Weight |
 | ------------------------------------ | ------------------- | ------ | ------------------------------------------------------------ | ------ |
-| ![](.\readme_assets\Potion.png) | Healing Potion      | `Buff` | Heal player with `4` HP.                                     | `0.3`  |
-| ![](.\readme_assets\Boot.png)   | Speed Boot          | `Buff` | Increase player's speed by `0.02`.                           | `0.1`  |
-| ![](.\readme_assets\Screw.png)  | Strengthen Screw    | `Buff` | Strengthen player's attack by `0.02` including bullet size, fire rate, bullet speed | `0.1`  |
-| ![](.\readme_assets\invisible.png) | Invisibility Potion | `Use`  | Make player stealth for `8` sec.                             | `0.05` |
-| ![](.\readme_assets\time.png)   | Time Stop Potion    | `Use`  | Make enemies stop for `8` sec.                               | `0.05` |
-| ![](.\readme_assets\countIncrease.png) | Bullet Splitation   | `Buff` | Increase player's bullet split by `2`.                       | `0.0`  |
-| ![](.\readme_assets\bomb_icon.png) | Bomb                | `Use`  | Set  a bomb at player's position, which will explode in `3` sec. | `0.1`  |
-| ![](.\readme_assets\cruise.png) | Cruise Orb          | `Buff` | Generate `1-2` cruise bullet that can damage `4` times round player. | `0.3`  |
+| ![](readme_assets/Potion.png) | Healing Potion      | `Buff` | Heal player with `4` HP.                                     | `0.3`  |
+| ![](readme_assets/Boot.png)   | Speed Boot          | `Buff` | Increase player's speed by `0.02`.                           | `0.1`  |
+| ![](readme_assetsScrew.png)  | Strengthen Screw    | `Buff` | Strengthen player's attack by `0.02` including bullet size, fire rate, bullet speed | `0.1`  |
+| ![](readme_assets/invisible.png) | Invisibility Potion | `Use`  | Make player stealth for `8` sec.                             | `0.05` |
+| ![](readme_assets/time.png)   | Time Stop Potion    | `Use`  | Make enemies stop for `8` sec.                               | `0.05` |
+| ![](readme_assets/countIncrease.png) | Bullet Splitation   | `Buff` | Increase player's bullet split by `2`.                       | `0.0`  |
+| ![](readme_assets/bomb_icon.png) | Bomb                | `Use`  | Set  a bomb at player's position, which will explode in `3` sec. | `0.1`  |
+| ![](readme_assets/cruise.png) | Cruise Orb          | `Buff` | Generate `1-2` cruise bullet that can damage `4` times round player. | `0.3`  |
 
 道具主要由`CollectionController.cs`来控制，其中重载了`OnTriggerEnter2D()`来对玩家的碰撞拾取进行检测
 
